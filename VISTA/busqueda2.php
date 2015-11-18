@@ -22,8 +22,6 @@ if (isset($_GET['search'])) {
     $search = $_GET['search'];
 }
 
-$val = '';
-$pos = '';
 if ($search!=''){ ?>
 
     <h3>Resultados</h3>
@@ -38,12 +36,14 @@ if ($search!=''){ ?>
 
 <?php } 
 foreach ($vectorRecintos as $key) {
-    $val = $key->getNombre();
-    $pos = strripos($val, $search);
+    $nombre = $key->getNombre();
+    $pos = strripos($nombre, $search);
     $superficie = $key->getSuperficie();
     $pos2 = strripos($superficie, $search); 
+    $descripcion = $key->getDescripcion();
+    $pos3 = strripos($descripcion, $search);
     
-    if ($pos !== false || $pos2 !== false) { ?>
+    if ($pos !== false || $pos2 !== false || $pos3 !== false) { ?>
                 <!-- Start details for portfolio project 1 -->
                 
                     <div id="slidingDiv<?php echo $cont?>" class="toggleDiv row-fluid single-project">
@@ -79,7 +79,7 @@ foreach ($vectorRecintos as $key) {
                         <div class="span6">
                             <div class="project-description">
                                 <div class="project-title clearfix">
-                                    <h3> <?php echo $val ?></h3>
+                                    <h3> <?php echo $nombre ?></h3>
                                     <span class="show_hide close">
                                         <i class="icon-cancel"></i> 
                                     </span>
@@ -127,19 +127,21 @@ foreach ($vectorRecintos as $key) {
 <?php
     $cont = 0;
 foreach ($vectorRecintos as $key) {
-    $val = $key->getNombre();
-    $pos = strripos($val, $search);
+    $nombre = $key->getNombre();
+    $pos = strripos($nombre, $search);
     $superficie = $key->getSuperficie();
     $pos2 = strripos($superficie, $search); 
+    $descripcion = $key->getDescripcion();
+    $pos3 = strripos($descripcion, $search);
     
-    if ($pos !== false || $pos2 !== false) { ?>
+    if ($pos !== false || $pos2 !== false || $pos3 !== false) { ?>
         <li class="span4 mix web">
             <div class="thumbnail">
                 <img src="images/recintos/<?php echo $key->getImagen();?>" height='640' width='400' alt="project 1">
                 <a href="#single-project" class="more show_hide" rel="#slidingDiv<?php echo $cont?>">
                     <i class="icon-plus"></i>
                 </a>
-                <h3> <?php echo "$val" ?> </h3>
+                <h3> <?php echo "$nombre" ?> </h3>
                 <p><?php echo $key->getDescripcion(); ?></p>
                 <div class="mask"></div>
             </div>
