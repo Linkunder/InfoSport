@@ -229,7 +229,7 @@ Marker585=new google.maps.LatLng(-36.6254096,-72.0850318); addMarker(Marker585);
                         </div>
                         <div class="span4">
                             <div class="testimonial">
-                                <p>"Aqui podemos sacar algun comentario random desde la base de datos editado desde github jijiji funciona."</p>
+                                <p>"hola acabo de editar estoAqui podemos sacar algun comentario random desde la base de datos editado desde github jijiji funciona."</p>
                                 <div class="whopic">
                                     <div class="arrow"></div>
                                     <img src="Admin/img/message_avatar1.png" class="centered" alt="client 3">
