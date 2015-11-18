@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<?php
+
+  session_start();
+
+    if(isset($_SESSION['username']))
+    header('Location:index.php');
+  
+  include('funciones.php');
+
+  //revisa si ya ha iniciado sesion
+
+?>
+<html lang="en">
+  
+<head>
+    <meta charset="utf-8">
+    <title>InfoSport - Login director</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"> 
+    
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+
+<link href="css/font-awesome.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+    
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/pages/signin.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+	
+	<div class="navbar navbar-fixed-top">
+	
+	<div class="navbar-inner">
+		
+		<div class="container">
+		  <div class="nav-collapse">
+			  <ul class="nav pull-right">
+			    <li> <a href="../index2.php"> <em class="icon-chevron-left"></em> Volver a la pagina principal </a> </li>
+		    </ul>
+				
+		  </div>
+	  </div> <!-- /container -->
+		
+	</div> <!-- /navbar-inner -->
+	
+</div> <!-- /navbar -->
+
+
+
+<div class="account-container">
+	
+	<div class="content clearfix">
+		
+		<form action="../../LOGICA/VerificaLoginAdmin.php" method="POST" id="formulario">
+		
+			<h1>Login Director</h1>		
+			
+			<div class="login-fields">
+				
+				<p>Ingrese sus datos</p>
+				
+				<div class="field">
+					<label for="username">username</label>
+					<input type="text" id="username" name="username" value="" placeholder="Correo" class="login username-field" />
+				</div> <!-- /field -->
+				
+				<div class="field">
+					<label for="password">password</label>
+					<input type="password" id="password" name="password" value="" placeholder="contraseña" class="login password-field"/>
+				</div> <!-- /password -->
+				
+			</div> <!-- /login-fields -->
+			
+			<div class="login-actions">
+				
+				<span class="login-checkbox">
+					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
+					<label class="choice" for="Field">Mantenme conectado</label>
+				</span>
+									
+				<button class="button btn btn-success btn-large">Entrar</button>
+				
+			</div> <!-- .actions -->
+            
+			
+
+
+
+			
+			
+		</form>
+		
+	</div> <!-- /content -->
+	
+</div> <!-- /account-container --><!-- /login-extra -->
+
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<script src="js/signin.js"></script>
+
+</body>
+
+</html>
