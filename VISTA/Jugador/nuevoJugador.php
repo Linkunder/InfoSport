@@ -22,6 +22,8 @@ $vectorJugadores=$jefeJugador->obtenerJugador();
 
 <div class="section secondary-section " id="portafolio">
         <div class="container">
+        	<h3>Agrega un jugador a tu equipo!</h3>
+        	<h5>Buscalo mediante correo electronico</h5>
             <div class = "busqueda">
             <form class="form-wrapper cf" action="nuevoJugador.php" method="get">
                 <input type="text" placeholder="Busca un jugador..." name="search" required>
