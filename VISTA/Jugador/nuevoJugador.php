@@ -76,6 +76,13 @@ foreach ($vectorJugadores as $key) {
 						<!--<div>
 							
 	                       <	 <span>Nombre</span><?php echo $nombreApellido;?></div> -->
+	                       	                    <div class="addPlayer">
+							<a href='agregarJugador.php?id_grupo=<?php echo $grupoActual;?>' class="modificar" title="Agregar jugador">
+    						<?php
+       							 echo "<img src='images/addyellow.png' height='24px' width='24px'>";
+     						 ?>
+     						</a>
+						</div>
 	                     <div class="fotoagregar">
 							<img src="../images/usuarios/<?php echo $key->getDirectorio_foto();?>" height='40' width='40' alt="project 1">
 						</div>
@@ -90,13 +97,7 @@ foreach ($vectorJugadores as $key) {
 	                    <div class="ordenarTexto"> 
 	                    	<span>Posicion</span><?php echo $key->getPosicion();?>
 	                    </div>
-	                    <div class="addPlayer">
-							<a href='agregarJugador.php?id_grupo=<?php echo $grupoActual;?>' class="modificar" title="Agregar jugador">
-    						<?php
-       							 echo "<img src='images/addyellow.png' height='24px' width='24px'>";
-     						 ?>
-     						</a>
-						</div>
+
 
                     </div>
  
