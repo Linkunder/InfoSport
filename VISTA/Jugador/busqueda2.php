@@ -105,7 +105,7 @@ foreach ($vectorRecintos as $key) {
                                         <span>Telefono</span><?php echo $key->getTelefono();?></div>
                                                                 <div>
                                         <span>Superficie</span><?php echo $key->getSuperficie();?></div>  
-                                         <BUTTON><a href='comentarioBusqueda.php?id=<?php echo $key->getIdRecinto();?>'class "modificar" >Comentarios</a></BUTTON>                    
+                                         <BUTTON><a href='comentarioBusqueda.php?idd=<?php echo $key->getIdRecinto();?>'class "modificar" >Comentarios</a></BUTTON>                    
                                                  </div>
                                 <p></p> <!--puede ir algo mas escrito aqui -->
                             </div>

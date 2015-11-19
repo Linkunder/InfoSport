@@ -7,7 +7,7 @@ include_once('../../LOGICA/controlComentarios.php');
 include_once('../../TO/Jugador.php');
 include_once('../../LOGICA/infoJugadores.php');
 $jefeComentario = controlComentarios::obtenerInstancia();
-$idd= $_GET['id'];
+$idd= $_GET['idd'];
 
 $vectorComentarios=$jefeComentario->obtenerComentarioDos($idd);
 $jefeJugador= infoJugadores::obtenerInstancia();
@@ -32,9 +32,8 @@ header('Location:busqueda2.php');
                                 <div class="whopic">
 
                                     <?php 
-                                    echo "ID del jugador: $comentarios->getId_jugador();";
                                     $jugador=$jefeJugador->obtenerJugadorId($comentarios->getId_jugador());
-                                        
+                                    
                                     ?>
                                     <div class="arrow"></div>
                                     <img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>" class="centered" alt="client 1">

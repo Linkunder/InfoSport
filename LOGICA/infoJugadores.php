@@ -105,7 +105,12 @@ class infoJugadores{
 			return null;
 		return $vectorData;
 	}
-
+		public function obtenerJugadorId($id){
+		$vectorData=$this->persistenciaJugador->muestraJugadoresID($id);
+		if (empty($vectorData))
+			return null;
+		return $vectorData;
+	}
 
 
 
