@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <?php
 include_once('../TO/RecintoDeportivo.php');
 include_once('../LOGICA/infoRecintos2.php');
@@ -156,7 +155,7 @@ foreach ($vectorRecintos as $key) {
                                         <table cellpadding="4"> <!-- 4-->
                                             <tr>
                                                <td><img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>" style="width:50%;height:50%;" class="img-circle">
-                                                <td><div class=""><p><?php echo $comentarios->getDetalle();?></p></div></td></td>
+                                                <td><div class="testimonial"><p><?php echo $comentarios->getDetalle();?></p></div></td></td>
                                             </tr>
                                         </table>
                                     </li> 

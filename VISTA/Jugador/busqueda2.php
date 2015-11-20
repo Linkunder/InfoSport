@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <?php
 session_start();
 include_once('../../TO/RecintoDeportivo.php');
