@@ -1,10 +1,23 @@
+<!DOCTYPE HTML>
 <?php
 include_once('../TO/RecintoDeportivo.php');
 include_once('../LOGICA/infoRecintos2.php');
+include_once('../TO/Comentario.php');
+include_once('../LOGICA/controlComentarios2.php');
+include_once('../TO/Jugador.php');
+include_once('../LOGICA/infoJugadores2.php');
+
+$jefeComentario = controlComentarios::obtenerInstancia();
 $jefeRecinto = infoRecintos::obtenerInstancia();
+$jefeJugador= infoJugadores::obtenerInstancia();
 $vectorRecintos=$jefeRecinto->obtenerRecinto();
 
 include('header.php'); ?>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/site.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
 
 <div class="section secondary-section " id="portafolio">
         <div class="container">
@@ -54,8 +67,9 @@ foreach ($vectorRecintos as $key) {
     padding-bottom: 56.25%;
     padding-top: 80px;
     height: 0;
-    overflow: hidden;
+  /* overflow: hidden; */
 }
+
 
 .Flexible-container iframe,   
 .Flexible-container object,  
@@ -74,6 +88,7 @@ foreach ($vectorRecintos as $key) {
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDR2WyVnnd9GsSTKys5OEkowPu41kMpEUs
     &q=Chile + Chillan + <?php echo $key->getDireccion();?>" allowfullscreen>
 </iframe>
+
  </div>
  </div>
                         <div class="span6">
@@ -105,13 +120,53 @@ foreach ($vectorRecintos as $key) {
                                         <span>Telefono</span><?php echo $key->getTelefono();?></div>
                                                                 <div>
                                         <span>Superficie</span><?php echo $key->getSuperficie();?></div>
-                                             <BUTTON><a href='comentarioBusqueda.php?id=<?php echo $key->getIdRecinto();?>'class "modificar" >Comentarios</a></BUTTON>
+
                                                  </div>
 
                                 <p></p> <!--puede ir algo mas escrito aqui -->
                             </div>
 
                         </div>
+<br >
+<br />
+<br >
+<br />
+ 
+
+                                
+                    
+                  
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <ul class="demo1">
+                                    <li class="news-item">
+                                        <table cellpadding="4"> <!-- 4-->
+                                            <tr>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    </li>    
+                                    <?php $vectorComentarios=$jefeComentario->obtenerComentarioDos($key->getIdRecinto());
+                                        if(!empty($vectorComentarios)){
+                                    foreach($vectorComentarios as $comentarios){
+                                         $jugador=$jefeJugador->obtenerJugadorId($comentarios->getId_jugador());
+                                    
+                                    ?>
+                                       <li class="news-item">
+                                        <table cellpadding="4"> <!-- 4-->
+                                            <tr>
+                                               <td><img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>" style="width:50%;height:50%;" class="img-circle">
+                                                <td><div class=""><p><?php echo $comentarios->getDetalle();?></p></div></td></td>
+                                            </tr>
+                                        </table>
+                                    </li> 
+                                    <?php }} ?>          
+      
+                                </ul>
+                            </div>
+                        </div>
+            
+                
                     </div>
                     <!-- End details for portafolio project 1 -->
                     
@@ -178,7 +233,20 @@ google.maps.event.addDomListener(
     }
 );
 </script>
-
+<script type="text/javascript">
+    $(function () {
+        $(".demo1").bootstrapNews({
+            newsPerPage: 1,
+            autoplay: true,
+            pauseOnHover:true,
+            direction: 'up',
+            newsTickerInterval: 4000,
+            onToDo: function () {
+                //console.log(this);
+            }
+        });
+    });
+</script>
 
     
 <?php include('footer.php'); ?>

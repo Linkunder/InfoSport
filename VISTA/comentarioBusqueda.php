@@ -42,6 +42,34 @@ header('Location:busqueda2.php');
                         <?php } ?>
                     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-list-alt"></span><b>Comentarios</b></div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <ul class="demo1">
+                                    <li class="news-item">
+                                        <table cellpadding="4"> <!-- 4-->
+                                            <tr>
+                                                <td><img src="images/1.png" width="30" class="img-circle" /></td>
+                                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in venenatis enim..</td>
+                                            </tr>
+                                        </table>
+                                    </li>                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
 </body>
 
 

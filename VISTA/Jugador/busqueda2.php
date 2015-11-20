@@ -2,8 +2,14 @@
 session_start();
 include_once('../../TO/RecintoDeportivo.php');
 include_once('../../LOGICA/inforecintos.php');
+include_once('../../TO/Comentario.php');
+include_once('../../LOGICA/controlComentarios.php');
+include_once('../../TO/Jugador.php');
+include_once('../../LOGICA/infoJugadores.php');
+$jefeComentario = controlComentarios::obtenerInstancia();
 $jefeRecinto = infoRecintos::obtenerInstancia();
 $vectorRecintos=$jefeRecinto->obtenerRecinto();
+$jefeJugador= infoJugadores::obtenerInstancia();
 
 include('headerJugador.php'); ?>
 
@@ -110,6 +116,52 @@ foreach ($vectorRecintos as $key) {
                                 <p></p> <!--puede ir algo mas escrito aqui -->
                             </div>
                         </div>
+
+
+<br >
+<br />
+<br >
+<br />
+ 
+
+                                
+                    
+                  
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <ul class="demo1">
+                                    <li class="news-item">
+                                        <table cellpadding="4"> <!-- 4-->
+                                            <tr>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                    </li>    
+                                    <?php $vectorComentarios=$jefeComentario->obtenerComentarioDos($key->getIdRecinto());
+                                        if(!empty($vectorComentarios)){
+                                    foreach($vectorComentarios as $comentarios){
+                                         $jugador=$jefeJugador->obtenerJugadorId($comentarios->getId_jugador());
+                                    
+                                    ?>
+                                       <li class="news-item">
+                                        <table cellpadding="4"> <!-- 4-->
+                                            <tr>
+                                               <td><img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>" style="width:50%;height:50%;" class="img-circle">
+                                                <td><div class=""><p><?php echo $comentarios->getDetalle();?></p></div></td></td>
+                                            </tr>
+                                        </table>
+                                    </li> 
+                                    <?php }} ?>          
+      
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+
+
+
                     </div>
                     <!-- End details for portafolio project 1 -->
                     

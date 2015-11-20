@@ -3350,6 +3350,20 @@ to {
 	background-position: 40px 0;
 }
 }
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #F5F5F5;
+    border-top: 1px solid #DDD;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.panel-body {
+    padding: 15px;
+        padding-top: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+}
 .progress {
 	overflow: hidden;
 	height: 18px;
