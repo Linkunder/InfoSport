@@ -362,8 +362,9 @@ p {
     font-family: 'Roboto', sans-serif;
     width:60%;
     padding: 0.5em 2em 0.5em 1em;
-    color: #fff;
+    color: #131212;
     font-size:20px;
+    font-weight: bold;
     outline: none;
     background: none;
     border:none;
