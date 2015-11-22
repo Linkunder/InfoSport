@@ -44,6 +44,13 @@ class infoGrupos{
 		return $vectorData;
 	}
 
+	public function obtenerNombreCapitan($id){
+		$vectorData=$this->persistenciaGrupo->obtenerNombreCapitan($id);
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
+	}
+	
 
 
 
