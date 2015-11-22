@@ -15,6 +15,9 @@ include_once('../../LOGICA/infoJugadores.php');
 $jefeJugador = infoJugadores::obtenerInstancia();
 $vectorJugadores=$jefeJugador->obtenerJugador();
 
+ob_start();
+$id_grupo2 = $_GET['id_grupo'];
+
 ?>
 
 <?php include('headerJugador.php');?>
@@ -22,18 +25,13 @@ $vectorJugadores=$jefeJugador->obtenerJugador();
 
 <div class="section secondary-section " id="portafolio">
         <div class="container">
-        	<h3>Agrega un jugador a tu equipo!</h3>
+        	<h3>Agrega un jugador a tu grupo!</h3>
         	<h5>Buscalo mediante correo electronico</h5>
-            <div class = "busqueda">
-            <form class="form-wrapper cf" action="nuevoJugador.php" method="get">
-                <input type="text" placeholder="Busca un jugador..." name="search" required>
-                <button type="submit">Buscar</button>
-            </form> 
-            </div>
 
+<br>
 
 <?php
-	$search = '';
+	$search = '.';
 	$cont = 0;
 	$aux = 1;
 	if (isset($_GET['search'])) {
@@ -48,8 +46,6 @@ $vectorJugadores=$jefeJugador->obtenerJugador();
 ?>
 
 
-<center><h3>Resultados</h3></center>
-
 
 
 <div id="single-project">
@@ -57,7 +53,7 @@ $vectorJugadores=$jefeJugador->obtenerJugador();
 <?php } 
 foreach ($vectorJugadores as $key) {
     $val = $key->getCorreo();
-    $pos = strripos($val, $search);     
+    $pos = strripos($val, $search);
     if ($pos !== false) { ?>
 		<div id="slidingDiv<?php echo $cont?>" class="toggleDiv row-fluid single-project">
 			<div class="span6">
@@ -66,6 +62,7 @@ foreach ($vectorJugadores as $key) {
 						<?php 
 								$nombreJugador = $key->getNombre();
 								$nombreApellido = $nombreJugador." ".$key->getApellido();
+								$idNuevo = $key->getId_jugador();
 	                        ?>
 						<h3> <?php echo " ".$nombreApellido?></h3>
 					
@@ -75,14 +72,7 @@ foreach ($vectorJugadores as $key) {
 						
 						<!--<div>
 							
-	                       <	 <span>Nombre</span><?php echo $nombreApellido;?></div> -->
-	                       	                    <div class="addPlayer">
-							<a href='agregarJugador.php?id_grupo=<?php echo $grupoActual;?>' class="modificar" title="Agregar jugador">
-    						<?php
-       							 echo "<img src='images/addyellow.png' height='24px' width='24px'>";
-     						 ?>
-     						</a>
-						</div>
+	                       <	 <span>Nombre</span><?php echo $nombreApellido	;?></div> -->
 	                     <div class="fotoagregar">
 							<img src="../images/usuarios/<?php echo $key->getDirectorio_foto();?>" height='40' width='40' alt="project 1">
 						</div>
@@ -97,8 +87,19 @@ foreach ($vectorJugadores as $key) {
 	                    <div class="ordenarTexto"> 
 	                    	<span>Posicion</span><?php echo $key->getPosicion();?>
 	                    </div>
-
-
+	                    <br>
+	                    <br>
+	                    <div class="addPlayer">
+							<a href="agregarJugador.php?id_grupo=<?php echo $id_grupo2?>&id_jugador=<?php echo $idNuevo?>" class="modificar" title="Agregar jugador">
+    						<?php
+       							 echo "<img src='images/addyellow.png' height='24px' width='24px'>";
+     						 ?>
+     						</a>
+						</div>
+						<br>
+						<br>
+						<br>
+						<br>
                     </div>
  
                 </div>
@@ -148,5 +149,7 @@ foreach ($vectorJugadores as $key) {
 <?php include('footer.php'); ?>
 <?php include('scrollUp.php'); ?>
 <?php include('js.php'); ?>
+
+
 
 
