@@ -6,7 +6,7 @@ class Grupo {
        private $numero_personas;
        private $fecha_creacion;
        private $capitan;
-
+       private $descripcion;
 
        function __construct(){}
        function getId_grupo() {
@@ -16,7 +16,9 @@ class Grupo {
        function getNombre_grupo() {
            return $this->nombre_grupo;
        }
-
+       function getDescripcion(){
+          return $this->descripcion;
+       }
 
        function getNumero_personas() {
            return $this->numero_personas;
@@ -51,6 +53,9 @@ class Grupo {
            $this->capitan = $capitan;
        }
 
+       function setDescripcion($descripcion){
+          $this->descripcion = $descripcion;
+       }
        
 }
 ?>
