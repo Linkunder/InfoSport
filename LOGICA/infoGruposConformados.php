@@ -45,6 +45,19 @@ class infoGruposConformados{
 		return $vectorData;
 
 	}
+	
+	public function agregarJugador($nuevoJugador){
+		$vectorData=$this->persistenciaGrupoConformado->agregarJugador($nuevoJugador);
+		if (count($vectorData)==0){
+			return null;
+		}
+		return $vectorData;
+	}
+
+	public function contarJugadores($id){
+		$numero=$this->persistenciaGrupoConformado->contarJugadores($id);
+		return $numero;		
+	}
 
 }
 
