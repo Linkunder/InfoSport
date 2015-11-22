@@ -34,6 +34,10 @@ class infoGrupos{
 		return $vectorData;
 	}
 
+	public function guardarGrupo($grupo){
+		$this->persistenciaGrupo->insertarGrupo($grupo);
+	}
+
 
 
 
