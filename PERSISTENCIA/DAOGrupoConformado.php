@@ -84,6 +84,23 @@
         return $vectorData;
     }
 
+    public function agregarJugador($grupoconformado){
+        $vectorData;
+        $link=$this->conexionBD->getConexion();
+        $query= "INSERT into grupo_conformado (id_jugador, id_grupo) Values ('".$grupoconformado->getIdJugador()."','".$grupoconformado->getIdGrupo()."')";
+        mysql_query($query,$link) or die (mysql_error());
+        mysql_close($link);
+    }
+
+    public function contarJugadores($id){
+        $vectorData;
+        $link = $this->conexionBD->getConexion();
+        $query = "SELECT COUNT(*) from grupo_conformado where id_grupo=$id";
+        $result = mysql_query($query, $link) or die (mysql_error());
+        $row = mysql_fetch_array($result);
+        return $row['COUNT(*)'];
+    }
+
     	
     }
 ?>
