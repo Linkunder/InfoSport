@@ -59,7 +59,7 @@ $vectorJugadores=$jefeJugador->obtenerJugadores($id_grupo2);
 <table class="table table-bordered center">
 <tr>   
 <th>Nombre</th>
-<th>Correo</th>
+<th>E-mail</th>
 <th>Deporte favorito</th>
 <th>Posicion</th>
 <th>Foto</th>
