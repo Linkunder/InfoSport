@@ -25,6 +25,15 @@ class infoGrupos{
 			return null;
 		return $vectorData;
 	}
+	
+	public function obtenerGrupos1(){
+		$vectorData=$this->persistenciaGrupo->obtenerTodos();
+		if (count($vectorData)==0){
+			return null;
+		}
+		return $vectorData;
+	}
+
 
 	public function obtenerGrupos2($id){
 		$vectorData=$this->persistenciaGrupo->getGrupos2($id);
