@@ -19,7 +19,7 @@
         var textfield = document.getElementById(e);
         var groserias = ["puta", "puto","marica","mierda","wn","weon","hueon","huevon","ctm", "conchetumadre", "conchatumadre", "conchesumadre","conshasumadre","concha","pico","raja","culo","culia","culiao","qlo","qla","chucha","shusha","ahueonado","ahueonao","maraca","aweonao","huevon","malparidos","maricon"]
         //var regex ="["mierda"]"/gi;
-        for(var i=0; i<grocerias.length; i++){
+        for(var i=0; i<groserias.length; i++){
         var regex= new RegExp("(^|\\s)"+groserias[i]+"($|(?=\\s))","gi")
         textfield.value = textfield.value.replace(regex, function($0, $1){return $1 + ""});
                                             }   
