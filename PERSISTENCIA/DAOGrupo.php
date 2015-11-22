@@ -88,6 +88,40 @@ class DAOGrupo{
 		}
 		return $vectorData;
 	}
+	
+		public function insertarGrupo($grupo){
+		$link=$this->conexionBD->getConexion();
+		$query="INSERT INTO grupo(nombre_grupo,descripcion,fecha_creacion,id_capitan)
+		VALUES('".$grupo->getNombre_grupo()."','".$grupo->getDescripcion()."','".$grupo->getFecha_creacion()."','".$grupo->getCapitan()."')";
+		    mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
+   			mysql_close($link); //Cerramos la conexion
+	}
+
+
+	public function obtenerTodos(){
+		$vectorData;
+		$link=$this->conexionBD->getConexion();
+		$query = "SELECT * FROM grupo ";
+		$result= mysql_query($query,$link) or die(mysql_error());
+		$i=0;
+		while($row=mysql_fetch_array($result)){
+			$Grupo= new Grupo();
+			$Grupo->setNombre_grupo($row['nombre_grupo']);
+			$Grupo->setId_grupo($row['id_grupo']);
+			$Grupo->setNumero_personas($row['numero_personas']);
+			$Grupo->setFecha_creacion($row['fecha_creacion']);
+			$Grupo->setDescripcion($row['descripcion']);
+			$Grupo->setCapitan($row['id_capitan']);
+			$vectorData[$i]=$Grupo;
+			$i++;
+		}
+		mysql_close($link);
+		if (empty($vectorData)){
+			return null;
+		}
+		return $vectorData;
+	}
+
 
 }
 
