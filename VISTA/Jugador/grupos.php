@@ -8,6 +8,8 @@ else {
 header("Location:login.php"); 
 }
 ?>
+
+<div class= "fondoamarillo">
 <?php include('headerJugador.php');?>
 
 <!-- Aqui insertar Ver Grupos -->
@@ -20,7 +22,6 @@ header("Location:login.php");
     include_once('../../LOGICA/infoGrupos.php');
     include_once('../../TO/Jugador.php');
 	include_once('../../LOGICA/infoJugadores.php');
-
     include_once('../../TO/GrupoConformado.php');
     include_once('../../LOGICA/infoGruposConformados.php');
 
@@ -38,6 +39,7 @@ header("Location:login.php");
     $jefeGrupo = infoGrupos::obtenerInstancia();
     $vectorGrupos=$jefeGrupo->obtenerGrupos($idJugadorGrupo);
 
+    $jefeGrupoC = infoGruposConformados::obtenerInstancia();
 
 
 
@@ -55,6 +57,7 @@ header("Location:login.php");
     <tr>
 
     <th>Nombre</th>
+    <th>Descripcion</th>
     <th>Numero de jugadores</th>
     <th>Fecha de creacion</th>
     <th>Capitan</th>
@@ -71,8 +74,14 @@ header("Location:login.php");
         echo '<a href="verEquipo.php"></a>';
 ?>
     <tr>
-    <td><?php echo $Grupo->getNombre_grupo();?></td>    
-    <td><?php echo $Grupo->getNumero_personas();?></td>
+    <td><?php echo $Grupo->getNombre_grupo();?></td>
+    <td><?php echo $Grupo->getDescripcion();?></td>   
+    <td>
+        <?php // Aqui numero de jugadores
+            $vectorGruposC = $jefeGrupoC->contarJugadores($grupoActual);
+            echo "$vectorGruposC";
+        ?>
+    </td>
     <td><?php echo $Grupo->getFecha_creacion();?></td>
     <td>
         <?php echo "$apellidoCapitan";?>
@@ -139,6 +148,7 @@ header("Location:login.php");
 <tr>
 
 <th>Nombre</th>
+<th>Descripcion</th>
 <th>Numero de jugadores</th>
 <th>Fecha de creacion</th>
 <th>Capitan</th>
@@ -158,10 +168,24 @@ header("Location:login.php");
 ?>
 
         <tr>
-        <td><?php echo $Grupo1->getNombre_grupo();?></td>    
-        <td><?php echo $Grupo1->getNumero_personas();?></td>
+        <td><?php echo $Grupo1->getNombre_grupo();?></td>
+        <td><?php echo $Grupo1->getDescripcion();?></td>    
+        <td>
+            <?php // Aqui numero de jugadores
+            $vectorGruposC = $jefeGrupoC->contarJugadores($grupoActual2);
+            echo "$vectorGruposC";
+            ?>
+        </td>
         <td><?php echo $Grupo1->getFecha_creacion();?></td>
-        <td><?php echo $Grupo1->getCapitan();?></td> 
+        <td>
+            <?php 
+            $idCapitanGrupo = $Grupo1->getCapitan();
+            $vectorJugadores2 = $jefeJugador->obtenerJugadorDos($idCapitanGrupo);
+            foreach ($vectorJugadores2 as $Jugador2) {
+                $nombreCapitanGrupo = $Jugador2->getNombre()." ".$Jugador2->getApellido();
+                echo $nombreCapitanGrupo;
+            }
+            ?></td> 
         <td><center><a href='verEquipo2.php?id_grupo=<?php echo $grupoActual2?>'  title="Ver equipo">
             <?php
             echo "<img src='images/teamblack.png' height='24px' width='24px'>";
@@ -180,7 +204,7 @@ header("Location:login.php");
     <?php
     } else {
         $a=1;
-        $message = "No pertenece a ningun grupo.";
+        $message = "No perteneces a ningun grupo.";
         echo "<script type='text/javascript'>alert('$message');</script>";
         $yourURL="index2.php";
         echo ("<script>location.href='$yourURL'</script>");
@@ -204,3 +228,4 @@ header("Location:login.php");
 <?php include('js.php');?>
     </body>
 </php>
+</div>
