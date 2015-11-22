@@ -17,6 +17,11 @@
         <script type="text/javascript">
         function clean(e){
         var textfield = document.getElementById(e);
-        var regex =/mierda/gi;
-        textfield.value = textfield.value.replace(regex, "maravilla");
-        }</script>
+        var grocerias = ["puta", "puto","marica","mierda","wn","weon","hueon","huevon","ctm", "conchetumadre", "conchatumadre", "conchesumadre","conshasumadre","concha","pico","raja","culo","culia","culiao","qlo","qla","chucha","shusha","ahueonado","ahueonao","maraca","aweonao","huevon","malparidos","maricon"]
+        //var regex ="["mierda"]"/gi;
+        for(var i=0; i<grocerias.length; i++){
+        var regex= new RegExp("(^|\\s)"+grocerias[i]+"($|(?=\\s))","gi")
+        textfield.value = textfield.value.replace(regex, function($0, $1){return $1 + ""});
+                                            }   
+        }
+</script>
