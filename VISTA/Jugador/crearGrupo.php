@@ -45,14 +45,22 @@ $idUltimoGrupo = $ultimoGrupo->getId_grupo();
 
 <div class="section secondary-section " id="portafolio">
         <div class="container">
-        	<h3>Agrega un jugador a tu grupo!</h3>
-        	<h5>Buscalo mediante correo electronico</h5>
 
 
-<table class="table table-bordered center">
+<table class="table table-bordered2">
+	<tr>
+		<th><h3>Agrega un jugador a tu grupo!</h3>
+        	<h5>Buscalo mediante correo electronico</h5></th>
+	</tr>
+</table>
+
+
+<table class="table table-bordered2">
 	<tr>
 		<th>Jugadores actuales</th>
+
 	</tr>
+
 	<tr>
 		<?php
 		$vectorJugadoresAux=$jefeJugador->obtenerJugadores($idUltimoGrupo);
