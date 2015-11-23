@@ -12,11 +12,7 @@ $jefeJugador= infoJugadores::obtenerInstancia();
 $vectorRecintos=$jefeRecinto->obtenerRecinto();
 
 include('header.php'); ?>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/site.css" rel="stylesheet" type="text/css" />
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="scripts/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
+
 
 <div class="section secondary-section " id="portafolio">
         <div class="container">
