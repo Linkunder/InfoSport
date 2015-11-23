@@ -151,19 +151,18 @@ foreach ($vectorRecintos as $key) {
                                          $jugador=$jefeJugador->obtenerJugadorId($comentarios->getId_jugador());
                                     
                                     ?>
-                                       <li class="news-item">
-                                        <table cellpadding="4"> <!-- 4-->
-                                            <tr>
-                                               <td>
-                                                <div class = "ajustarImagen">
-                                                    <img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>"  class="img-circle">
-                                                 </div>
-                                                </td>
-                                                <td><div class="testimonial"><p><?php echo $comentarios->getDetalle();?></p></div></td>
-                                                
-                                            </tr>
-                                        </table>
-                                    </li> 
+                              <div class="span4">
+                            <div class="testimonial">
+                                <p><?php echo $comentarios->getDetalle();?></p>
+                                <div class="whopic">
+                                    <div class="arrow"></div>
+                                 <img src="./Jugador/images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>">
+                                    <strong><?php echo $jugador[0]->getNombre(); ?>
+                                        <small></small>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
                                     <?php }} ?>          
       
                                 </ul>

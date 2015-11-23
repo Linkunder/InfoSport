@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <?php
 session_start();
 include_once('../../TO/RecintoDeportivo.php');
@@ -113,7 +112,7 @@ foreach ($vectorRecintos as $key) {
                                         <span>Telefono</span><?php echo $key->getTelefono();?></div>
                                                                 <div>
                                         <span>Superficie</span><?php echo $key->getSuperficie();?></div>  
-                                         <BUTTON><a href='comentarioBusqueda.php?idd=<?php echo $key->getIdRecinto();?>'class "modificar" >Comentarios</a></BUTTON>                    
+                                                           
                                                  </div>
                                 <p></p> <!--puede ir algo mas escrito aqui -->
                             </div>
@@ -130,10 +129,10 @@ foreach ($vectorRecintos as $key) {
                     
                   
                         <div class="row">
-                            <div class="col-xs-12">
-                                <ul class="demo1">
-                                    <li class="news-item">
-                                        <table cellpadding="4"> <!-- 4-->
+                            <div class="col-xs-12" >
+                                <ul class="demo1" >
+                                    <li class="news-item" >
+                                        <table cellpadding="4" > <!-- 4-->
                                             <tr>
                                                 <td></td>
                                             </tr>
@@ -145,18 +144,19 @@ foreach ($vectorRecintos as $key) {
                                          $jugador=$jefeJugador->obtenerJugadorId($comentarios->getId_jugador());
                                     
                                     ?>
-                                       <li class="news-item">
-                                        <table cellpadding="4"> <!-- 4-->
-                                            <tr>
-                                               <td> 
-                                                <div class = "ajustarImagen">
-                                                <img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>" class="img-circle">
-                                                </div>
-                                                </td>
-                                                <td><div class="testimonial"><p><?php echo $comentarios->getDetalle();?></p></div></td>
-                                            </tr>
-                                        </table>
-                                    </li> 
+                                    <!-- prueba -->
+                            <div class="span4">
+                            <div class="testimonial">
+                                <p><?php echo $comentarios->getDetalle();?></p>
+                                <div class="whopic">
+                                    <div class="arrow"></div>
+                                 <img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>">
+                                    <strong><?php echo $jugador[0]->getNombre(); ?>
+                                        <small></small>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
                                     <?php }} ?>          
       
                                 </ul>
