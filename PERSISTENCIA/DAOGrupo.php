@@ -23,7 +23,7 @@ class DAOGrupo{
 			$Grupo->setId_grupo($row['id_grupo']);
 			$Grupo->setNumero_personas($row['numero_personas']);
 			$Grupo->setFecha_creacion($row['fecha_creacion']);
-			
+			$Grupo->setDescripcion($row['descripcion']);
 			$Grupo->setCapitan($row['id_capitan']);
 			$vectorData[$i]=$Grupo;
 			$i++;
@@ -39,7 +39,7 @@ class DAOGrupo{
     public function getGrupos2($id){
         $vectorData;
         $link=$this->conexionBD->getConexion();
-        $query = "SELECT G.nombre_grupo, G.id_grupo, G.numero_personas, G.fecha_creacion, G.id_capitan From grupo G 
+        $query = "SELECT G.nombre_grupo, G.id_grupo, G.numero_personas, G.fecha_creacion, G.id_capitan, G.descripcion From grupo G 
         inner join grupo_conformado C on G.id_grupo = C.id_grupo 
         INNER JOIN jugador J on C.id_jugador = J.id_jugador where J.id_jugador = $id";
         $result= mysql_query($query,$link) or die(mysql_error());
@@ -51,6 +51,7 @@ class DAOGrupo{
             $Grupo->setNumero_personas($row['numero_personas']);
             $Grupo->setFecha_creacion($row['fecha_creacion']);
             $Grupo->setCapitan($row['id_capitan']);
+            $Grupo->setDescripcion($row['descripcion']);
             $vectorData[$i]=$Grupo;
             $i++;
         }
@@ -78,6 +79,7 @@ class DAOGrupo{
 			$Grupo->setFecha_creacion($row['fecha_creacion']);
 			$Grupo->setNombre_grupo($row['nombre_grupo']);
 			$Grupo->setCapitan($row['id_capitan']);
+			$Grupo->setDescripcion($row['descripcion']);
 			$vectorData[$i]=$Grupo;
 
 			$i++;
