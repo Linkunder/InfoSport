@@ -48,7 +48,7 @@
                         <ul class="nav" id="top-navigation">
                             <li class="active"><a href="index2.php">Inicio</a></li>
                             <li><a href="busqueda2.php">Recintos</a></li>
-                            <li><a href="Contacto.php">Contacto</a></li>
+                            <li><a href="Partido.php">Jugar</a></li>
                             <li><a href="comentario.php">Comentarios</a></li>
 
                             <ul class="nav pull-right">
