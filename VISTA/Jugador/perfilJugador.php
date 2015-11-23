@@ -14,7 +14,7 @@ header("Location:login.php");
 
   <!-- Aqui insertar perfil -->
 
- 
+<div class="fondoamarillo"> 
 
 <?php
 
@@ -139,7 +139,7 @@ $vectorJugador=$jefeJugador->buscarID($correo);
 </table>
 
 
-
+</div>
 
 
 <?php include('footer.php');?>
