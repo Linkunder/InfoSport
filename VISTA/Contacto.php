@@ -1,7 +1,7 @@
 <?php include('header.php'); ?>
   
 
-  <!-- Aqui insertar formulario -->
+  <!-- Aqui insertar formulario comentario -->
 <div id="contact" class="contact">
             <div class="section secondary-section">
                 <div class="container">
