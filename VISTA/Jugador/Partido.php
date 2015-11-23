@@ -13,7 +13,7 @@ session_start();
 
 <table class="table table-bordered2">
     <tr>
-        <th><h3>Llego la hora de jugar!</h3>
+        <th><h3>Llego la hora de jugar! <?php  echo "<img src='images/man451.png' height='32px' width='32px'>"?></h3>
             <h5>Ingresa la siguiente informacion</h5></th>
     </tr>
 </table>
