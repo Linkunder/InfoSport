@@ -451,7 +451,7 @@ $('#container8').highcharts({ //Comentarios
             type: 'bar'
         },
         title: {
-            text: 'Puntuacion recintos deportivos'
+            text: 'Comentarios Recintos deportivos'
         },
         subtitle: {
             text: 'InfoSport'
@@ -461,7 +461,7 @@ $('#container8').highcharts({ //Comentarios
 <?php
                 $conexionBD= new conexion();
                 $link=$conexionBD->getConexion();
-                $query="SELECT nombre from recinto_deportivo ORDER BY  puntuacion";
+                $query="SELECT nombre, count(*) FROM recinto_deportivo NATURAL JOIN comentario GROUP BY nombre";
                 $sql=mysql_query($query,$link);
                 while($res=mysql_fetch_array($sql)){
 ?>
@@ -511,17 +511,17 @@ $('#container8').highcharts({ //Comentarios
             enabled: false
         },
         series: [{
-            name: 'Puntuacion',
+            name: 'Comentarios',
             data: [
 <?php
                 $conexionBD= new conexion();
                 $link=$conexionBD->getConexion();
-                $query="SELECT puntuacion from recinto_deportivo ORDER BY  puntuacion";
+                $query="SELECT nombre, count(*) FROM recinto_deportivo NATURAL JOIN comentario GROUP BY nombre";
                 $sql=mysql_query($query,$link);
                 while($res=mysql_fetch_array($sql)){
 ?>
 
-                [<?php echo $res['puntuacion'] ?>],
+                [<?php echo $res['count(*)'] ?>],
 <?php
 }
 ?>
@@ -530,6 +530,183 @@ $('#container8').highcharts({ //Comentarios
             ]
         }]
     });
+$('#container9').highcharts({ //Comentarios
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Numero de comentarios por jugador'
+        },
+        subtitle: {
+            text: 'InfoSport'
+        },
+        xAxis: {
+            name: 'Jugador',
+            categories: [
+<?php
+                $conexionBD= new conexion();
+                $link=$conexionBD->getConexion();
+                $query="SELECT id_jugador, count(*) FROM jugador natural JOIN comentario  GROUP BY id_jugador";
+                $sql=mysql_query($query,$link);
+                while($res=mysql_fetch_array($sql)){
+?>
+
+                ['<?php echo $res['id_jugador'] ?>'],
+<?php
+}
+?>
+
+            ],
+            title: {
+                text: 'jugador'
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Comentarios ',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ''
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Comentario',
+            data: [
+<?php
+                $conexionBD= new conexion();
+                $link=$conexionBD->getConexion();
+                $query="SELECT id_jugador, count(*) FROM jugador natural JOIN comentario  GROUP BY id_jugador";
+                $sql=mysql_query($query,$link);
+                while($res=mysql_fetch_array($sql)){
+?>
+
+                [<?php echo $res['count(*)'] ?>],
+<?php
+}
+?>
+
+
+            ]
+        }]
+    });
+ $('#container10').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Partidos jugados por jugadores ' //titulo
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie', //Tipo de grafico
+            name: 'Deporte', //nombre de lo que estamos viendo
+            data: [
+                
+                <?php 
+                $conexionBD= new conexion();
+                $link=$conexionBD->getConexion();
+                $query="SELECT id_jugador, count(*) FROM jugador natural JOIN partido GROUP BY id_jugador";
+                $sql=mysql_query($query,$link);
+                while($res=mysql_fetch_array($sql)){
+                ?>
+            ['<?php echo $res['id_jugador'] ?>',  <?php echo $res['count(*)']?>],
+            <?php
+                }
+            ?>
+            ]
+        }]
+    });//fin grafico deporte fav
+//Comienza el grafico de barras de edad
+
+ $('#container11').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Recintos deportivos y sus partidos' //titulo
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie', //Tipo de grafico
+            name: 'Deporte', //nombre de lo que estamos viendo
+            data: [
+                
+                <?php 
+                $conexionBD= new conexion();
+                $link=$conexionBD->getConexion();
+                $query="SELECT nombre, count(*) FROM recinto_deportivo natural JOIN partido GROUP BY id_recinto";
+                $sql=mysql_query($query,$link);
+                while($res=mysql_fetch_array($sql)){
+                ?>
+            ['<?php echo $res['nombre'] ?>',  <?php echo $res['count(*)']?>],
+            <?php
+                }
+            ?>
+            ]
+        }]
+    });//fin grafico deporte fav
+//Comienza el grafico de barras de edad
+
 }); //Aqui finalizan los graficos
 
 
@@ -552,6 +729,8 @@ $('#container8').highcharts({ //Comentarios
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 <div id="container1" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 <div id="container3" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<div id="container9" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<div id="container10" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 <!-- Titulo de reportes recintos deportivos-->
 <div class="widget-header">
  <i class="icon-bar-chart"></i>
@@ -562,6 +741,8 @@ $('#container8').highcharts({ //Comentarios
 <div id="container5" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto" ></div>
 <div id="container6" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 <div id="container7" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<div id="container8" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<div id="container11" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 
 
 </html>
