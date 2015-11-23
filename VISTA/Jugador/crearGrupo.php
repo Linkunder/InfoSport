@@ -43,12 +43,32 @@ $idUltimoGrupo = $ultimoGrupo->getId_grupo();
 <div class= "fondoamarillo">
 
 
-
-
 <div class="section secondary-section " id="portafolio">
         <div class="container">
         	<h3>Agrega un jugador a tu grupo!</h3>
         	<h5>Buscalo mediante correo electronico</h5>
+
+
+<table class="table table-bordered center">
+	<tr>
+		<th>Jugadores actuales</th>
+	</tr>
+	<tr>
+		<?php
+		$vectorJugadoresAux=$jefeJugador->obtenerJugadores($idUltimoGrupo);
+		foreach ($vectorJugadoresAux as $JugadorAux) {
+			$nombreJugadorAux = $JugadorAux->getNombre();
+			$nombreCompletoJugador = $nombreJugadorAux." ".$JugadorAux->getApellido();
+		
+		?>
+		<td><?php echo $nombreCompletoJugador?></td>
+	</tr>
+	<?php
+}
+?>
+</table>
+
+
 
 <br>
 
