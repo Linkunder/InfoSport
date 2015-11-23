@@ -148,8 +148,12 @@ foreach ($vectorRecintos as $key) {
                                        <li class="news-item">
                                         <table cellpadding="4"> <!-- 4-->
                                             <tr>
-                                               <td><img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>" style="width:50%;height:50%;" class="img-circle">
-                                                <td><div class=""><p><?php echo $comentarios->getDetalle();?></p></div></td></td>
+                                               <td> 
+                                                <div class = "ajustarImagen">
+                                                <img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>" class="img-circle">
+                                                </div>
+                                                </td>
+                                                <td><div class="testimonial"><p><?php echo $comentarios->getDetalle();?></p></div></td>
                                             </tr>
                                         </table>
                                     </li> 
