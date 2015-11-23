@@ -167,6 +167,7 @@ header("Location:login.html");
 
 
 <div >
+<!-- <a href="#recintos">Direccion</a> -->
 <div class="container">  <?php require_once("graficos.php");?> 
  </div>
 </div> 
