@@ -15,20 +15,26 @@ $vectorPartidos=$jefePartido->obtenerInstancia();
 
 include('headerJugador.php'); ?>
 
+<div class= "fondoamarillo">
+
 <style type="text/css">
 body,td,th {
 	color: #000;
 }
 </style>
 <body>
-<div class="table"> <i class="icon-th-list"></i>
-  <h3 align= "center">Comentar</h3>
-</div>
+<table class="table table-bordered2">
+    <tr>
+        <th>
+            <center><h3>Comenta y puntua los recintos visitados <?php  echo "<img src='images/comments19.png' height='32px' width='32px'>"?></h3></center>
+            <center><h5></h5></th></center>
+    </tr>
+</table>
 
-<form name="form1" method="post" action="registrarComentario.php" align="center">
+<form class="crearGrupo" name="form1" method="post" action="registrarComentario.php" align="center">
   <p>
     <label>
-     <a>Recinto:</a>
+     <label>Recinto:</label>
       <br>
       <select name="Recinto">
         <?php
@@ -45,7 +51,7 @@ body,td,th {
       ?>
       </select>
       <br>
-      <a>Asunto:</a>
+      <label>Asunto:</label>
       <br>
       <?php if($cont==0){?>
       <input type="text" name="Asunto" id="Asunto" readonly="readonly" >
@@ -53,7 +59,7 @@ body,td,th {
       <input type="text" name="Asunto" id="Asunto"> 
       <?php } //fin if?>
       <br>
-      <a>Puntaje:</a>
+      <label>Puntaje:</label>
       <br>
       <?php if($cont==0){?>
       <select name="puntaje" id="puntaje" readonly="readonly">
@@ -68,12 +74,12 @@ body,td,th {
         <option value="5">5</option>
       </select>
       <br>
-      <a>Comentario:</a> 
+      <label>Comentario:</label> 
     </label>
     <?php if($cont==0){?>
     <textarea name="Comentario" id="Comentario" cols="" rows="" readonly="readonly"></textarea>
     <?php }else{?>
-    <textarea name="Comentario" id="Comentario" cols="" rows="" onkeyup="clean('Comentario')" onkeydown="clean('Comentario')" ></textarea>
+    <textarea name="Comentario" id="Comentario" cols="" rows="" onkeyup="clean('Comentario')" onkeydown="clean('Comentario')"  ></textarea>
     <?php }?>
     
   </p>
