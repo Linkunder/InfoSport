@@ -27,6 +27,7 @@ $id_grupo2 = $_GET['id_grupo'];
         <div class="container">
         	<h3>Agrega un jugador a tu grupo!</h3>
         	<h5>Buscalo mediante correo electronico</h5>
+        
 
 <br>
 

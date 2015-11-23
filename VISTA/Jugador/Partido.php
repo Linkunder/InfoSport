@@ -3,17 +3,33 @@
 session_start();
 ?>
 <php lang="en">
-    <?php include('headerJugador.php');?>
-<div class="mask"></div>
+
+
+<?php include('headerJugador.php');?>
+
+
+<div class="fondoAmarillo">
+
+
+<table class="table table-bordered2">
+    <tr>
+        <th><h3>Agrega un jugador a tu grupo!</h3>
+            <h5>Buscalo mediante correo electronico</h5></th>
+    </tr>
+</table>
+
+</div>
   
 
 
 
 
-        <!-- Footer section start -->
-  <?php include('footer.php');?>
-        <!-- Footer section end -->
-        <!-- ScrollUp button start -->
+
+
+<!-- Footer section start -->
+<?php include('footer.php');?>
+<!-- Footer section end -->
+<!-- ScrollUp button start -->
 <?php include('scrollUp.php');?>
         <!-- ScrollUp button end -->
         <!-- Include javascript -->
