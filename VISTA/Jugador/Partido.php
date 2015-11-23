@@ -8,13 +8,13 @@ session_start();
 <?php include('headerJugador.php');?>
 
 
-<div class="fondoAmarillo">
+<div class="fondoamarillo">
 
 
 <table class="table table-bordered2">
     <tr>
-        <th><h3>Agrega un jugador a tu grupo!</h3>
-            <h5>Buscalo mediante correo electronico</h5></th>
+        <th><h3>Llego la hora de jugar!</h3>
+            <h5>Ingresa la siguiente informacion</h5></th>
     </tr>
 </table>
 
