@@ -78,6 +78,12 @@ $idUltimoGrupo = $ultimoGrupo->getId_grupo();
 
 
 
+<center><a href='grupos.php' title="Listo">
+    <?php
+    echo "<img src='images/ok2.png' height='32px' width='32px'>";
+  ?>
+</a></center>
+
 <br>
 
 <?php
