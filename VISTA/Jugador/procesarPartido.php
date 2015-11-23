@@ -39,6 +39,6 @@ $jefePartidos = controlPartido::obtenerInstancia();
 $vectorPartidos = $jefePartidos->agregarPartido($nuevoPartido);
 
 echo "<script type='text/javascript'>alert('Nuevo partido!');</script>";
-header("Location:index2.php");
+header("Location:agendarPartido.php");
 
 ?>
