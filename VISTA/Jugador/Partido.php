@@ -20,15 +20,14 @@ session_start();
 </table>
 
 
-<form class="crearGrupo" action= "procesarPartido.php" method="post">
+<form class="crearPartido" action= "procesarPartido.php" method="post">
 <ul>
-
+        
         <label for="fecha">Dia</label>
-        <input type="date" name="fecha" maxlength="100">
-    
-    
+        <input type="date" name="fecha">
+
         <label for="hora">Hora</label>
-        <input type="time" name="hora" maxlength="200">
+        <input type="time" name="hora" >
 
         <label for="jugadores">Numero de jugadores</label>
         <input type="int" name="jugadores" maxlength="200">
