@@ -14,7 +14,7 @@ session_start();
 <table class="table table-bordered2">
     <tr>
         <th>
-            <center><h3>Llego la hora de jugar! <?php  echo "<img src='images/man451.png' height='32px' width='32px'>"?></h3></center>
+            <center><h3><?php echo "<img src='images/basketball27.png' height='32px' width='32px'>   "?>Llego la hora de jugar! <?php  echo "<img src='images/man451.png' height='32px' width='32px'>"?></h3></center>
             <center><h5>Ingresa la siguiente informacion</h5></th></center>
     </tr>
 </table>
