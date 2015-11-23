@@ -31,6 +31,10 @@ class controlPartido{
 		return count($vectorData);
 	}
 
+	public function agregarPartido($partido){
+		$this->persistenciaPartido->insertarPartido($partido);
+	}
+
 
 
 

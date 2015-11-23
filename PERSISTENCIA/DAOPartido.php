@@ -22,8 +22,8 @@ class DAOPartido{
 	
 	public function insertarPartido($partido){
 		$link=$this->conexionBD->getConexion();
-		$query="INSERT INTO partido(id_partido,id_recinto,id_jugador,id_estado,hora,fecha,cuota)
-		VALUES('".$partido->getIdPartido()."','".$partido->getIdRecinto()."','".$partido->getIdJugador()."','".$partido->getEstado()."','".$partido->getHora()."','".$partido->getFecha()."','".$partido->getCuota()."')";
+		$query="INSERT INTO partido(id_jugador,id_estado,hora,fecha,numero_jugadores)
+		VALUES('".$partido->getIdJugador()."','".$partido->getEstado()."','".$partido->getHora()."','".$partido->getFecha()."','".$partido->getNroJugadores()."')";
 		    mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
    			mysql_close($link); //Cerramos la conexion
 	}

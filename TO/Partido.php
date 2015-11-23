@@ -7,6 +7,7 @@ private $id_estado;
 private $hora;
 private $fecha;
 private $cuota;
+private $numeroJugadores;
 
 
 function __construct(){}
@@ -35,12 +36,17 @@ function setCuota($cuotaPartido){
     $this->cuota=$cuotaPartido;
 }
 
+function setNroJugadores($numero){
+	$this->numeroJugadores=$numero;
+}
+
 function getIdPartido(){return $this->id_partido;}
 function getIdRecinto(){return $this->id_recinto;}
 function getIdJugador(){return $this->id_jugador;}
 function getEstado(){return $this->id_estado;}
 function getHora(){return $this->hora;}
 function getFecha(){return $this->fecha;}
-function getCuota(){return $this->cuota;}    
+function getCuota(){return $this->cuota;} 
+function getNroJugadores(){return $this->numeroJugadores;}   
 }
 ?>
