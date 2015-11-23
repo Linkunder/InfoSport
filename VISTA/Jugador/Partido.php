@@ -18,8 +18,8 @@ session_start();
     </tr>
 </table>
 
-</div>
-  
+
+
 
 
 
@@ -51,3 +51,6 @@ session_start();
     </body>
 </php>
 
+
+</div>
+  
