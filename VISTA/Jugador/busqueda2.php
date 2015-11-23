@@ -100,13 +100,13 @@ foreach ($vectorRecintos as $key) {
                                     <div>
                                         <span>Horario</span><?php echo $key->getHorario();?></div>
                                     <div>
-                                        <span>Descrip</span><?php echo $key->getDescripcion();?></div>
+                                        <span>Descripcion</span><?php echo $key->getDescripcion();?></div>
                                     <div>
                                         <span>Precio</span><?php echo $key->getPrecio();?></div>
                                     <div>
                                         <span>Puntaje</span><?php echo $key->getPuntuacion();?></div>
                                     <div>
-                                        <span>Numero Canchas</span><?php echo $key->getCantidadCanchas();?></div>
+                                        <span>Numero de canchas</span><?php echo $key->getCantidadCanchas();?></div>
                                                                 <div>
                                         <span>Direccion</span><?php echo $key->getDireccion();?></div>
                                                                 <div>

@@ -155,7 +155,9 @@ foreach ($vectorRecintos as $key) {
                                         <table cellpadding="4"> <!-- 4-->
                                             <tr>
                                                <td>
-                                                    <img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>" height='40' width='40' class="img-circle">
+                                                <div class = "ajustarImagen">
+                                                    <img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>"  class="img-circle">
+                                                 </div>
                                                 </td>
                                                 <td><div class="testimonial"><p><?php echo $comentarios->getDetalle();?></p></div></td>
                                                 
