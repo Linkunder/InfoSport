@@ -362,7 +362,90 @@ $('#container5').highcharts({
             ]
         }]
     });
+$('#container7').highcharts({ //Comentarios
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Puntuacion recintos deportivos'
+        },
+        subtitle: {
+            text: 'InfoSport'
+        },
+        xAxis: {
+            categories: [
+<?php
+                $conexionBD= new conexion();
+                $link=$conexionBD->getConexion();
+                $query="SELECT nombre from recinto_deportivo ORDER BY  puntuacion";
+                $sql=mysql_query($query,$link);
+                while($res=mysql_fetch_array($sql)){
+?>
 
+                ['<?php echo $res['nombre'] ?>'],
+<?php
+}
+?>
+
+            ],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Canchas ',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ''
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Puntuacion',
+            data: [
+<?php
+                $conexionBD= new conexion();
+                $link=$conexionBD->getConexion();
+                $query="SELECT puntuacion from recinto_deportivo ORDER BY  puntuacion";
+                $sql=mysql_query($query,$link);
+                while($res=mysql_fetch_array($sql)){
+?>
+
+                [<?php echo $res['puntuacion'] ?>],
+<?php
+}
+?>
+
+
+            ]
+        }]
+    });
 }); //Aqui finalizan los graficos
 
 
@@ -393,5 +476,5 @@ $('#container5').highcharts({
 <div id="container4" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 <div id="container5" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 <div id="container6" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
-
+<div id="container7" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 </html>
