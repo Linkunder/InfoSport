@@ -29,8 +29,10 @@ $idUltimoPartido = $ultimoPartido->getIdPartido();
 $jefe = controlPartido::obtenerInstancia();
 $jefe->agregarRecinto($idUltimoPartido, $idRecinto, $precioRecinto);
 
-echo "<script type='text/javascript'>alert('Partido agendado!');</script>";
-header("Location:index2.php");
+$message = "Partido agendado!";
+echo "<script type='text/javascript'>alert('$message');</script>";
+$yourURL="index2.php";
+echo ("<script>location.href='$yourURL'</script>");
 
 
 ?>
