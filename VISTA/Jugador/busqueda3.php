@@ -45,7 +45,13 @@ $val = '';
 $pos = '';
 if ($search!=''){ ?>
 
-    <h3>Resultados</h3>
+<table class="table table-bordered2">
+    <tr>
+        <th>
+            <center><h3>Resultados <?php  echo "  <img src='images/big.png' height='32px' width='32px'>"?></h3></center>
+         </th>
+    </tr>
+</table>
 
     
 
