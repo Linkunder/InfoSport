@@ -60,6 +60,23 @@ p {
 }
 
 
+.btn12 {
+  -webkit-border-radius: 45;
+  -moz-border-radius: 45;
+  border-radius: 45px;
+  font-family: Arial;
+  color: #16160F;
+  font-size: 36px;
+  background: #FECE1A;
+  padding: 15px 40px 15px 40px;
+  border: solid #edf2f5 2px;
+  text-decoration: none;
+}
+
+.btn12:hover {
+  text-decoration: none;
+}
+
 .fotoagregar{
     width: 110px;
     height: 0px;  
@@ -71,6 +88,11 @@ p {
     margin-right: 1px;
     margin-left: 300px;
 }
+
+.fotoagregar2{
+}
+
+
 
 .crearGrupo{
     width: 250px;
@@ -119,6 +141,7 @@ p {
 .fondoamarillo{
     background: #FECE1A;
 }
+
 
 
 

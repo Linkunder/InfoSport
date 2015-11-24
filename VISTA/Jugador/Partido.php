@@ -19,6 +19,7 @@ session_start();
     </tr>
 </table>
 
+<br>
 
 <form class="crearPartido" action= "procesarPartido.php" method="post">
 <ul>
@@ -42,6 +43,13 @@ session_start();
 
 
 
+<br>
+
+<br>
+
+<br>
+
+<br>
 
 
 <!-- Footer section start -->
