@@ -43,7 +43,7 @@ class DAOComentario{
 	}
 	public function eliminarComentario($detalle){ //Depende
 	$link=$this->conexionBD->getConexion(); //conexion a la 
-	$query = "DELETE FROM comentario WHERE detalle = '$detalle'";
+	$query = "DELETE FROM comentario WHERE id_Comentario = '$detalle'";
 	mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
     mysql_close($link);
 	}
@@ -112,6 +112,7 @@ class DAOComentario{
    			   $i=0;
            while ($row=mysql_fetch_array($result)){
             $comentario = new comentario();
+            $comentario->setId_comentario($row['id_Comentario']);
             $comentario->setId_recinto($row['id_recinto']);
             $comentario->setId_jugador($row['id_jugador']);
             $comentario->setAsunto($row['asunto']);

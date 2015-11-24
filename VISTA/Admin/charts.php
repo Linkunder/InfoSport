@@ -13,7 +13,7 @@ header("Location:login.html");
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Charts - Bootstrap Admin Template</title>
+    <title>Infosport- comentarios</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -118,7 +118,7 @@ foreach($vectorComentarios as $Comentario){
 <td><?php echo $Comentario->getDetalle();?></td>
 <td><?php echo $Comentario->getPuntuacion();?></td>
 <td><?php echo $Comentario->getFecha();?></td>
-<td><a href="eliminarComentario.php?id="<?php echo $Comentario->getDetalle();?> >Eliminar</a></td>
+<td><a href='eliminarComentario.php?id_comentario=<?php echo $Comentario->getId_comentario();?>' class="modificar">Eliminar</a></td>
 
 </tr> 
     

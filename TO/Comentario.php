@@ -1,6 +1,7 @@
 <?php
 
 class Comentario {
+    private $id_comentario;
     private $id_recinto;
     private $id_jugador;
     private $asunto;
@@ -10,6 +11,9 @@ class Comentario {
     private $hora;
     function __construct(){}
     
+    function getId_comentario(){
+        return $this->id_comentario;
+    }
     function getId_recinto() {
         return $this->id_recinto;
     }
@@ -65,7 +69,9 @@ class Comentario {
     function setHora($hora) {
         $this->hora = $hora;
     }
-
+    function setId_comentario($id_comentario){
+        $this->id_comentario= $id_comentario;
+    }
 
 }
 ?>
