@@ -13,7 +13,7 @@ $idjugador=$_SESSION['idJugador']; //Listo
 $asunto=$_POST['Asunto'];		   //Listo
 $detalle=$_POST['Comentario'];	   //Listo
 $puntuacion=$_POST['puntaje'];	   //Listo
-$fecha=date("r"); //Listo
+$fecha; //Listo
 		//Creo que esta de mas
 
 $nuevoComentario = new Comentario();

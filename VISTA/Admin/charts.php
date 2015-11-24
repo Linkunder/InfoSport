@@ -109,6 +109,7 @@ $jefeRecinto = infoRecintos::obtenerInstancia();
 
 
 <?php
+if(!empty($vectorComentarios)){
 foreach($vectorComentarios as $Comentario){    
 ?>
 <tr>
@@ -124,6 +125,7 @@ foreach($vectorComentarios as $Comentario){
     
 
 <?php
+}
 }
     ?>
 </table>

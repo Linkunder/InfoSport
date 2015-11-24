@@ -37,7 +37,7 @@ class DAOComentario{
 	public function insertarComentario($comentario){
 		$link=$this->conexionBD->getConexion();
 		$query="INSERT INTO comentario(id_recinto,id_jugador,asunto,detalle,puntuacion,fecha,hora)
-		VALUES('".$comentario->getId_recinto()."','".$comentario->getId_jugador()."','".$comentario->getAsunto()."','".$comentario->getDetalle()."','".$comentario->getPuntuacion()."','".$comentario->getFecha()."','".$comentario->getHora()."')";
+		VALUES('".$comentario->getId_recinto()."','".$comentario->getId_jugador()."','".$comentario->getAsunto()."','".$comentario->getDetalle()."','".$comentario->getPuntuacion()."', now() ,'".$comentario->getHora()."')";
 		    mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
    			mysql_close($link); //Cerramos la conexion
 	}
