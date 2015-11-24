@@ -37,13 +37,13 @@ class DAOComentario{
 	public function insertarComentario($comentario){
 		$link=$this->conexionBD->getConexion();
 		$query="INSERT INTO comentario(id_recinto,id_jugador,asunto,detalle,puntuacion,fecha,hora)
-		VALUES('".$comentario->getId_recinto()."','".$comentario->getId_jugador()."','".$comentario->getAsunto()."','".$comentario->getDetalle()."','".$comentario->getPuntuacion()."','".$comentario->getFecha()."','".$comentario->getHora()."')";
+		VALUES('".$comentario->getId_recinto()."','".$comentario->getId_jugador()."','".$comentario->getAsunto()."','".$comentario->getDetalle()."','".$comentario->getPuntuacion()."', now() ,'".$comentario->getHora()."')";
 		    mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
    			mysql_close($link); //Cerramos la conexion
 	}
 	public function eliminarComentario($detalle){ //Depende
 	$link=$this->conexionBD->getConexion(); //conexion a la 
-	$query = "DELETE FROM comentario WHERE detalle = '$detalle'";
+	$query = "DELETE FROM comentario WHERE id_Comentario = '$detalle'";
 	mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
     mysql_close($link);
 	}
@@ -112,6 +112,7 @@ class DAOComentario{
    			   $i=0;
            while ($row=mysql_fetch_array($result)){
             $comentario = new comentario();
+            $comentario->setId_comentario($row['id_Comentario']);
             $comentario->setId_recinto($row['id_recinto']);
             $comentario->setId_jugador($row['id_jugador']);
             $comentario->setAsunto($row['asunto']);

@@ -13,8 +13,8 @@ $idjugador=$_SESSION['idJugador']; //Listo
 $asunto=$_POST['Asunto'];		   //Listo
 $detalle=$_POST['Comentario'];	   //Listo
 $puntuacion=$_POST['puntaje'];	   //Listo
-$fecha=localtime(); //Listo
-$hora=localtime(); 		//Creo que esta de mas
+$fecha; //Listo
+		//Creo que esta de mas
 
 $nuevoComentario = new Comentario();
 

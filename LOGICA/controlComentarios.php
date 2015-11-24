@@ -84,8 +84,8 @@ class controlComentarios{
 		$suma=$this->persistenciaComentario->obtienePromedioRecinto($id);
 		return $suma;
 	}
-	public function eliminarComentario($detalle){
-		$this->persistenciaComentario->eliminarComentario($detalle);
+	public function eliminarComentario($id){
+		$this->persistenciaComentario->eliminarComentario($id);
 	}
 
 }
