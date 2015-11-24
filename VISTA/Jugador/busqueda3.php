@@ -125,8 +125,8 @@ foreach ($vectorRecintos as $key) {
                                         <span>Superficie</span><?php echo $key->getSuperficie();?></div>  
                                                            
                                                  </div>
-                                                 <a href='agregarRecinto.php?id_recinto=<?php echo $key->getIdRecinto();?>'
-                              <center><button class="btn12">Jugar aqui</button></center></a>
+                                                 <a href='agregarRecinto.php?id_recinto=<?php echo $key->getIdRecinto();?>'>
+                                <center><button class="btn12">Jugar aqui</button></center></a>
                             </div>
                         </div>
 
@@ -162,7 +162,7 @@ foreach ($vectorRecintos as $key) {
                                 <p><?php echo $comentarios->getDetalle();?></p>
                                 <div class="whopic">
                                     <div class="arrow"></div>
-                                 <img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>">
+                                 <img src="../images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>">
                                     <strong><?php echo $jugador[0]->getNombre(); ?>
                                         <small></small>
                                     </strong>
