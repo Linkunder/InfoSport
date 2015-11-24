@@ -195,6 +195,14 @@ Marker585=new google.maps.LatLng(-36.6254096,-72.0850318); addMarker(Marker585);
         <div class="section secondary-section"></div>
         <!-- Client section start -->
         <!-- Client section start -->
+        <?php 
+include_once('../TO/Comentario.php');
+include_once('../LOGICA/controlComentarios2.php');
+include_once('../TO/Jugador.php');
+include_once('../LOGICA/infoJugadores2.php');
+        $jefeComentario = controlComentarios::obtenerInstancia(); 
+        $vectorComentarios=$jefeComentario->obtenerComentarioDos(3);
+        ?>
         <div id="clients">
             <div class="section primary-section">
               <div class="container">
@@ -205,7 +213,7 @@ Marker585=new google.maps.LatLng(-36.6254096,-72.0850318); addMarker(Marker585);
                     <div class="row">
                         <div class="span4">
                             <div class="testimonial">
-                                <p>"Aqui podemos sacar algun comentario random desde la base de datos. PRUEBA GITHUB"</p>
+                                <p>"Aqui podemos sacar algun comentario random desde la base de datos EDITADO DESDE GITHUB."</p>
                                 <div class="whopic">
                                     <div class="arrow"></div>
                                     <img src="Admin/img/message_avatar2.png" class="centered" alt="client 1">
