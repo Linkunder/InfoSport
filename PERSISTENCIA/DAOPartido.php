@@ -19,6 +19,40 @@ class DAOPartido{
  		 where id_partido = '".$partido->getIdPartido()."'"
  		;
     }
+
+    public function agregarRecinto($idUltimoPartido, $idRecinto, $precioRecinto){
+        $link = $this->conexionBD->getConexion();
+        $query= "UPDATE partido set id_recinto='".$idRecinto."',cuota='".$precioRecinto."' WHERE id_partido = '".$idUltimoPartido."'";
+        $result = mysql_query($query,$link) or die(mysql_error());
+        mysql_close($link);
+    }
+
+    public function getPartidos(){
+        $vectorData;
+        $link=$this->conexionBD->getConexion();
+        $query = "SELECT * FROM partido";
+        $result = mysql_query($query,$link) or die (mysql_error());
+        $i=0;
+        while ($row=mysql_fetch_array($result)){
+            $partido = new Partido();
+            $partido->setIdPartido($row['id_partido']);
+            $partido->setIdRecinto($row['id_recinto']);
+            $partido->setIdJugador($row['id_jugador']);
+            $partido->setIdEstado($row['id_estado']);
+            $partido->setHora($row['hora']);
+            $partido->setFecha($row['fecha']);
+            $partido->setCuota($row['cuota']);
+            $partido->setNroJugadores($row['numero_jugadores']);
+            $vectorData[$i]=$partido;
+            $i++;
+        }
+        mysql_close($link);
+        if (empty($vectorData)){
+            return null;
+        }
+        return $vectorData;
+    }
+
 	
 	public function insertarPartido($partido){
 		$link=$this->conexionBD->getConexion();
@@ -61,36 +95,7 @@ class DAOPartido{
     return $vectorData;		
 	}
 
-	public function getPartidos(){
-		   $vectorData;
-    		$link=$this->conexionBD->getConexion(); //conexion a la bd
-    		$query="SELECT * FROM partido;";
-   			$result= mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
-   			   $i=0;
-    while($row=mysql_fetch_array($result)){
-        
-        $partido=new Partido();
-        $partido->setIdPartido($row['id_partido']);
-        $partido->setIdRecinto($row['id_recinto']);
-        $partido->setIdJugador($row['id_jugador']);
-        $partido->setIdEstado($row['id_estado']);
-        $partido->setHora($row['hora']);
-        $partido->setFecha($row['fecha']);
-        $partido->setCuota($row['cuota']);
 
-        $vectorData[$i]=$partido;
-
-    
-        $i++;
-    }
-    mysql_close($link);
-	if(empty($vectorData)){
-		return null;
-	}
-    return $vectorData;
-
-
-	}
     public function getPartidosJugados(){
            $vectorData;
             $link=$this->conexionBD->getConexion(); //conexion a la bd
@@ -153,6 +158,14 @@ class DAOPartido{
 
 
     }
+
+
+
+
+
+
+
+
 
     }
 

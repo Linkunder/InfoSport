@@ -57,5 +57,10 @@ class infoRecintos{
 
 	}
 
+	public function obtenerPrecio($id){
+		return $this->persistenciaRecinto->obtenerPrecio($id);
+	}
+
+
 }
 ?>

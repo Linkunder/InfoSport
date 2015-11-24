@@ -18,6 +18,16 @@
 
     }
 
+    public function obtenerPrecio($id){
+        $link=$this->conexionBD->getConexion();
+        $query = "SELECT precio from recinto_deportivo where id_recinto = '$id'";
+        $result = mysql_query($query, $link);
+        $row = mysql_fetch_array($result);
+        return $row['precio'];
+    }
+
+
+    
     public function modificarRecintoDos($recinto){
  		$link=$this->conexionBD->getConexion(); //conexion a la bd
  		$query="UPDATE recinto_deportivo SET 
@@ -158,5 +168,7 @@
         $result = mysql_query($query,$link) or die(mysql_error());
         mysql_close($link);
     }
+
+
 }
 ?>

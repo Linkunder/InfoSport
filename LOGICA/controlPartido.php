@@ -35,6 +35,20 @@ class controlPartido{
 		$this->persistenciaPartido->insertarPartido($partido);
 	}
 
+	public function agregarRecinto($idUltimoPartido, $idRecinto, $precioRecinto){
+		$vectorData=$this->persistenciaPartido->agregarRecinto($idUltimoPartido, $idRecinto, $precioRecinto);
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
+	
+	}
+
+	public function obtenerPartidos(){
+		$vectorData = $this->persistenciaPartido->getPartidos();
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
+	}
 
 
 
