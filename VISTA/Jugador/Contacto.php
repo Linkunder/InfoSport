@@ -109,13 +109,24 @@ foreach ($vectorJugador as $Jugador) {
   }//fin del foreach
 ?>
 
-<div>
+
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br>
 
-  <center><button class="btn13" href="#eleccionJugadores">Siguiente</button></center> </div>
-<br>
+
+<div>
+
+   <center><input class="btn13" type="button" value="Siguiente" class="button" data-type="zoomin" /><center>
+  </div>
+
+
+
+  <br>
+
+
+
+
 
 
 <?php
