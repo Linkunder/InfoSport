@@ -8,30 +8,17 @@ include_once('../../TO/Grupo.php');
 include_once('../../LOGICA/infoGrupos.php');
 include_once('../../TO/GrupoConformado.php');
 include_once('../../LOGICA/infoGruposConformados.php');
-include_once('../../TO/Partido.php');
-include_once('../../LOGICA/controlPartido.php');
 
 $jefeRecinto = infoRecintos::obtenerInstancia();
 $vectorRecintos=$jefeRecinto->obtenerRecinto();
-
 $vectorJugador=$jefeJugador= infoJugadores::obtenerInstancia();
 $jefeGrupoConformado = infoGruposConformados::obtenerInstancia();
-
-$jefePartidos = controlPartido::obtenerInstancia();
-
-$vectorPartidos = $jefePartidos->obtenerPartidos();
-$ultimoPartido = end($vectorPartidos);
-$idUltimoPartido = $ultimoPartido->getIdPartido();
-
-$nombreRecinto = $jefePartidos->obtenerNombreRecinto($idUltimoPartido);
-
-
 
 // $id_equipo=$_GET['id_equipo'];
 $id_grupo="1";
 $vectorJugador = $jefeGrupoConformado->obtenerJugadores($id_grupo);; 
-
-
+//$id_recinto=$GET['id_recinto'];
+$id_recinto="3";
 
 include('header.php'); ?>
 
@@ -44,49 +31,16 @@ include('header.php'); ?>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
   <style>
-
-  .draggable { 
-     width: 40px;
-     height: 40px; 
-     padding: 5px; 
-     float: left; 
-     margin: 0 10px 10px 0; 
-     font-size: 0.9em; 
-     color: black; 
-     text-align: center;}     
-  .ui-widget-header p{
-    color: black; 
-    text-align: 
-    center;}
-  ,.ui-widget-content p { 
-    margin: 0;
-    color: black; 
-    text-align: center; 
-  }
-  #snaptarget { 
-    height: 452px; 
-    width: 726px; 
-    float: right; 
-    color: black; 
-    text-align: center;
-    background-image: url("images/cfut.jpg"); /*Aqui hay que ir cambiando la imagen dependiendo del deporte*/
-
   .draggable { width: 40px; height: 40px; padding: 5px; float: left; float: ; margin: 0 10px 10px 0; font-size: 0.9em; color: black; text-align: center;}
-  .ui-widget-header p{color: black; text-align: center; }, .ui-widget-content p { margin: 0;color: black; text-align: center;}
-  #snaptarget { height: 452px; width: 726px; float: right; color: black; text-align: center; margin-top: 20px; margin-right: 20px;
+  .ui-widget-header p{color: black; text-align: center;}, .ui-widget-content p { margin: 0;color: black; text-align: center; }
+  #snaptarget { height: 452px; width: 726px; float: right; color: black; text-align: center;
     background-image: url("images/cfut.jpg"); 
-
   }
   </style>
-
   <script>
-  $(function() { 
-    $( "#draggable" ).draggable({ 
-      snap: true 
-    });
-    $( "#draggable2" ).draggable({ snap: ".ui-widget-header" 
-
-    });
+  $(function() {
+    $( "#draggable" ).draggable({ snap: true });
+    $( "#draggable2" ).draggable({ snap: ".ui-widget-header" });
     $( "#draggable3" ).draggable({ snap: ".ui-widget-header" });
     $( "#draggable4" ).draggable({ snap: ".ui-widget-header" });
     $( "#draggable5" ).draggable({ snap: ".ui-widget-header" });
@@ -110,21 +64,11 @@ include('header.php'); ?>
   });
   </script>
 
-<div class= "fondoamarillo"> <!-- FONDO AMARILLO-->
-
-<div  id="snaptarget" class="ui-widget-header"> <!--Recinto deportivo (imagen de cancha) -->
-  <p><?php echo "Recinto"?></p>
-
-<div class = "tituloCancha">
-  <br>
-  <?php echo "$nombreRecinto"?>
-</div>
+<div class= "fondoamarillo">
 
 <div  id="snaptarget" class="ui-widget-header">
-
-
+  <p><?php echo "Recinto"?></p>
 </div>
-<br>
 
  
 <br style="clear:none">
@@ -132,9 +76,10 @@ include('header.php'); ?>
 <?php 
 $cont=2;
 
-foreach ($vectorJugador as $Jugador) { //Vector de jugadores del grupo seleccionado  
+foreach ($vectorJugador as $Jugador) {
+  
 ?>
-<div id="draggable<?php echo $cont ?>" class="draggable ui-widget-content"> <!--Jugador "draggable"-->
+<div id="draggable<?php echo $cont ?>" class="draggable ui-widget-content">
   <img src="../images/usuarios/<?php echo $Jugador->getDirectorio_foto()?>" width="30" alt="image02">
   <p color: "black"; text-align: "center"; ><?php echo $Jugador->getNombre()?></p>
 </div>
@@ -145,37 +90,17 @@ foreach ($vectorJugador as $Jugador) { //Vector de jugadores del grupo seleccion
   }//fin del foreach
 ?>
 
+<div>
 
-
-<!--<br> para que baje el "fondoAmarillo" -->
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br>
 
-<!--<br> para que baje el "fondoAmarillo" -->
-
-
-
-<div>
-
-   <center><input class="btn13" type="button" value="Siguiente" class="button" data-type="zoomin" /><center>
-  </div>
-
-
-
-  <br>
-
-
-
-
-
-  <center><button class="btn13" href="#eleccionJugadores">Siguiente</button></center> </div>
-<br>
-
-
-<!--Boton para la eleccion de jugadores -->
   <center><button class="btn12" href="#eleccionJugadores">Siguiente</button></center> </div>
+
+
 
 <?php
 include('footer.php');
+
 include('scrollUp.php');
 ?>
