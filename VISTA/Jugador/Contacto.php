@@ -31,16 +31,42 @@ include('header.php'); ?>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
   <style>
-  .draggable { width: 40px; height: 40px; padding: 5px; float: left; float: ; margin: 0 10px 10px 0; font-size: 0.9em; color: black; text-align: center;}
-  .ui-widget-header p{color: black; text-align: center;}, .ui-widget-content p { margin: 0;color: black; text-align: center; }
-  #snaptarget { height: 452px; width: 726px; float: right; color: black; text-align: center;
-    background-image: url("images/cfut.jpg"); 
+  .draggable { 
+     width: 40px;
+     height: 40px; 
+     padding: 5px; 
+     float: left; 
+     margin: 0 10px 10px 0; 
+     font-size: 0.9em; 
+     color: black; 
+     text-align: center;}     
+  .ui-widget-header p{
+    color: black; 
+    text-align: 
+    center;}
+  ,.ui-widget-content p { 
+    margin: 0;
+    color: black; 
+    text-align: center; 
+  }
+  #snaptarget { 
+    height: 452px; 
+    width: 726px; 
+    float: right; 
+    color: black; 
+    text-align: center;
+    background-image: url("images/cfut.jpg"); /*Aqui hay que ir cambiando la imagen dependiendo del deporte*/
   }
   </style>
+
   <script>
-  $(function() {
-    $( "#draggable" ).draggable({ snap: true });
-    $( "#draggable2" ).draggable({ snap: ".ui-widget-header" });
+  $(function() { 
+    $( "#draggable" ).draggable({ 
+      snap: true 
+    });
+    $( "#draggable2" ).draggable({ snap: ".ui-widget-header" 
+
+    });
     $( "#draggable3" ).draggable({ snap: ".ui-widget-header" });
     $( "#draggable4" ).draggable({ snap: ".ui-widget-header" });
     $( "#draggable5" ).draggable({ snap: ".ui-widget-header" });
@@ -64,9 +90,9 @@ include('header.php'); ?>
   });
   </script>
 
-<div class= "fondoamarillo">
+<div class= "fondoamarillo"> <!-- FONDO AMARILLO-->
 
-<div  id="snaptarget" class="ui-widget-header">
+<div  id="snaptarget" class="ui-widget-header"> <!--Recinto deportivo (imagen de cancha) -->
   <p><?php echo "Recinto"?></p>
 </div>
 
@@ -76,10 +102,9 @@ include('header.php'); ?>
 <?php 
 $cont=2;
 
-foreach ($vectorJugador as $Jugador) {
-  
+foreach ($vectorJugador as $Jugador) { //Vector de jugadores del grupo seleccionado  
 ?>
-<div id="draggable<?php echo $cont ?>" class="draggable ui-widget-content">
+<div id="draggable<?php echo $cont ?>" class="draggable ui-widget-content"> <!--Jugador "draggable"-->
   <img src="../images/usuarios/<?php echo $Jugador->getDirectorio_foto()?>" width="30" alt="image02">
   <p color: "black"; text-align: "center"; ><?php echo $Jugador->getNombre()?></p>
 </div>
@@ -92,15 +117,16 @@ foreach ($vectorJugador as $Jugador) {
 
 <div>
 
+<!--<br> para que baje el "fondoAmarillo" -->
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br>
+<!--<br> para que baje el "fondoAmarillo" -->
 
+
+<!--Boton para la eleccion de jugadores -->
   <center><button class="btn12" href="#eleccionJugadores">Siguiente</button></center> </div>
-
-
 
 <?php
 include('footer.php');
-
 include('scrollUp.php');
 ?>

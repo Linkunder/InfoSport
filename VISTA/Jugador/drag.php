@@ -6,20 +6,17 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 
-
+<body>
  <div class="container">
  <h1><p>Drag and Drop </p>
  <div id="drop1"></div>
  <div id="drag" draggable="true"></div>
-  <div id="drag" draggable="true"></div>
-   <div id="drag" draggable="true"></div>
-    <div id="drag" draggable="true"></div>
-     <div id="drag" draggable="true"></div>
+
  <h2>Arrastra el azul verde al cuadro gris</h2>
  </div>
-
+</body>
  <script src="ddd-script.js"></script>
-<?php echo drag.ondragstart()?>
+
  <style>
 body{
 text-align: center;
