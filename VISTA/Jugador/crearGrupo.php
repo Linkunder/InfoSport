@@ -54,20 +54,24 @@ $idUltimoGrupo = $ultimoGrupo->getId_grupo();
 	</tr>
 </table>
 
+<div class = "busqueda">
+<form class="form-wrapper cf" action="crearGrupo.php" method="get">
+        <input type="text" placeholder="Busca un jugador..." name="search" required>
+        <button type="submit">Buscar</button>
+    </form> 
+</div>
+
 
 <table class="table table-bordered2">
 	<tr>
 		<th>Jugadores actuales</th>
-
 	</tr>
-
 	<tr>
 		<?php
 		$vectorJugadoresAux=$jefeJugador->obtenerJugadores($idUltimoGrupo);
 		foreach ($vectorJugadoresAux as $JugadorAux) {
 			$nombreJugadorAux = $JugadorAux->getNombre();
 			$nombreCompletoJugador = $nombreJugadorAux." ".$JugadorAux->getApellido();
-		
 		?>
 		<td><?php echo $nombreCompletoJugador?></td>
 	</tr>
@@ -86,13 +90,15 @@ $idUltimoGrupo = $ultimoGrupo->getId_grupo();
 
 <br>
 
+
+
+
 <?php
-	$search = '.';
+	$search = '';
 	$cont = 0;
 	$aux = 1;
 	if (isset($_GET['search'])) {
 	    $search = $_GET['search'];
-	    echo "Busqueda: ".$search;
 	}
 
 	$val = '';

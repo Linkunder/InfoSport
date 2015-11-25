@@ -32,7 +32,14 @@ session_start();
 
         <label for="jugadores">Numero de jugadores</label>
         <input type="int" name="jugadores" maxlength="200">
-    
+
+        <label for="deporte">Deporte</label>
+        <select name="deporte" id = "deporte">
+                        <option>Baby-futbol</option>
+                        <option>Futbolito</option>
+                        <option>Hockey</option>
+                        <option>Basquetbol</option>
+        </select>
         <br>
         <br>
         <center><input type="submit" value="Enviar" ></center>

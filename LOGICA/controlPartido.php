@@ -50,6 +50,10 @@ class controlPartido{
 		return $vectorData;
 	}
 
+	public function obtenerNombreRecinto($idPartido){
+		return $this->persistenciaPartido->obtenerRecinto($idPartido);
+	}
+
 
 
 

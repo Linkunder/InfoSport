@@ -59,12 +59,20 @@ p {
     margin-left: 10px;
 }
 
+.tituloCancha{
+    font-family:'Roboto', sans-serif;
+    color: #16160F;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 1100px;
+}
+
 
 .btn12 {
   -webkit-border-radius: 45;
   -moz-border-radius: 45;
   border-radius: 45px;
-  font-family: Arial;
+   font-family:'Roboto', sans-serif;
   color: #16160F;
   font-size: 36px;
   background: #FECE1A;
@@ -74,6 +82,24 @@ p {
 }
 
 .btn12:hover {
+  text-decoration: none;
+}
+
+
+.btn13 {
+  -webkit-border-radius: 45;
+  -moz-border-radius: 45;
+  border-radius: 45px;
+    font-family:'Roboto', sans-serif;
+  color: #FECE1A;
+  font-size: 36px;
+  background: #16160F;
+  padding: 15px 40px 15px 40px;
+  border: solid #edf2f5 2px;
+  text-decoration: none;
+}
+
+.btn13:hover {
   text-decoration: none;
 }
 

@@ -53,6 +53,15 @@ class DAOPartido{
         return $vectorData;
     }
 
+    public function obtenerRecinto($idPartido){
+        $link=$this->conexionBD->getConexion();
+        $query = "SELECT R.nombre from recinto_deportivo R INNER JOIN partido P on R.id_recinto = P.id_recinto where P.id_partido = '$idPartido'";
+        $result = mysql_query($query,$link);
+        $row = mysql_fetch_array($result);
+        return $row['nombre'];
+
+    }
+
 	
 	public function insertarPartido($partido){
 		$link=$this->conexionBD->getConexion();
