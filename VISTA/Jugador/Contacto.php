@@ -8,17 +8,30 @@ include_once('../../TO/Grupo.php');
 include_once('../../LOGICA/infoGrupos.php');
 include_once('../../TO/GrupoConformado.php');
 include_once('../../LOGICA/infoGruposConformados.php');
+include_once('../../TO/Partido.php');
+include_once('../../LOGICA/controlPartido.php');
 
 $jefeRecinto = infoRecintos::obtenerInstancia();
 $vectorRecintos=$jefeRecinto->obtenerRecinto();
+
 $vectorJugador=$jefeJugador= infoJugadores::obtenerInstancia();
 $jefeGrupoConformado = infoGruposConformados::obtenerInstancia();
+
+$jefePartidos = controlPartido::obtenerInstancia();
+
+$vectorPartidos = $jefePartidos->obtenerPartidos();
+$ultimoPartido = end($vectorPartidos);
+$idUltimoPartido = $ultimoPartido->getIdPartido();
+
+$nombreRecinto = $jefePartidos->obtenerNombreRecinto($idUltimoPartido);
+
+
 
 // $id_equipo=$_GET['id_equipo'];
 $id_grupo="1";
 $vectorJugador = $jefeGrupoConformado->obtenerJugadores($id_grupo);; 
-//$id_recinto=$GET['id_recinto'];
-$id_recinto="3";
+
+
 
 include('header.php'); ?>
 
@@ -67,7 +80,7 @@ include('header.php'); ?>
 <div class= "fondoamarillo">
 
 <div  id="snaptarget" class="ui-widget-header">
-  <p><?php echo "Recinto"?></p>
+  <p><?php echo "$nombreRecinto"?></p>
 </div>
 
  
@@ -95,8 +108,8 @@ foreach ($vectorJugador as $Jugador) {
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br>
 
-  <center><button class="btn12" href="#eleccionJugadores">Siguiente</button></center> </div>
-
+  <center><button class="btn13" href="#eleccionJugadores">Siguiente</button></center> </div>
+<br>
 
 
 <?php

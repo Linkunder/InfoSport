@@ -77,6 +77,24 @@ p {
   text-decoration: none;
 }
 
+
+.btn13 {
+  -webkit-border-radius: 45;
+  -moz-border-radius: 45;
+  border-radius: 45px;
+  font-family: Arial;
+  color: #FECE1A;
+  font-size: 36px;
+  background: #16160F;
+  padding: 15px 40px 15px 40px;
+  border: solid #edf2f5 2px;
+  text-decoration: none;
+}
+
+.btn13:hover {
+  text-decoration: none;
+}
+
 .fotoagregar{
     width: 110px;
     height: 0px;  
