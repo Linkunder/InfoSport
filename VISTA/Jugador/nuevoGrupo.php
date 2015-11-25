@@ -30,8 +30,16 @@ foreach($vectorJugador as $Jugador){
 
 <div class= "fondoamarillo">
 <br>
-<center><h3>Crea tu grupo de jugadores en InfoSport</h3></center>
-<center><h5>Con los jugadores que elijas, sera mucho mas facil agendar tu partido</h5></center>
+
+<table class="table table-bordered2">
+    <tr>
+        <th>
+			<center><h3>Crea tu grupo de jugadores en InfoSport</h3></center>
+			<center><h5>Con los jugadores que elijas, sera mucho mas facil agendar tu partido</h5></center>
+		</th>
+    </tr>
+</table>
+
 
 
 
