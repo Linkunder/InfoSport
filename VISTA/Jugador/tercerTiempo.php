@@ -24,12 +24,14 @@ session_start();
 
 <div class= "cuadrado">
 <div>
-	<form action="procesarTercerTiempo.php" method="post">
+
    		<input class="btn14" type="submit" value="SI" class="button" />
    		<input class="btn14" type="submit" value="NO" class="button" />
-	</form>
+
  </div>
 </div>
+
+
 
 <br>
 
