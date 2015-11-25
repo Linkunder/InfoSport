@@ -64,11 +64,12 @@ include('header.php'); ?>
   });
   </script>
 
-<body><div class= "fondoamarillo">
+<div class= "fondoamarillo">
 
 <div  id="snaptarget" class="ui-widget-header">
   <p><?php echo "Recinto"?></p>
 </div>
+
  
 <br style="clear:none">
  
@@ -80,7 +81,7 @@ foreach ($vectorJugador as $Jugador) {
 ?>
 <div id="draggable<?php echo $cont ?>" class="draggable ui-widget-content">
   <img src="../images/usuarios/<?php echo $Jugador->getDirectorio_foto()?>" width="30" alt="image02">
-  <p color: "black"; text-align: "center"; ><?php $Jugador->getNombre()?></p>
+  <p color: "black"; text-align: "center"; ><?php echo $Jugador->getNombre()?></p>
 </div>
 
 <?php
@@ -89,14 +90,17 @@ foreach ($vectorJugador as $Jugador) {
   }//fin del foreach
 ?>
 
+<div>
 
- 
-</body>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
+
+  <center><button class="btn12" href="#eleccionJugadores">Siguiente</button></center> </div>
 
 
 
 <?php
-
+include('footer.php');
 
 include('scrollUp.php');
 ?>
