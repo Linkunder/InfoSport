@@ -146,7 +146,7 @@ foreach ($vectorJugador as $Jugador) { //Vector de jugadores del grupo seleccion
   }//fin del foreach
 ?>
 
-
+<div>
 
 <!--<br> para que baje el "fondoAmarillo" -->
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -156,24 +156,8 @@ foreach ($vectorJugador as $Jugador) { //Vector de jugadores del grupo seleccion
 
 =======
 
-<<<<<<< HEAD
-
-<div>
-
-   <center><input class="btn13" type="button" value="Siguiente" class="button" data-type="zoomin" /><center>
-  </div>
-
-
-
-  <br>
-
-
-
-
-=======
   <center><button class="btn13" href="#eleccionJugadores">Siguiente</button></center> </div>
 <br>
->>>>>>> origin/master
 >>>>>>> origin/master
 
 <!--Boton para la eleccion de jugadores -->

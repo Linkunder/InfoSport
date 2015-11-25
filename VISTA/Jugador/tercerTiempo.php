@@ -25,8 +25,8 @@ session_start();
 <div class= "cuadrado">
 <div>
 	<form action="procesarTercerTiempo.php" method="post">
-   <input class="btn14" type="button" value="SI" class="button" data-type="zoomin" />
-   <input class="btn14" type="button" value="NO" class="button" data-type="zoomin" />
+   		<input class="btn14" type="submit" value="SI" class="button" />
+   		<input class="btn14" type="submit" value="NO" class="button" />
 	</form>
  </div>
 </div>
