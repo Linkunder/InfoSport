@@ -44,7 +44,7 @@ include('header.php'); ?>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
   <style>
-<<<<<<< HEAD
+
   .draggable { 
      width: 40px;
      height: 40px; 
@@ -70,12 +70,12 @@ include('header.php'); ?>
     color: black; 
     text-align: center;
     background-image: url("images/cfut.jpg"); /*Aqui hay que ir cambiando la imagen dependiendo del deporte*/
-=======
+
   .draggable { width: 40px; height: 40px; padding: 5px; float: left; float: ; margin: 0 10px 10px 0; font-size: 0.9em; color: black; text-align: center;}
   .ui-widget-header p{color: black; text-align: center; }, .ui-widget-content p { margin: 0;color: black; text-align: center;}
   #snaptarget { height: 452px; width: 726px; float: right; color: black; text-align: center; margin-top: 20px; margin-right: 20px;
     background-image: url("images/cfut.jpg"); 
->>>>>>> origin/master
+
   }
   </style>
 
@@ -112,10 +112,9 @@ include('header.php'); ?>
 
 <div class= "fondoamarillo"> <!-- FONDO AMARILLO-->
 
-<<<<<<< HEAD
 <div  id="snaptarget" class="ui-widget-header"> <!--Recinto deportivo (imagen de cancha) -->
   <p><?php echo "Recinto"?></p>
-=======
+
 <div class = "tituloCancha">
   <br>
   <?php echo "$nombreRecinto"?>
@@ -123,7 +122,7 @@ include('header.php'); ?>
 
 <div  id="snaptarget" class="ui-widget-header">
 
->>>>>>> origin/master
+
 </div>
 <br>
 
@@ -151,12 +150,10 @@ foreach ($vectorJugador as $Jugador) { //Vector de jugadores del grupo seleccion
 <!--<br> para que baje el "fondoAmarillo" -->
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br>
-<<<<<<< HEAD
+
 <!--<br> para que baje el "fondoAmarillo" -->
 
-=======
 
-<<<<<<< HEAD
 
 <div>
 
@@ -170,11 +167,10 @@ foreach ($vectorJugador as $Jugador) { //Vector de jugadores del grupo seleccion
 
 
 
-=======
+
   <center><button class="btn13" href="#eleccionJugadores">Siguiente</button></center> </div>
 <br>
->>>>>>> origin/master
->>>>>>> origin/master
+
 
 <!--Boton para la eleccion de jugadores -->
   <center><button class="btn12" href="#eleccionJugadores">Siguiente</button></center> </div>
