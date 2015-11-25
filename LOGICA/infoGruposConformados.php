@@ -7,9 +7,12 @@ include_once('../../PERSISTENCIA/DAOJugador.php');
 class infoGruposConformados{
 	private static $instancia;
 	private $persistenciaGrupoConformado;
+	private $persistenciaJugador;
 
 	private function __construct(){
 		$this->persistenciaGrupoConformado= new DAOGrupoConformado();
+
+		$this->persistenciaJugador= new DAOJugador();
 	}
 
 	public function obtenerInstancia(){

@@ -1,10 +1,31 @@
 <?php
+session_start();
+include_once('../../TO/RecintoDeportivo.php');
+include_once('../../LOGICA/inforecintos.php');
+include_once('../../TO/Jugador.php');
+include_once('../../LOGICA/infoJugadores.php');
+include_once('../../TO/Grupo.php');
+include_once('../../LOGICA/infoGrupos.php');
+include_once('../../TO/GrupoConformado.php');
+include_once('../../LOGICA/infoGruposConformados.php');
+
+$jefeRecinto = infoRecintos::obtenerInstancia();
+$vectorRecintos=$jefeRecinto->obtenerRecinto();
+$vectorJugador=$jefeJugador= infoJugadores::obtenerInstancia();
+$jefeGrupoConformado = infoGruposConformados::obtenerInstancia();
+
+// $id_equipo=$_GET['id_equipo'];
+$id_grupo="1";
+$vectorJugador = $jefeGrupoConformado->obtenerJugadores($id_grupo);; 
+//$id_recinto=$GET['id_recinto'];
+$id_recinto="3";
+
 include('header.php'); ?>
 
 
 
 
-  <title>jQuery UI Draggable - Snap to element or grid</title>
+
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -25,26 +46,48 @@ include('header.php'); ?>
     $( "#draggable5" ).draggable({ snap: ".ui-widget-header" });
     $( "#draggable6" ).draggable({ snap: ".ui-widget-header" });
     $( "#draggable7" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable8" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable9" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable10" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable11" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable12" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable13" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable14" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable15" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable16" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable17" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable18" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable19" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable20" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable21" ).draggable({ snap: ".ui-widget-header" });
+    $( "#draggable22" ).draggable({ snap: ".ui-widget-header" });
   });
   </script>
 
 <body><div class= "fondoamarillo">
 
 <div  id="snaptarget" class="ui-widget-header">
-  <p>Jugadores</p>
+  <p><?php echo "Recinto"?></p>
 </div>
  
 <br style="clear:none">
  
- 
-<div id="draggable2" class="draggable ui-widget-content">
-  <img src="../images/usuarios/cbravo.png" width="30" alt="image02">
-  <p color: "black"; text-align: "center"; >Claudio Bravo</p>
+<?php 
+$cont=2;
+
+foreach ($vectorJugador as $Jugador) {
+  
+?>
+<div id="draggable<?php echo $cont ?>" class="draggable ui-widget-content">
+  <img src="../images/usuarios/<?php echo $Jugador->getDirectorio_foto()?>" width="30" alt="image02">
+  <p color: "black"; text-align: "center"; ><?php $Jugador->getNombre()?></p>
 </div>
-<div id="draggable3" class="draggable ui-widget-content" align="center">
-  <img src="../images/1442031669_football.png" width="20" alt="image02">
-  <p>Jugador</p>
-</div>
+
+<?php
+
+  $cont++;
+  }//fin del foreach
+?>
 
 
  
