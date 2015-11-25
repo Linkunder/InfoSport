@@ -26,7 +26,7 @@ text-align: center;
 }
 /*Creacion de los 2 elementos*/
 #drag {
-width: 100px;
+width: 1000px;
 height: 100px;
 -moz-border-radius: 50%;
 -webkit-border-radius: 50%;

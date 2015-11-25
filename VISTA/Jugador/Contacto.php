@@ -45,8 +45,8 @@ include('header.php'); ?>
   <link rel="stylesheet" href="/resources/demos/style.css">
   <style>
   .draggable { width: 40px; height: 40px; padding: 5px; float: left; float: ; margin: 0 10px 10px 0; font-size: 0.9em; color: black; text-align: center;}
-  .ui-widget-header p{color: black; text-align: center;}, .ui-widget-content p { margin: 0;color: black; text-align: center; }
-  #snaptarget { height: 452px; width: 726px; float: right; color: black; text-align: center;
+  .ui-widget-header p{color: black; text-align: center; }, .ui-widget-content p { margin: 0;color: black; text-align: center;}
+  #snaptarget { height: 452px; width: 726px; float: right; color: black; text-align: center; margin-top: 20px; margin-right: 20px;
     background-image: url("images/cfut.jpg"); 
   }
   </style>
@@ -79,9 +79,15 @@ include('header.php'); ?>
 
 <div class= "fondoamarillo">
 
-<div  id="snaptarget" class="ui-widget-header">
-  <p><?php echo "$nombreRecinto"?></p>
+<div class = "tituloCancha">
+  <br>
+  <?php echo "$nombreRecinto"?>
 </div>
+
+<div  id="snaptarget" class="ui-widget-header">
+
+</div>
+<br>
 
  
 <br style="clear:none">
