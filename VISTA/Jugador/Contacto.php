@@ -47,12 +47,12 @@ $id_partido="9";
 
   <script>
   $(function() {
-    $( "#draggable" ).draggable({ snap: true
+    $( "#draggable" ).draggable({ snap: true 
     });
 
-    $("#snaptarget").data("numsoltar",0);
+    $("#snaptarget").data("numsoltar",0); //variable que guarda el num de jugadores
     $("#snaptarget").droppable({
-   drop: function( event, ui ) {
+   drop: function( event, ui ) { //Aqui entra
       if (!ui.draggable.data("jugador")){
          ui.draggable.data("jugador", true);
          var elem = $(this);
@@ -74,7 +74,7 @@ $id_partido="9";
       }
 
    },
-   out: function( event, ui ) {
+   out: function( event, ui ) { //Aqui sale
       if (ui.draggable.data("jugador")){
          ui.draggable.data("jugador", false);
          var elem = $(this);
