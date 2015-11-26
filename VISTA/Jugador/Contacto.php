@@ -8,20 +8,27 @@ include_once('../../TO/Grupo.php');
 include_once('../../LOGICA/infoGrupos.php');
 include_once('../../TO/GrupoConformado.php');
 include_once('../../LOGICA/infoGruposConformados.php');
+include_once('../../PERSISTENCIA/conexion.php');
+include('header.php'); 
 
 $jefeRecinto = infoRecintos::obtenerInstancia();
 $vectorRecintos=$jefeRecinto->obtenerRecinto();
 $vectorJugador=$jefeJugador= infoJugadores::obtenerInstancia();
+$vectorJugador1=$jefeJugador= infoJugadores::obtenerInstancia();
 $jefeGrupoConformado = infoGruposConformados::obtenerInstancia();
 
 // $id_equipo=$_GET['id_equipo'];
 $id_grupo="1";
-$vectorJugador = $jefeGrupoConformado->obtenerJugadores($id_grupo);; 
-//$id_recinto=$GET['id_recinto'];
+$vectorJugador = $jefeGrupoConformado->obtenerJugadores($id_grupo);
+$vectorJugador1 = $jefeGrupoConformado->obtenerJugadores($id_grupo);
+//$id_recinto=$_GET['id_recinto'];
 $id_recinto="3";
+//$id_partido=$_GET['id_partido'];
+$id_partido="9";
+//Jugador 
 
-include('header.php'); ?>
-
+ $conexionBD= new conexion();
+?>
 
 
 
@@ -37,32 +44,64 @@ include('header.php'); ?>
     background-image: url("images/cfut.jpg"); 
   }
   </style>
+
   <script>
   $(function() {
-    $( "#draggable" ).draggable({ snap: true });
-    $( "#draggable2" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable3" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable4" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable5" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable6" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable7" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable8" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable9" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable10" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable11" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable12" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable13" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable14" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable15" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable16" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable17" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable18" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable19" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable20" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable21" ).draggable({ snap: ".ui-widget-header" });
-    $( "#draggable22" ).draggable({ snap: ".ui-widget-header" });
-  });
+    $( "#draggable" ).draggable({ snap: true
+    });
+
+    $("#snaptarget").data("numsoltar",0);
+    $("#snaptarget").droppable({
+   drop: function( event, ui ) {
+      if (!ui.draggable.data("jugador")){
+         ui.draggable.data("jugador", true);
+         var elem = $(this);
+         var elem1 = $(this);
+         elem.data("numsoltar", elem.data("numsoltar") + 1)
+         elem.html("" + elem.data("numsoltar") + " jugadores elegidos");
+         var idjugador= ui.draggable.data("id");  
+         elem1.html("" + idjugador + "Entro");
+
+         <?php
+         $id= "<script> document.write(idjugador)</script>";
+         $link=$conexionBD->getConexion();
+         $query="INSERT INTO equipo(id_recinto, id_partido, id_jugador) VALUES('$id_recinto','$id_partido','$id')";
+         mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
+         mysql_close($link); //Cerramos la conexion
+         ?>
+
+
+      }
+
+   },
+   out: function( event, ui ) {
+      if (ui.draggable.data("jugador")){
+         ui.draggable.data("jugador", false);
+         var elem = $(this);
+   var elem1 = $(this);
+         elem.data("numsoltar", elem.data("numsoltar") - 1);
+      elem1.html("" + ui.draggable.data("id") + "Salio");
+         
+      }
+   }
+});
+
+   <?php 
+   foreach ($vectorJugador1 as $Jugador1) { ?>
+    $( "#draggable<?php echo $Jugador1->getId_jugador();?>" ).draggable({ 
+      snap: ".ui-widget-header",
+      create: function(event, $Jugador1){}
+      });
+    $("#draggable<?php echo $Jugador1->getId_jugador();?>").data("jugador",false);
+    $("#draggable<?php echo $Jugador1->getId_jugador();?>").data("id","<?php echo $Jugador1->getId_jugador();?>");
+
+      <?php } ?> 
+      });
+
+  
   </script>
+
+
 
 <div class= "fondoamarillo">
 
@@ -79,7 +118,7 @@ $cont=2;
 foreach ($vectorJugador as $Jugador) {
   
 ?>
-<div id="draggable<?php echo $cont ?>" class="draggable ui-widget-content">
+<div id="draggable<?php echo $Jugador->getId_jugador();?>" class="draggable ui-widget-content">
   <img src="../images/usuarios/<?php echo $Jugador->getDirectorio_foto()?>" width="30" alt="image02">
   <p color: "black"; text-align: "center"; ><?php echo $Jugador->getNombre()?></p>
 </div>
@@ -88,6 +127,10 @@ foreach ($vectorJugador as $Jugador) {
 
   $cont++;
   }//fin del foreach
+?>
+
+<?php
+
 ?>
 
 <div>
