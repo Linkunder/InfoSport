@@ -52,7 +52,7 @@ $id_partido="9";
     $( "#draggable" ).draggable({ snap: true 
     });
 
-    $("#snaptarget").data("numsoltar",0); //variable que guarda el num de jugadores
+    $("#snaptarget").data("numsoltar",0);//variable que guarda el num de jugadores
     $("#snaptarget").droppable({
       drop: function( event, ui ) { //Aqui entra
       if (!ui.draggable.data("jugador")){
@@ -63,9 +63,9 @@ $id_partido="9";
          elem.data("numsoltar", elem.data("numsoltar") + 1);
          elem.html("" + elem.data("numsoltar") + " jugadores elegidos");
          var idjugador= ui.draggable.data("id");  
-         arrayJugador.push(idjugador);
+         arrayJugador[elem.data("numsoltar")]=(ui.draggable.data("id"));
          elem1.html("" + arrayJugador[elem.data("numsoltar")] + "Entro");
-
+         alert(""+ arrayJugador+"");
       }
 
    },
@@ -92,12 +92,21 @@ $id_partido="9";
     $("#draggable<?php echo $Jugador1->getId_jugador();?>").data("id","<?php echo $Jugador1->getId_jugador();?>");
 
       <?php } ?> 
-
-
       });
 
   function setValue(){
-    arv= arrayJugador.join("*");
+    arv= arrayJugador.join("*"); //Funciona
+    alert(""+ arv +"");
+
+    <?php 
+       $arr="<script> document.write(arrayJugador) </script>";
+       $id= $arr[1];
+         $link=$conexionBD->getConexion();
+         $query="INSERT INTO equipo(id_recinto, id_partido, id_jugador) VALUES('$id_recinto','$id_partido','$id')";
+         mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
+         mysql_close($link); //Cerramos la conexion
+    ?>
+
   };
 
   </script>
@@ -140,9 +149,9 @@ foreach ($vectorJugador as $Jugador) {
 <br><br><br><br><br>
 
 
-<form action="eleccionJugadores.php" method="POST" name=test onSubmit="setValue()">
+<form action="eleccionJugadores.php" method=post name=test onSubmit="setValue()">
   <input name=arv type="hidden">
-  <input type="submit">
+  <input type="submit" ></input>
 </form>
   <center><button class="btn12"><a href='eleccionJugadores.php'>Siguiente</a></button></center>
 
