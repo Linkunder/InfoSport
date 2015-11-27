@@ -107,6 +107,13 @@ class DAOGrupo{
    			mysql_close($link); //Cerramos la conexion
 	}
 
+	public function guardarNumeroJugadores($vectorGruposC, $grupoActual){
+		$link=$this->conexionBD->getConexion();
+		$query = "UPDATE grupo SET numero_personas = '".$vectorGruposC."' where id_grupo = '".$grupoActual."'";
+		mysql_query($query,$link) or die (mysql_error());
+        mysql_close($link);
+	}
+
 
 	public function obtenerTodos(){
 		$vectorData;

@@ -67,6 +67,10 @@ class infoGrupos{
 	public function obtenerNombreGrupo($id_grupo2){
 		return $this->persistenciaGrupo->obtenerNombreGrupo($id_grupo2);
 	}
+
+	public function guardarNumeroJugadores($vectorGruposC, $grupoActual){
+		$this->persistenciaGrupo->guardarNumeroJugadores($vectorGruposC, $grupoActual);
+	}
 	
 
 
