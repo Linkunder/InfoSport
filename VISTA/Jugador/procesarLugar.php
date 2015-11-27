@@ -30,7 +30,7 @@ $jefeTercer->agregarInformacion($idUltimoTercerTiempo, $lugar, $fecha, $hora, $c
 
 $message = "Tercer tiempo agendado!";
 echo "<script type='text/javascript'>alert('$message');</script>";
-$yourURL="index2.php";
+$yourURL="resumenPartido.php";
 echo ("<script>location.href='$yourURL'</script>");
 
 

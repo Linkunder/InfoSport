@@ -19,6 +19,7 @@ $ultimoPartido = end($vectorPartidos);
 $idUltimoPartido = $ultimoPartido->getIdPartido();
 
 $idpartido = 1;
+$auxiliar = 0;
 
 ?>
 
@@ -40,8 +41,8 @@ $idpartido = 1;
 <div class= "cuadrado">
 <div>
 
-   		<input class="btn14" type="submit" value="SI" class="button" onClick="location.href='procesarTercerTiempo.php?id_partido=<?php echo $idpartido?>'"/>
-   		<input class="btn14" type="submit" value="NO" class="button" onClick="location.href='procesarTercerTiempo.php?id_partido=<?php echo $idpartido?>'"/>
+   		<input class="btn14" type="submit" value="SI" class="button" onClick="location.href='procesarTercerTiempo.php?id_partido=<?php echo $idpartido?>&auxiliar=<?php echo 1?>'"/>
+   		<input class="btn14" type="submit" value="NO" class="button" onClick="location.href='procesarTercerTiempo.php?id_partido=<?php echo $idpartido?>&auxiliar=<?php echo 0?>'"/>
 
  </div>
 </div>
