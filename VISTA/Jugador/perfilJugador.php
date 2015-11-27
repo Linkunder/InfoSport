@@ -34,11 +34,15 @@ $vectorJugador=$jefeJugador->buscarID($correo);
 
 ?>
 
-<br>
 
-<div class="header-table"> <i class="icon-th-list"></i>
-  <h3>Mi perfil</h3>
-</div>
+<table class="table table-bordered2">
+    <tr>
+        <th>
+            <center><h3>Mi perfil</h3></center>
+    </tr>
+</table>
+
+
 
 <br>
 
