@@ -4,42 +4,32 @@
 
 
 <body class="registrar">
-
-    <div class="reg-form clearfix">
-        
-        <form action="registrarJugador.php" method="post">
-        
+    <div class="reg-form">
             <h1>Crea tu perfil en InfoSport</h1>
-            <h3>Solo necesitas una cuenta</h3>
+            <h2>Solo necesitas una cuenta</h2>
             <h2>Accede a todos los servicios de InfoSport con tu correo electrónico y una contraseña</h2>         
-            
+        <form action="registrarJugador.php" method="post">   
               <div class="login-fields">
-                
-                
                 <div class="field">
                     
                     <input type="text" id="nombre" name="nombre" value="" placeholder="Nombre" class="login" required/>
                 </div> <!-- /field -->
-                <br>
                 <div class="field">
                     
                     <input type="text" id="apellido" name="apellido" value="" placeholder="Apellido" class="login" required/>
                 </div> <!-- /field -->
-                
-                <br>
+
                 <div class="field">
                     
                     <input type="date" min="1950-12-31" max="" id="fecha" name="fecha" value="" placeholder="Fecha de nacimiento" class="login" required/>
                 </div> <!-- /field -->
-                <br>
+
                 <div class="field">
                     
                     <input type="text" id="sexo" name="sexo" value="" placeholder="Sexo" class="login" required/>
                     
                 </div> <!-- /field -->
-                
 
-                
                 <h5>Seleccione deporte favorito</h5>
                 <div class="field">
                     
@@ -63,14 +53,13 @@
                         </select>
 
                 </div> <!-- /field -->
-                <br>
                 <div class="field">
                     
                     <input type="email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" id="correo" name="correo" value="" placeholder="Correo electronico" class="login" />
                 </div> <!-- /field -->
                 
                 
-                <br>
+         
                 <div class="field ">
                     
                     <input type="password" id="pass" name="pass" value="" placeholder="Contraseña" class="login"required />

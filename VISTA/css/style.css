@@ -300,11 +300,13 @@ p {
 }
 
 .login-form {
-    background: url(../images/login/bgf.png) no-repeat 100% 0%;
-    background-size: 100%;
-    width:37%;
-    margin:10% auto 4% auto;
-    position: relative;
+    background: #181A1C;
+    padding: 1% 3%;
+    margin: 3% auto;
+    width: 25%;
+    height: auto;
+    box-shadow: 5px 5px 0 #AAA;
+    border-radius: 5px;
 }
 
 .login-form h1{
@@ -313,10 +315,7 @@ p {
     font-size:1.4em;
     font-weight:500;
     font-family: 'Roboto', sans-serif;
-    position:absolute;
-    top:7%;
-    left:11%;
-    margin:34px 0;
+    margin: 0 auto;
 } 
 
 .login-form h2 a{
@@ -325,10 +324,7 @@ p {
     font-size:0.6em;
     font-weight:500;
     font-family: 'Roboto', sans-serif;
-    position:absolute;
-    top:9.5%;
-    right:11%;
-    margin:34px 0;
+    margin: 0 auto;
 } 
 
 .login form{
@@ -377,6 +373,9 @@ p {
     outline: none;
     background: none;
     border:none;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
 }
 
 .login input[type="submit"]{
@@ -384,7 +383,7 @@ p {
     font-size:18px;
     display: inline-block;
     font-weight:600;
-    color: #615F5F;
+    color: #fff;
     transition: 0.1s all;
     -webkit-transition: 0.1s all;
     -moz-transition: 0.1s all;
@@ -402,6 +401,7 @@ p {
 .login input[type="submit"]:hover{
     background: #FFC600;
     border:1px solid #FFC600;
+    color: #181A1C;
 }
 
 .forgot{
@@ -505,135 +505,70 @@ p {
     background: #FECE1A;
 }
 
+.reg-form input{
+    width: 97%;
+}
+
 .reg-form {
-    background: url(../images/registro/bgf.png) no-repeat 100% 0%;
-    background-size: 100%;
-    width:37%;
-    margin:10% auto 4% auto;
-    position: relative;
+    background: #181A1C;
+    padding: 1% 3%;
+    margin: 3% auto;
+    width: 25%;
+    height: auto;
+    box-shadow: 5px 5px 0 #AAA;
+    border-radius: 5px;
 }
 
-.reg-form h1{
-    text-align:left;
-    color: #fff;
-    font-size:2em;
-    font-weight:500;
-    font-family: 'Roboto', sans-serif;
-    position:absolute;
-    top:5%;
-    left:20%;
-    margin:5px 0;
-} 
-
-.reg-form h3{
-    text-align:center;
-    color: #fff;
-    font-size:1.5em;
-    font-weight:500;
-    font-family: 'Roboto', sans-serif;
-    position:absolute;
-    top:6%;
-    right:32%;
-    margin:34px 0;
-} 
-
-.reg-form h2{
-    text-align:center;
-    color: #fff;
-    font-size:0.9em;
-    font-weight:500;
-    font-family: 'Roboto', sans-serif;
-    position:absolute;
-    top:10%;
-    right:11%;
-    margin:34px 0;
-} 
-
-.reg-form h5{
-    text-align:center;
-    color: #fff;
-    font-size:0.9em;
-    font-weight:500;
-    font-family: 'Roboto', sans-serif;
-    
-}
-
-.boton {
-    margin-left: 30%;
-    margin-top:  5%;
-    position: relative;
-}
-.reg-form form{
-    padding:32% 3em;
-}
-
-.field {
-    border:1px solid #FFC600;
-    list-style:none;
-    margin-bottom:10px;
-    margin-top: -10px;
-    width:70%;
-    background: #FFC600;
-    margin: auto;
-}
-
-
-
-.login-fields{
-    margin-top: -40px;
-}
-.field select{
+.field{
     border:1px solid #FFC600;
     list-style:none;
     margin-bottom:16px;
-    width:70%;
+    width:98%;
     background: #FFC600;
-    font-style: 'Roboto', sans-serif;
 }
-
-
-
-.icon{
-    background:url(../images/login/icons.png)  no-repeat 0px 0px;
-    height:40px;
-    width:40px;
-    display: block;
-    float:left;
-    margin:5px -11px 0px 0px
-}
-
-.user{
-    background: url(../images/login/icons.png) no-repeat 7px 1px;
-    
-}
-
-.lock{
-    background: url(../images/login/icons.png) no-repeat -31px 2px;
-}
-
-.arrow{
-    background: url(../images/login/icons.png) no-repeat -62px 11px;
-    position: absolute;
-}
-
-
-.reg-form input[type="text"], input[type="password"] {
+.reg-form input[type="text"], .reg-form input[type="password"], .reg-form input[type="email"], .reg-form input[type="date"] {
     font-family: 'Roboto', sans-serif;
-    width:60%;
+    width:96%;
     padding: 0.5em 2em 0.5em 1em;
-    color: #fff;
+    color: #131212;
     font-size:20px;
-    outline: none;
+    font-weight: bold;
+    outline: 0;
     background: none;
     border:none;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+
 }
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+     -webkit-box-shadow: 0 0 0px 1000px white inset;
+     width: 70%;
+}
+.reg-form select {
+    font-family: 'Roboto', sans-serif;
+    width:96%;
+    padding: 0.5em 2em 0.5em 1em;
+    color: #131212;
+    font-size:20px;
+    font-weight: bold;
+    outline: 0;
+    height: auto;
+    background: none;
+    border:none;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+}
+
+
 
 .reg-form input[type="submit"]{
     float:left;
     font-size:18px;
     display: inline-block;
     font-weight:600;
-    color: #615F5F;
+    color: #fff;
     transition: 0.1s all;
     -webkit-transition: 0.1s all;
     -moz-transition: 0.1s all;
@@ -645,13 +580,130 @@ p {
     font-family: 'Roboto', sans-serif;
     background: #222;
     width:45%;
+    float: none !important;
+    margin: 0 auto !important;
     border:1px solid #222;
 }
 
 .reg-form input[type="submit"]:hover{
     background: #FFC600;
     border:1px solid #FFC600;
+    color: #181A1C;
 }
+
+.reg-form h1{
+    text-align:center;
+    color: #fff;
+    font-size:1.6em;
+    font-weight:500;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+} 
+
+.reg-form h2{
+    text-align:center;
+    color: #fff;
+    font-size:1em;
+    font-weight:500;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+} 
+
+.reg-form h5{
+    text-align:left;
+    color: #fff;
+    font-size:1em;
+    font-weight:500;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+} 
+
+.reg-form input::-webkit-input-placeholder {
+  color: #181A1C;
+}
+.reg-form  input:-moz-placeholder {
+  color: #181A1C;
+}
+.reg-form  input:-ms-input-placeholder {
+  color: #181A1C;
+}
+.reg-form  input[placeholder] {
+  color: #181A1C;
+}
+}
+
+/*-----start-responsive-design------*/
+@media (max-width:1024px){
+.reg-form  {
+        margin:8% auto 0;
+        width:45%;
+    }
+    
+}
+@media (max-width:768px){
+    .reg-form  {
+        margin:12% auto 0;
+        width:57%;
+    }
+
+}
+@media (max-width:640px){                                  
+    .reg-form  {
+        margin:13% auto 0;
+        width:70%;
+    }
+
+}
+@media (max-width:480px){                                  
+    .reg-form  {
+        margin:20% auto 0;
+        width:90%;
+    }
+
+    
+}
+@media (max-width:320px){                                  
+    .reg-form  {
+        margin:20% auto 0;
+        width:100%;
+    }
+    .icon{
+        margin:2px -11px 0px 0px;
+    }
+    .reg-form form{
+        padding:38% 2.5em; 
+    }
+    .reg-form h1{
+        font-size:1.5em;
+        left:35%;
+        top:0%;
+    }
+    .reg-form h2{
+        font-size:1em;
+        right:29%;
+        top:10%;
+    }
+    .reg-form input[type="text"], input[type="password"]{
+        font-size:18px;
+        padding: 0.4em 1em 0.45em 1em;15px 2px
+    }
+    .reg-form h5{
+        font-size:1em;
+        right:29%;
+        top:10%;
+    }
+    .reg-form input[type="submit"]{
+        font-size:15px;
+        padding: 10px 10px;
+        width:56%;
+        float:none;
+        margin-top: 5px;
+    }
+
+}
+
+
+
 
 /******
 2. Layout

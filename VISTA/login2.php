@@ -15,6 +15,7 @@ include('header.php');
 				 <!-----start-main---->
 				<div class="login-form">
 						<h1>Iniciar Sesión</h1>
+
 						<h2><a href="Registrarse.php">Crear cuenta</a></h2>
 				<form action="../LOGICA/VerificaLoginJugador.php" method="POST" id="formulario">
 					<li>
@@ -30,8 +31,11 @@ include('header.php');
 					</div>
 				</form>
 			</div>
+		</div>	
 			<!--//End-login-form-->
-<?php include('footer.php'); ?>					
-<?php include('scrollUp.php'); ?>
-<?php include('js.php'); ?> 		 		
 </body>
+<?php include('scrollUp.php'); ?>			
+<?php include('footer.php'); ?>					
+
+<?php include('js.php'); ?> 		 		
+
