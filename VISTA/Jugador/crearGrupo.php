@@ -49,8 +49,8 @@ $idUltimoGrupo = $ultimoGrupo->getId_grupo();
 
 <table class="table table-bordered2">
 	<tr>
-		<th><h3>Agrega un jugador a tu grupo!</h3>
-        	<h5>Buscalo mediante correo electronico</h5></th>
+		<th><h3>Agrega jugadores a tu grupo!</h3>
+        	<h5>Buscalos mediante correo electronico</h5></th>
 	</tr>
 </table>
 

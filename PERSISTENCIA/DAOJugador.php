@@ -1,4 +1,4 @@
-<?php
+    <?php
 	include_once('conexion.php'); //se hace la conexion
 class DAOJugador{
 	private $conexionBD;	

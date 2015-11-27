@@ -19,7 +19,7 @@ $idRecinto = $_GET['id_recinto'];
 $jefeRecintos = infoRecintos::obtenerInstancia();
 $precioRecinto = $jefeRecintos->obtenerPrecio($idRecinto);
 
-// en el fondo lo que hago es actualizar la informacion del recinto ya creado
+// en el fondo lo que hago es actualizar la informacion del partido ya creado
 
 $jefePartidos = controlPartido::obtenerInstancia();
 $vectorPartidos = $jefePartidos->obtenerPartidos();

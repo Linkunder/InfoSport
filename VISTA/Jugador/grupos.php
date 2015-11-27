@@ -79,6 +79,7 @@ header("Location:login.php");
     <td>
         <?php // Aqui numero de jugadores
             $vectorGruposC = $jefeGrupoC->contarJugadores($grupoActual);
+            $jefeGrupo->guardarNumeroJugadores($vectorGruposC, $grupoActual);
             echo "$vectorGruposC";
         ?>
     </td>

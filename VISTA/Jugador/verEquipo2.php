@@ -38,9 +38,13 @@ header("Location:login.php");
 
 include_once('../../TO/Jugador.php');
 include_once('../../LOGICA/infoJugadores.php');
+include_once('../../TO/Grupo.php');
+include_once('../../LOGICA/infoGrupos.php');
 $jefeJugador = infoJugadores::obtenerInstancia();
+$jefeGrupos = infoGrupos::obtenerInstancia();
 ob_start();
 $id_grupo2 = $_GET['id_grupo'];
+$grupo = $jefeGrupos->obtenerNombreGrupo($id_grupo2);
 $vectorJugadores=$jefeJugador->obtenerJugadores($id_grupo2);
 ?>
 
@@ -50,7 +54,7 @@ $vectorJugadores=$jefeJugador->obtenerJugadores($id_grupo2);
 
 
 <div class="header-table"> <i class="icon-th-list"></i>
-  <h3>Nombre equipo</h3> <!-- La idea seria poner el nombre del equipo aqui-->
+  <h3><?php echo "$grupo"?></h3> <!-- La idea seria poner el nombre del equipo aqui-->
 </div>
 
 

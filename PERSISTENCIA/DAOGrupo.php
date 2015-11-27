@@ -35,6 +35,14 @@ class DAOGrupo{
 		return $vectorData;
 	}
 
+	public function obtenerNombreGrupo($id_grupo2){
+		$link = $this->conexionBD->getConexion();
+		$query = "SELECT nombre_grupo FROM grupo WHERE id_grupo = '$id_grupo2'";
+        $result = mysql_query($query,$link);
+        $row = mysql_fetch_array($result);
+        return $row['nombre_grupo'];
+	}
+
 
     public function getGrupos2($id){
         $vectorData;
@@ -97,6 +105,13 @@ class DAOGrupo{
 		VALUES('".$grupo->getNombre_grupo()."','".$grupo->getDescripcion()."','".$grupo->getFecha_creacion()."','".$grupo->getCapitan()."')";
 		    mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
    			mysql_close($link); //Cerramos la conexion
+	}
+
+	public function guardarNumeroJugadores($vectorGruposC, $grupoActual){
+		$link=$this->conexionBD->getConexion();
+		$query = "UPDATE grupo SET numero_personas = '".$vectorGruposC."' where id_grupo = '".$grupoActual."'";
+		mysql_query($query,$link) or die (mysql_error());
+        mysql_close($link);
 	}
 
 
