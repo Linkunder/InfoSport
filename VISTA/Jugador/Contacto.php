@@ -47,7 +47,7 @@ $id_partido="9";
 
   <script>
   var arrayJugador = new Array();
-  $(function() {
+  $(function(){
      
     $( "#draggable" ).draggable({ snap: true 
     });
@@ -79,6 +79,7 @@ $id_partido="9";
          
       }
    }
+
 });
 
    <?php 
@@ -91,11 +92,14 @@ $id_partido="9";
     $("#draggable<?php echo $Jugador1->getId_jugador();?>").data("id","<?php echo $Jugador1->getId_jugador();?>");
 
       <?php } ?> 
+
+
       });
 
   function setValue(){
-    var arv = arrayJugador.join("*");
-  }
+    arv= arrayJugador.join("*");
+  };
+
   </script>
 
 
