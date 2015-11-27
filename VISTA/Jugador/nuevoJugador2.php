@@ -18,9 +18,8 @@ $vectorJugadores=$jefeJugador->obtenerJugador();
 ob_start();
 
 
-$id_grupo2 = $_GET['id_grupo'];
+$id_grupo2 =$_SESSION['idBusqueda2'];
 
-//$id_grupo2 =$_SESSION['idBusquedaJ'];
 ?>
 
 <?php include('headerJugador.php');?>
@@ -53,7 +52,7 @@ $id_grupo2 = $_GET['id_grupo'];
 		<td><?php echo $nombreCompletoJugador?></td>
 	</tr>
 	<?php
-	}
+}
 ?>
 </table>
 
@@ -65,13 +64,9 @@ $id_grupo2 = $_GET['id_grupo'];
 
 
 <div class = "busqueda">
-	<?php
-$_SESSION['idBusqueda2'] = $id_grupo2;
-?>
 <form class="form-wrapper cf" action="nuevoJugador2.php" method="get">
         <input type="text" placeholder="Busca un jugador..." name="search" required>
-        <button type="submit">Buscar
-        </button>
+        <button type="submit">Buscar</button>
     </form> 
 </div>
 

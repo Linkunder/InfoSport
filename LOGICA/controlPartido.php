@@ -54,6 +54,10 @@ class controlPartido{
 		return $this->persistenciaPartido->obtenerRecinto($idPartido);
 	}
 
+	public function obtenerPartidosAgendados($idJugador){
+		return $this->persistenciaPartido->obtenerPartidosAgendados($idJugador);
+	}
+
 
 
 

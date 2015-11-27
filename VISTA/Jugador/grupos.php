@@ -87,7 +87,7 @@ header("Location:login.php");
     <td>
         <?php echo "$apellidoCapitan";?>
     </td> 
-    <td><center><a href='nuevoJugador.php?id_grupo=<?php echo $Grupo->getId_grupo();?>' title="Agregar jugador">
+    <td><center><a href='nuevoJugador.php?id_grupo=<?php echo $grupoActual;?>' title="Agregar jugador">
     	<?php
         echo "<img src='images/addblack.png' height='24px' width='24px'>";
       ?>

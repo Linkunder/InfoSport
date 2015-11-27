@@ -11,6 +11,49 @@ session_start();
 <div class="fondoamarillo">
 
 
+<?php
+    include_once('../../TO/Partido.php');
+    include_once('../../LOGICA/controlPartido.php');
+    include_once('../../TO/Jugador.php');
+    include_once('../../LOGICA/infoJugadores.php');
+
+    $jefeJugador = infoJugadores::obtenerInstancia();
+    $correo = $_SESSION['sesion'];;
+    $vectorJugador=$jefeJugador->buscarID($correo);
+    $idJugador = 0;
+    
+    foreach($vectorJugador as $Jugador){    
+        $idJugador= $Jugador->getId_jugador();
+    } 
+
+    $jefePartidos = controlPartido::obtenerInstancia();
+    $vectorPartidosActivos = $jefePartidos->obtenerPartidosAgendados($idJugador);
+
+    foreach ($vectorPartidosActivos as $Partido) {
+        echo $Partido->getIdPartido();
+        echo "<br>";
+    }
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

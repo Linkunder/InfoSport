@@ -23,6 +23,7 @@ echo "ID Jugador: $idNuevo <br>";
 
 
 $nuevoJugadorGrupo= new GrupoConformado();
+
 $nuevoJugadorGrupo->setIdJugador($idNuevo);
 $nuevoJugadorGrupo->setIdGrupo($id_grupo2);
 

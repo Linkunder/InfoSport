@@ -106,34 +106,54 @@ class DAOPartido{
 
 
     public function getPartidosJugados(){
-           $vectorData;
-            $link=$this->conexionBD->getConexion(); //conexion a la bd
-            $query="SELECT * FROM partido where id_estado='2'";
-            $result= mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
-               $i=0;
-    while($row=mysql_fetch_array($result)){
-        
-        $partido=new Partido();
-        $partido->setIdPartido($row['id_partido']);
-        $partido->setIdRecinto($row['id_recinto']);
-        $partido->setIdJugador($row['id_jugador']);
-        $partido->setIdEstado($row['id_estado']);
-        $partido->setHora($row['hora']);
-        $partido->setFecha($row['fecha']);
-        $partido->setCuota($row['cuota']);
-
-        $vectorData[$i]=$partido;
-
-    
-        $i++;
+        $vectorData;
+        $link=$this->conexionBD->getConexion(); //conexion a la bd
+        $query="SELECT * FROM partido where id_estado='2'";
+        $result= mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
+        $i=0;
+        while($row=mysql_fetch_array($result)){
+            $partido=new Partido();
+            $partido->setIdPartido($row['id_partido']);
+            $partido->setIdRecinto($row['id_recinto']);
+            $partido->setIdJugador($row['id_jugador']);
+            $partido->setIdEstado($row['id_estado']);
+            $partido->setHora($row['hora']);
+            $partido->setFecha($row['fecha']);
+            $partido->setCuota($row['cuota']);
+            $vectorData[$i]=$partido;
+            $i++;
+        }
+        mysql_close($link);
+        if(empty($vectorData)){
+            return null;
+        }
+        return $vectorData;
     }
-    mysql_close($link);
-    if(empty($vectorData)){
-        return null;
-    }
-    return $vectorData;
 
 
+    public function obtenerPartidosAgendados($idJugador){
+        $vectorData;
+        $link=$this->conexionBD->getConexion(); //conexion a la bd
+        $query="SELECT * FROM partido where id_estado='1' and id_jugador = '$idJugador' ";
+        $result= mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
+        $i=0;
+        while($row=mysql_fetch_array($result)){
+            $partido=new Partido();
+            $partido->setIdPartido($row['id_partido']);
+            $partido->setIdRecinto($row['id_recinto']);
+            $partido->setIdJugador($row['id_jugador']);
+            $partido->setIdEstado($row['id_estado']);
+            $partido->setHora($row['hora']);
+            $partido->setFecha($row['fecha']);
+            $partido->setCuota($row['cuota']);
+            $vectorData[$i]=$partido;
+            $i++;
+        }
+        mysql_close($link);
+        if(empty($vectorData)){
+            return null;
+        }
+        return $vectorData;
     }
 
     public function existePartido($id_recinto,$id_jugador){
@@ -167,6 +187,10 @@ class DAOPartido{
 
 
     }
+
+
+
+
 
 
 
