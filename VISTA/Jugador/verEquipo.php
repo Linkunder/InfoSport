@@ -14,18 +14,6 @@ header("Location:login.php");
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- Aqui insertar Ver Detalle grupo-->
 
 

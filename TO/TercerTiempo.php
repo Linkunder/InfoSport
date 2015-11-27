@@ -2,44 +2,41 @@
 class TercerTiempo{
 private $id_tercer;
 private $id_partido;
-private $descripcion;
+private $id_lugar;
 private $fecha;
-private $link_ubicacion;
-private $cuota_tercer;
+private $hora;
+private $comentario;
 
 
 function __construct(){}
 
-function setIdTercer($idTercer){
-    $this->id_tercer=$idTercer;
+function setIdTercer($id_tercer){
+    $this->id_tercer=$id_tercer;
 }
-function setIdPartido($idPartido){
-    $this->id_partido=$idPartido;
-}
-
-function setNombre($idPartido){
-    $this->id_partido=$idPartido;
+function setIdPartido($id_partido){
+    $this->id_partido=$id_partido;
 }
 
-function setDescripcion($descripcionTercer){
-    $this->descripcion=$descripcionTercer;
+function setIdLugar($id_lugar){
+	$this->id_lugar=$id_lugar;
 }
-function setFecha($fechaTercer){
-    $this->fecha=$fechaTercer;
+
+function setFecha($fecha){
+    $this->fecha=$fecha;
 }
-function setLink_ubicacion($linkUbicacionTercer){
-    $this->fecha=$linkUbicacionTercer;
+function setHora($hora){
+    $this->hora=$hora;
 }
-function setCuota($cuotaTercer){
-    $this->cuota_tercer=$cuota_tercer;
+function setComentario($comentario){
+    $this->comentario=$comentario;
 }
 
 function getIdTercer(){return $this->id_tercer;}
 function getIdPartido(){return $this->id_partido;}
-function getDescripcion(){return $this->descripcion;}
+function getIdLugar(){return $this->id_lugar;}
 function getFecha(){return $this->fecha;}
-function getUbicacion(){return $this->link_ubicacion;}
-function getCuota(){return $this->cuota_tercer;}
+function getHora(){return $this->hora;}
+function getComentario(){return $this->comentario;}
     
 }
 ?>

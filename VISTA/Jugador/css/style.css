@@ -54,6 +54,12 @@ p {
     color: #fff;
 }
 
+.img1{
+    margin-left: 10px;
+    margin-bottom: 20px;
+    width: 85%;
+    margin: auto;
+}
 
 .ordenarTexto{
     margin-left: 10px;
@@ -67,8 +73,41 @@ p {
     margin-left: 1100px;
 }
 
-    
+.cuadradoNegro{
+    background: #181A1C;
+    padding: 10px;
+    height: 1500px;
+    width: 90%;
+    margin: auto;
+}
 
+
+.tablaTercer{
+    color: #FECE1A;
+    background: #181A1C;
+    margin: auto;
+    width: 100%;
+}
+
+.celda{
+    margin-left: 10px;
+}
+
+.titulo {
+    font-family:'Roboto', sans-serif;
+    color : #FECE1A;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.titulo2 {
+    font-family:'Roboto', sans-serif;
+    color : #FECE1A;
+    font-size: 18px;
+
+}
+
+    
 
 .btn12 {
   -webkit-border-radius: 45;
@@ -87,6 +126,24 @@ p {
   text-decoration: none;
 }
 
+.btn12m {
+  -webkit-border-radius: 45;
+  -moz-border-radius: 45;
+  border-radius: 45px;
+   font-family:'Roboto', sans-serif;
+  color: #16160F;
+  font-weight: bold;
+  font-size: 20px;
+  background: #FECE1A;
+  padding: 8px 20px 8px 20px;
+  border: solid #edf2f5 2px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn12m:hover {
+  text-decoration: none;
+}
 
 
 .btn13 {
@@ -117,6 +174,14 @@ p {
     text-align: center;
     width: 60%;
 }
+
+.cajaT{
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    font-size: 18px;
+}
+
 
 .btn14 {
   -webkit-border-radius: 45;
@@ -184,6 +249,7 @@ p {
     font-size: 200pt;
 
 }
+
 
 .addPlayer{
     width: 30px;
