@@ -17,7 +17,7 @@
         <script type="text/javascript">
         function clean(e){
         var textfield = document.getElementById(e);
-        var groserias = ["puta", "puto","marica","mierda","wn","weon","hueon","huevon","ctm", "conchetumadre", "conchatumadre", "conchesumadre","conshasumadre","concha","pico","raja","culo","culia","culiao","qlo","qla","chucha","shusha","ahueonado","ahueonao","maraca","aweonao","huevon","malparidos","maricon"]
+        var groserias = ["puta", "puto","marica","mierda","wn","weon","hueon","huevon","ctm", "conchetumadre", "conchatumadre", "conchesumadre","conshasumadre","concha","pico","raja","culo","culia","culiao","qlo","qla","chucha","shusha","ahueonado","ahueonao","maraca","aweonao","huevon","malparidos","maricon","mrd","xuxa"]
         //var regex ="["mierda"]"/gi;
         for(var i=0; i<groserias.length; i++){
         var regex= new RegExp("(^|\\s)"+groserias[i]+"($|(?=\\s))","gi")

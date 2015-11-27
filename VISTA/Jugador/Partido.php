@@ -25,21 +25,26 @@ session_start();
 <ul>
         
         <label for="fecha">Dia</label>
+        <div class="in">
         <input type="date" name="fecha">
-
+        </div>
         <label for="hora">Hora</label>
+        <div class="in">
         <input type="time" name="hora" >
-
+        </div>
         <label for="jugadores">Numero de jugadores</label>
+        <div class="in">
         <input type="int" name="jugadores" maxlength="200">
-
+        </div>
         <label for="deporte">Deporte</label>
+        <div class="in">
         <select name="deporte" id = "deporte">
                         <option>Baby-futbol</option>
                         <option>Futbolito</option>
                         <option>Hockey</option>
                         <option>Basquetbol</option>
         </select>
+        </div>
         <br>
         <br>
         <center><input type="submit" value="Enviar" ></center>

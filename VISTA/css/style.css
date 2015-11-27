@@ -51,7 +51,6 @@ h1 {
 p {
     padding: 10px;
     font-weight: 100;
-    color: #fff;
 }
 
 
@@ -513,10 +512,12 @@ p {
     background: #181A1C;
     padding: 1% 3%;
     margin: 3% auto;
-    width: 25%;
+    width: 550px;
     height: auto;
-    box-shadow: 5px 5px 0 #AAA;
     border-radius: 5px;
+    -moz-box-shadow: 5px 5px 0 #AAA;
+    -webkit-box-shadow: 5px 5px 0 #AAA;
+    box-shadow: 5px 5px 0 #AAA;
 }
 
 .field{
@@ -643,7 +644,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
 @media (max-width:768px){
     .reg-form  {
         margin:12% auto 0;
-        width:57%;
+        width:70%;
     }
 
 }

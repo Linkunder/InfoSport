@@ -51,7 +51,6 @@ h1 {
 p {
     padding: 10px;
     font-weight: 100;
-    color: #fff;
 }
 
 
@@ -169,19 +168,45 @@ p {
 }
 
 .crearPartido{
-    width: 250px;
+    width: 270px;
     color : #ffffff;
     font-weight: bold;
     padding: 15px;
+    padding-left: 5px;
+    padding-right: 20px;
     margin: 50px auto 50px auto;
     background: #16160F;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-    box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 5px 5px 0 #AAA;
+    -webkit-box-shadow: 5px 5px 0 #AAA;
+    box-shadow: 5px 5px 0 #AAA;
     font-size: 200pt;
+
+}
+
+.crearPartido .in{
+    border: 0.5px solid #FFC600;
+    list-style:inside;
+    margin-bottom:5px;
+    width:98%;
+    background: #FFC600;
+}
+
+.crearPartido input[type="int"], .crearPartido input[type="time"], .crearPartido input[type="date"], .crearPartido select{
+    font-family: 'Roboto', sans-serif;
+    width:96%;
+    padding: auto;
+    color: #131212;
+    font-size:14px;
+    font-weight: bold;
+    outline: 0;
+    background: none;
+    border:none;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75) !important;
 
 }
 
@@ -1002,7 +1027,7 @@ p {
 .social li {
     display:inline-block;
     line-height: 32px;
-    font-family:'Porta';
+    font-family:'Roboto', sans-serif;
     font-size: 32px;
     padding:0 5px;
 }
@@ -1304,6 +1329,7 @@ p {
 .table td {
     vertical-align: middle;
     background: #E9E9E9;
+    color: #181A1C;
 }   
 
 
@@ -1357,6 +1383,7 @@ p {
 
 } 
 
+
 .header-table h3{
     position: relative;
     top: 2px;
@@ -1367,10 +1394,18 @@ p {
 
     font-size: 20px;
     font-weight: 800;
-    color: #525252;
+    color: #181A1C;
     line-height: 18px;
 
     text-shadow: 1px 1px 2px rgba(255,255,255,.5);
+}
+
+.table a:hover{
+    color: #FECE1A;
+}
+
+.table h5, h3{
+    color: #FECE1A ;
 }
 
 
@@ -1558,7 +1593,7 @@ p {
 .contact .social li {
     line-height: 32px;
     padding:10px 10px;
-    font-family:'Porta';
+    font-family:'Roboto', sans-serif;
     font-size: 50px;
     transition: margin 0.4s;
     -webkit-transition: margin 0.4s;

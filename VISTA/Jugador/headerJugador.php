@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+    
     <head>
         <meta charset=utf-8>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
         <!-- Load Roboto font -->
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <!-- Load css styles -->
@@ -17,15 +17,8 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.cslider.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
         <link rel="stylesheet" type="text/css" href="css/animate.css" />
-        <!--Formulario registro-->
-        <!--<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" /> tiene conflictos-->
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/font-awesome.css" rel="stylesheet">
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet" type="text/css">
-        <link href="css/pages/signin.css" rel="stylesheet" type="text/css">
-        <!--Fin formulario-->
         <!-- Fav and touch icons -->
+
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72.png">
