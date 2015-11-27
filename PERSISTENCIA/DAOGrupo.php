@@ -35,6 +35,14 @@ class DAOGrupo{
 		return $vectorData;
 	}
 
+	public function obtenerNombreGrupo($id_grupo2){
+		$link = $this->conexionBD->getConexion();
+		$query = "SELECT nombre_grupo FROM grupo WHERE id_grupo = '$id_grupo2'";
+        $result = mysql_query($query,$link);
+        $row = mysql_fetch_array($result);
+        return $row['nombre_grupo'];
+	}
+
 
     public function getGrupos2($id){
         $vectorData;

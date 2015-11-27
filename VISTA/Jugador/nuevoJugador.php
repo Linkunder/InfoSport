@@ -25,9 +25,54 @@ $id_grupo2 = $_GET['id_grupo'];
 
 <div class="section secondary-section " id="portafolio">
         <div class="container">
-        	<h3>Agrega un jugador a tu grupo!</h3>
-        	<h5>Buscalo mediante correo electronico</h5>
-        
+
+
+<table class="table table-bordered2">
+    <tr>
+        <th>
+			<center><h3>Agrega un jugador a tu grupo!</h3></center>
+			<center><h5>Buscalo mediante correo electronico</h5></center>
+		</th>
+    </tr>
+</table>
+
+<table class="table table-bordered2">
+	<tr>
+		<th>Jugadores actuales</th>
+	</tr>
+	<tr>
+		<?php
+		$vectorJugadoresAux=$jefeJugador->obtenerJugadores($id_grupo2);
+		foreach ($vectorJugadoresAux as $JugadorAux) {
+			$nombreJugadorAux = $JugadorAux->getNombre();
+			$nombreCompletoJugador = $nombreJugadorAux." ".$JugadorAux->getApellido();
+		?>
+		<td><?php echo $nombreCompletoJugador?></td>
+	</tr>
+	<?php
+}
+?>
+</table>
+
+<center><a href='grupos.php' title="Listo">
+    <?php
+    echo "<img src='images/ok2.png' height='32px' width='32px'>";
+  ?>
+</a></center>
+
+
+<div class = "busqueda">
+<form class="form-wrapper cf" action="nuevoJugador.php" method="get">
+        <input type="text" placeholder="Busca un jugador..." name="search" required>
+        <button type="submit">Buscar</button>
+    </form> 
+</div>
+
+
+
+
+
+<br>
 
 <br>
 
