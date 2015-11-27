@@ -46,30 +46,25 @@ $id_partido="9";
   </style>
 
   <script>
+  var arrayJugador = new Array();
   $(function() {
+     
     $( "#draggable" ).draggable({ snap: true 
     });
 
     $("#snaptarget").data("numsoltar",0); //variable que guarda el num de jugadores
     $("#snaptarget").droppable({
-   drop: function( event, ui ) { //Aqui entra
+      drop: function( event, ui ) { //Aqui entra
       if (!ui.draggable.data("jugador")){
          ui.draggable.data("jugador", true);
          var elem = $(this);
          var elem1 = $(this);
-         elem.data("numsoltar", elem.data("numsoltar") + 1)
+         
+         elem.data("numsoltar", elem.data("numsoltar") + 1);
          elem.html("" + elem.data("numsoltar") + " jugadores elegidos");
          var idjugador= ui.draggable.data("id");  
-         elem1.html("" + idjugador + "Entro");
-
-         <?php
-         $id= "<script> document.write(idjugador)</script>";
-         $link=$conexionBD->getConexion();
-         $query="INSERT INTO equipo(id_recinto, id_partido, id_jugador) VALUES('$id_recinto','$id_partido','$id')";
-         mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
-         mysql_close($link); //Cerramos la conexion
-         ?>
-
+         arrayJugador[elem.data("numsoltar")]=idjugador;
+         elem1.html("" + arrayJugador[elem.data("numsoltar")] + "Entro");
 
       }
 
@@ -98,7 +93,9 @@ $id_partido="9";
       <?php } ?> 
       });
 
-  
+  function setValue(){
+    var arv = arrayJugador.join("*");
+  }
   </script>
 
 
@@ -133,12 +130,17 @@ foreach ($vectorJugador as $Jugador) {
 
 ?>
 
-<div>
+
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br>
 
-  <center><button class="btn12" href="#eleccionJugadores">Siguiente</button></center> </div>
+
+<form action="eleccionJugadores.php" method="POST" name=test onSubmit="setValue()">
+  <input name=arv type="hidden">
+  <input type="submit">
+</form>
+  <center><button class="btn12"><a href='eleccionJugadores.php'>Siguiente</a></button></center>
 
 
 
