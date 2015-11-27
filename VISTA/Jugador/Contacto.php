@@ -63,7 +63,7 @@ $id_partido="9";
          elem.data("numsoltar", elem.data("numsoltar") + 1);
          elem.html("" + elem.data("numsoltar") + " jugadores elegidos");
          var idjugador= ui.draggable.data("id");  
-         arrayJugador[elem.data("numsoltar")]=idjugador;
+         arrayJugador.push(idjugador);
          elem1.html("" + arrayJugador[elem.data("numsoltar")] + "Entro");
 
       }
