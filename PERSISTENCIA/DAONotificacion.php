@@ -17,9 +17,9 @@
         mysql_close($link); //Cerramos la conexion
 	}
 
-	public function eliminarRecinto($id_recinto){ //Depende
+	public function eliminarNotificacion($id_noti){ //Depende
 	   $link=$this->conexionBD->getConexion(); //conexion a la 
-	   $query = "DELETE FROM recinto_deportivo WHERE id_recinto = '$id_recinto'";
+	   $query = "DELETE FROM notificacion WHERE id = '$id_noti'";
 	   mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
         mysql_close($link);
 	}

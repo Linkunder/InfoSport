@@ -60,6 +60,10 @@ copy($target_origen, $target_destino);
 
 $jefe= infoRecintos::obtenerInstancia();
 $jefe->guardarImagen($idUltimo,$foto);
+
+// por ultimo necesito eliminar esta notificacion
+$jefeNotificacion->eliminarNotificacion($id_noti);
+
 $message = "Recinto agregado!";
 echo "<script type='text/javascript'>alert('$message');</script>";
 $yourURL="index.php";

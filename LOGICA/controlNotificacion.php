@@ -40,6 +40,10 @@ class controlNotificacion{
 		return $vectorData;
 	}
 
+	public function eliminarNotificacion($id_noti){
+		$this->persistenciaNotificacion->eliminarNotificacion($id_noti);
+	}
+
 	public function obtenerNotificacion($id_noti){
 		$vectorData=$this->persistenciaNotificacion->obtenerNotificacion($id_noti);
 		if (count($vectorData)==0)
