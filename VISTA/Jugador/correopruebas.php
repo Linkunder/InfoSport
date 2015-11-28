@@ -1,4 +1,20 @@
-<?php
+<html>
+<head>
+	<body>
+ <form method="post">
+  <input id="text" type="submit" value="Submit" onclick="myFunction()"/>
+ </form>
+ <script>
+var x = false;
+function myFunction() {
+    document.getElementById("text").disabled = true;
+ 	x = true;
+ 	mailer();
+}
+
+function mailer(){
+ <?php
+ if($x ==true){
 $to = "eternaletulf@gmail.com";
 //foreach para rellenar el campo con los correos de los jugadores
 $subject = "HTML email";
@@ -37,12 +53,10 @@ $headers .= 'From: <infosport2k15@gmail.com>' . "\r\n"; //quien envia, se usa po
 $headers .= 'Cc: infosport2k15@gmail' . "\r\n"; // se envia con copia a infosport, no es necesario enviarle copia al creador del partido ya que se hace antes.
 
 mail($to,$subject,$message,$headers);
+};
 ?>
-
- <form method="post">
-  <input type="submit" value="Submit" />
-  </form>
-	
-<?php
-  
-?>
+}
+</script>
+</body>
+</head>
+</html>
