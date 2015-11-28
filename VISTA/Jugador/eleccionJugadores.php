@@ -21,7 +21,7 @@ $id_partido=$_SESSION['id_partidoA'];
         for($i=0; $i<sizeof($data); $i++){
               $id=$data[$i];
             $link=$conexionBD->getConexion();
-         $query="INSERT INTO equipo(id_recinto, id_partido, id_jugador) VALUES('$id_recinto','$id_partido','$id')";
+         $query="INSERT INTO equipo(id_partido, id_jugador) VALUES('$id_partido','$id')";
          mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
          mysql_close($link); //Cerramos la conexion
 
