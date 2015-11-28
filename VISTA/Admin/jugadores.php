@@ -117,7 +117,9 @@ $vectorJugadores=$jefeJugador->obtenerJugador();
 <th>Deporte favorito</th>
 <th>Posicion</th>
 <th>Correo</th>
+<th>Estado</th>
 <th>Foto</th>
+<th></th>
 <th></th>
 </tr>
 
@@ -134,6 +136,16 @@ foreach($vectorJugadores as $Jugador){
 <td><?php echo $Jugador->getDeporte_fav();?></td>
 <td><?php echo $Jugador->getPosicion();?></td>
 <td><?php echo $Jugador->getCorreo();?></td>
+<td><?php
+
+ if($jefeJugador->verEstado($Jugador->getId_jugador())== "1")
+    echo "Activo Director";
+  if($jefeJugador->verEstado($Jugador->getId_jugador())== "2")
+    echo "Activo";
+  if($jefeJugador->verEstado($Jugador->getId_jugador())== "3")
+    echo "Inhabilitado";
+
+  ?></td>
 <td> <p align="center">
   <?php
     $imagepath = "../images/usuarios/";
@@ -142,6 +154,14 @@ foreach($vectorJugadores as $Jugador){
 </p>
 </td>
 <td><a href='modificarJugador.php?id_jugador=<?php echo $Jugador->getId_jugador();?>' class="modificar">Modificar</a></td>
+<td>
+  <?php if(($jefeJugador->verEstado($Jugador->getId_jugador())== "1")||($jefeJugador->verEstado($Jugador->getId_jugador())== "2")){?>
+  <a href='inhabilitarJugador.php?id_jugador=<?php echo $Jugador->getId_jugador();?>' class="modificar">Inhabilitar</a></td>
+  <?php }
+        if($jefeJugador->verEstado($Jugador->getId_jugador())== "3"){
+  ?>
+    <a href='habilitarJugador.php?id_jugador=<?php echo $Jugador->getId_jugador();?>' class="modificar">Habilitar</a></td>
+  <?php } ?>
 </tr> 
     
 <?php

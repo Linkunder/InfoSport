@@ -112,6 +112,20 @@ class infoJugadores{
 		return $vectorData;
 	}
 
+	public function inhabilitarJugador($id){
+		$this->persistenciaJugador->inhabilitarJugador($id);
+	}
+
+	public function verEstado($id){
+		$estado=$this->persistenciaJugador->verEstado($id);
+		return $estado;
+
+	}
+
+		public function habilitarJugador($id){
+		$this->persistenciaJugador->habilitarJugador($id);
+	}
+
 
 
 }
