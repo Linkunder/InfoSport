@@ -9,7 +9,8 @@ include_once('../../LOGICA/infoGrupos.php');
 include_once('../../TO/GrupoConformado.php');
 include_once('../../LOGICA/infoGruposConformados.php');
 include_once('../../PERSISTENCIA/conexion.php');
-include('header.php'); 
+
+include('headerJugador.php'); 
 
 $jefeRecinto = infoRecintos::obtenerInstancia();
 $vectorRecintos=$jefeRecinto->obtenerRecinto();
@@ -17,17 +18,20 @@ $vectorJugador=$jefeJugador= infoJugadores::obtenerInstancia();
 $vectorJugador1=$jefeJugador= infoJugadores::obtenerInstancia();
 $jefeGrupoConformado = infoGruposConformados::obtenerInstancia();
 
-// $id_equipo=$_GET['id_equipo'];
-$id_grupo="1";
+
+$_SESSION['id_grupoA']= "1"; //$_GET['id_grupo'];
+$id_grupo=$_SESSION['id_grupoA'];
 $vectorJugador = $jefeGrupoConformado->obtenerJugadores($id_grupo);
 $vectorJugador1 = $jefeGrupoConformado->obtenerJugadores($id_grupo);
-//$id_recinto=$_GET['id_recinto'];
-$id_recinto="3";
-//$id_partido=$_GET['id_partido'];
-$id_partido="9";
-//Jugador 
+
+
+$_SESSION['id_grupoA']="1";      //$_GET['id_grupo'];
+$_SESSION['id_recintoA']="3";    //$_GET['id_recinto'];
+$_SESSION['id_partidoA']="9";    //$_GET['id_partido'];
 
  $conexionBD= new conexion();
+ require_once('JSON.php');
+ $json = new Services_JSON();
 ?>
 
 
@@ -63,9 +67,8 @@ $id_partido="9";
          elem.data("numsoltar", elem.data("numsoltar") + 1);
          elem.html("" + elem.data("numsoltar") + " jugadores elegidos");
          var idjugador= ui.draggable.data("id");  
-         arrayJugador[elem.data("numsoltar")]=(ui.draggable.data("id"));
-         elem1.html("" + arrayJugador[elem.data("numsoltar")] + "Entro");
-         alert(""+ arrayJugador+"");
+         arrayJugador[elem.data("numsoltar")-1]=(ui.draggable.data("id"));
+         // alert(""+ arrayJugador+""); NO BORRAR SIRVE PARA DEBUGGEAR 
       }
 
    },
@@ -74,9 +77,11 @@ $id_partido="9";
          ui.draggable.data("jugador", false);
          var elem = $(this);
    var elem1 = $(this);
+
+
          elem.data("numsoltar", elem.data("numsoltar") - 1);
-      elem1.html("" + ui.draggable.data("id") + "Salio");
-         
+         elem1.html("" + ui.draggable.data("id") + "Salio");
+
       }
    }
 
@@ -95,19 +100,24 @@ $id_partido="9";
       });
 
   function setValue(){
-    arv= arrayJugador.join("*"); //Funciona
-    alert(""+ arv +"");
+    //arv= arrayJugador.join(","); //Funciona
+    var jObject={};
+    for(i in arrayJugador){
+      jObject[i] = arrayJugador[i];
+    }
 
-    <?php 
-       $arr="<script> document.write(arrayJugador) </script>";
-       $id= $arr[1];
-         $link=$conexionBD->getConexion();
-         $query="INSERT INTO equipo(id_recinto, id_partido, id_jugador) VALUES('$id_recinto','$id_partido','$id')";
-         mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
-         mysql_close($link); //Cerramos la conexion
-    ?>
+    jObject=JSON.stringify(jObject);
+      $.ajax({
+          type:'post',
+          cache:false,
+          url:"eleccionJugadores.php",
+          data:{jObject:jObject},
+          success:function(server){
+            alert(server);
+          }
+    });
+    }
 
-  };
 
   </script>
 
@@ -149,12 +159,10 @@ foreach ($vectorJugador as $Jugador) {
 <br><br><br><br><br>
 
 
-<form action="eleccionJugadores.php" method=post name=test onSubmit="setValue()">
-  <input name=arv type="hidden">
-  <input type="submit" ></input>
-</form>
-  <center><button class="btn12"><a href='eleccionJugadores.php'>Siguiente</a></button></center>
 
+
+  <center><button class="btn12" onclick="setValue()"><a href=''>Siguiente</a></button></center>
+<!-- Ponle el href que quiera aqui :) -->
 
 
 <?php
