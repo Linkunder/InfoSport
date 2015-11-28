@@ -21,6 +21,7 @@ $numero_canchas=$_POST['numero_canchas'];
 $direccion=$_POST['direccion'];
 $telefono=$_POST['telefono'];
 $superficie=$_POST['superficie'];
+$imagen = $_POST['foto'];
 
 
 $nuevoRecinto= new Notificacion();
@@ -32,14 +33,14 @@ $nuevoRecinto->setDireccion($direccion);
 $nuevoRecinto->setTelefono($telefono);
 $nuevoRecinto->setCantidadCanchas($numero_canchas);
 $nuevoRecinto->setSuperficie($superficie);
+$nuevoRecinto->setFoto($imagen);
 
 $jefe= controlNotificacion::obtenerInstancia();
 $jefe->guardarRecinto($nuevoRecinto);
 
 
-$message = "Notificacion enviada!";
-echo "<script type='text/javascript'>alert('$message');</script>";
-$yourURL="index2.php";
+
+$yourURL="subirImagen.php";
 echo ("<script>location.href='$yourURL'</script>");
 
 

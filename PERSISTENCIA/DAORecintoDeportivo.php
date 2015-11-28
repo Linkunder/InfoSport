@@ -74,8 +74,8 @@
 	
 	public function insertarRecinto($recinto){
 		$link=$this->conexionBD->getConexion();
-		$query="INSERT INTO recinto_deportivo(nombre,descripcion,precio,horario,puntuacion,directorio_imagen,numero_canchas,direccion,telefono)
-		VALUES('".$recinto->getNombre()."','".$recinto->getDescripcion()."','".$recinto->getPrecio()."','".$recinto->getHorario()."','".$recinto->getPuntuacion()."','".$recinto->getImagen()."','".$recinto->getCantidadCanchas()."','".$recinto->getDireccion()."','".$recinto->getTelefono()."')";
+		$query="INSERT INTO recinto_deportivo(nombre,descripcion,precio,horario,puntuacion,directorio_imagen,numero_canchas,direccion,telefono,superficie)
+		VALUES('".$recinto->getNombre()."','".$recinto->getDescripcion()."','".$recinto->getPrecio()."','".$recinto->getHorario()."','".$recinto->getPuntuacion()."','".$recinto->getImagen()."','".$recinto->getCantidadCanchas()."','".$recinto->getDireccion()."','".$recinto->getTelefono()."','".$recinto->getSuperficie()."')";
         mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
         mysql_close($link); //Cerramos la conexion
 	}

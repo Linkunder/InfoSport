@@ -117,6 +117,8 @@ $vectorNotificacion = $jefeNotificacion->obtenerNotificaciones();
 <th>Direccion</th>
 <th>Telefono</th>
 <th>Superficie</th>
+<th>Foto</th>
+<th></th>
 <th></th>
 </tr>
 
@@ -139,7 +141,14 @@ foreach($vectorNotificacion as $Notificacion){
 <td><?php echo $Notificacion->getDireccion();?></td>
 <td><?php echo $Notificacion->getTelefono();?></td>
 <td><?php echo $Notificacion->getSuperficie();?></td>
-<td><a href='confirmaReporte.php?id_notificacion=<?php echo $idNoti;?>' class="modificar">Confirmar reporte</a></td>
+<td>
+  <?php 
+  $imagepath = "../images/notificaciones/";
+    echo "<img src='".$imagepath.$Notificacion->getfoto()."' height='50px' width='50px'>";
+  ?>
+</td>
+<td><a href='confirmaReporte.php?id_notificacion=<?php echo $idNoti;?>' class="modificar">Confirmar</a></td>
+<td><a href='descartaReporte.php?id_notificacion=<?php echo $idNoti;?>' class="modificar">Eliminar</a></td>
 </tr> 
     
 <?php

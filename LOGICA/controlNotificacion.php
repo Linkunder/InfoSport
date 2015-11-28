@@ -40,9 +40,15 @@ class controlNotificacion{
 		return $vectorData;
 	}
 
+	public function obtenerNotificacion($id_noti){
+		$vectorData=$this->persistenciaNotificacion->obtenerNotificacion($id_noti);
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
+	}
 
 	public function guardarImagen($id_recinto, $nombreImagen){
-		$vectorData=$this->persistenciaRecinto->guardarImagen($id_recinto, $nombreImagen);
+		$vectorData=$this->persistenciaNotificacion->guardarImagen($id_recinto, $nombreImagen);
 		if (count($vectorData)==0)
 			return null;
 		return $vectorData;

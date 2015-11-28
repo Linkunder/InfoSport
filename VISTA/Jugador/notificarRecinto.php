@@ -22,37 +22,38 @@ header("Location:login.php");
 
 
 
-<form class="crearGrupo" action= "procesarNotificacion.php" method="post">
+<form class="notificacion" action= "procesarNotificacion.php" method="post">
 
 <ul>
         <label for="nombre">* Nombre</label>
-        <input type="text" name="nombre" required>
+        <input class="campoTexto" type="text" name="nombre" required>
 
         <label for="descripcion">Descripcion</label>
-        <input type="text" name="descripcion" maxlength="200">
+        <input class="campoTexto" type="text" name="descripcion" maxlength="200">
 
         <label for="precio">* Precio</label>
-        <input type="text" name="precio" maxlength="200" required>
+        <input class="campoTexto" type="text" name="precio" maxlength="200" required>
 
         <label for="horario">* Horario</label>
-        <input type="text" name="horario" maxlength="200" required>
+        <input class="campoTexto" type="text" name="horario" maxlength="200" required>
 
         <label for="numero_canchas">Numero de canchas</label>
-        <input type="text" name="numero_canchas" maxlength="200">
+        <input class="campoTexto" type="text" name="numero_canchas" maxlength="200">
 
         <label for="direccion">* Direccion</label>
-        <input type="text" name="direccion" maxlength="200" required>
+        <input class="campoTexto" type="text" name="direccion" maxlength="200" required>
 
         <label for="telefono">* Telefono</label>
-        <input type="text" name="telefono" maxlength="200" required>
+        <input class="campoTexto" type="text" name="telefono" maxlength="200" required>
 
         <label for="superficie">Superficie</label>
-        <input type="text" name="superficie" maxlength="200">
+        <input class="campoTexto" type="text" name="superficie" maxlength="200">
+
     
         <br>
             <label>*Los campos con asterisco son obligatorios</label>
             <br>
-        <center><input type="submit" value="Notificar"  ></center>
+        <center><input class="btn12m" type="submit" value="Notificar"  ></center>
     
 </ul>
 </form>

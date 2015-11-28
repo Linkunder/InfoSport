@@ -10,6 +10,7 @@ private $superficie;
 private $numero_canchas;
 private $direccion;
 private $telefono;
+private $foto;
 
 function __construct(){}
 
@@ -48,6 +49,10 @@ function setSuperficie($superficie){
     $this->superficie=$superficie;
 }
 
+function setFoto($foto){
+    $this->foto=$foto;
+}
+
 
 
 
@@ -61,5 +66,6 @@ function getDireccion(){return $this->direccion;}
 function getTelefono(){return $this->telefono;}
 function getCantidadCanchas(){return $this->numero_canchas;}
 function getSuperficie(){return $this->superficie;}
+function getFoto(){return $this->foto;}
 }
 ?>
