@@ -110,10 +110,13 @@ $vectorRecintos=$jefeRecinto->obtenerRecinto();
 <th>Precio</th>
 <th>Horario</th>
 <!-- <th>Puntuacion</th> -->
-<th>Imagen</th>
+
 <th>Direccion</th>
 <th>Telefono</th>
 <th>Canchas</th>
+<th>Estado</th>
+<th>Imagen</th>
+<th></th>
 <th></th>
 </tr>
 
@@ -132,6 +135,16 @@ foreach($vectorRecintos as $RecintoDeportivo){
 <td><?php echo $RecintoDeportivo->getDireccion();?></td>
 <td><?php echo $RecintoDeportivo->getTelefono();?></td>
 <td><?php echo $RecintoDeportivo->getCantidadCanchas();?></td>
+<td>
+<?php
+
+ if($jefeRecinto->verEstado($RecintoDeportivo->getIdRecinto())== "0")
+    echo "Activo";
+  if($jefeRecinto->verEstado($RecintoDeportivo->getIdRecinto())== "1")
+    echo "Inhabilitado";
+  ?>
+
+</td>
 
 <td> <p align="center">
   <?php
@@ -142,6 +155,16 @@ foreach($vectorRecintos as $RecintoDeportivo){
 </td>
 
 <td><a href='modificarRecinto.php?id_recinto=<?php echo $RecintoDeportivo->getIdRecinto();?>' class="modificar">Modificar</a></td>
+<td>
+  <?php if($jefeRecinto->verEstado($RecintoDeportivo->getIdRecinto())== "0"){?>
+  <a href='inhabilitarRecinto.php?id_recinto=<?php echo $RecintoDeportivo->getIdRecinto();?>' class="modificar">Inhabilitar</a></td>
+  <?php }
+        if($jefeRecinto->verEstado($RecintoDeportivo->getIdRecinto())== "1"){
+  ?>
+    <a href='habilitarRecinto.php?id_recinto=<?php echo $RecintoDeportivo->getIdRecinto();?>' class="modificar">Habilitar</a></td>
+  <?php } ?>
+
+</td>
 </tr> 
     
 <?php

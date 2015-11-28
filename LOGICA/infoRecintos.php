@@ -61,6 +61,19 @@ class infoRecintos{
 		return $this->persistenciaRecinto->obtenerPrecio($id);
 	}
 
+	public function inhabilitarRecinto($id){
+		$this->persistenciaRecinto->inhabilitarRecinto($id);
+	}
+
+	public function verEstado($id){
+		$estado=$this->persistenciaRecinto->verEstado($id);
+		return $estado;
+
+	}
+
+		public function habilitarRecinto($id){
+		$this->persistenciaRecinto->habilitarRecinto($id);
+	}
 
 }
 ?>

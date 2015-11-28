@@ -166,6 +166,34 @@
         mysql_close($link);
     }
 
+    public function inhabilitarRecinto($id){
+
+        $link=$this->conexionBD->getConexion();
+        $query = "UPDATE recinto_deportivo SET estado='1' WHERE id_recinto = '".$id."';";
+        $result = mysql_query($query,$link) or die(mysql_error());
+        mysql_close($link);
+
+    }
+
+    public function verEstado($id){
+            $link=$this->conexionBD->getConexion(); //conexion a la bd
+            $query="SELECT estado FROM recinto_deportivo where id_recinto= '".$id."';";
+            $result= mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
+               $i=0;
+            $row=mysql_fetch_array($result);
+
+            return $row['estado'];
+
+    }
+        public function habilitarRecinto($id){
+
+        $link=$this->conexionBD->getConexion();
+        $query = "UPDATE recinto_deportivo SET estado='0' WHERE id_recinto = '".$id."';";
+        $result = mysql_query($query,$link) or die(mysql_error());
+        mysql_close($link);
+
+    }
+
 
 }
 ?>
