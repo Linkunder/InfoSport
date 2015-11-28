@@ -39,6 +39,13 @@ class infoRecintos{
 			return null;
 		return $vectorData;
 	}
+
+	public function obtenerRecintosActivos(){
+		$vectorData=$this->persistenciaRecinto->obtenerRecintosActivos();
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
+	}
 }
 
 ?>

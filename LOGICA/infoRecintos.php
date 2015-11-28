@@ -71,8 +71,15 @@ class infoRecintos{
 
 	}
 
-		public function habilitarRecinto($id){
+	public function habilitarRecinto($id){
 		$this->persistenciaRecinto->habilitarRecinto($id);
+	}
+	
+	public function obtenerRecintosActivos(){
+		$vectorData=$this->persistenciaRecinto->obtenerRecintosActivos();
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
 	}
 
 }

@@ -11,6 +11,7 @@ private $directorio_imagen;
 private $numero_canchas;
 private $direccion;
 private $telefono;
+private $estado;
 
 function __construct(){}
 
@@ -51,6 +52,10 @@ function setSuperficie($superficie){
     $this->superficie=$superficie;
 }
 
+function setEstado($estado){
+    $this->estado=$estado;
+}
+
 
 
 
@@ -65,5 +70,6 @@ function getDireccion(){return $this->direccion;}
 function getTelefono(){return $this->telefono;}
 function getCantidadCanchas(){return $this->numero_canchas;}
 function getSuperficie(){return $this->superficie;}
+function getEstado(){return $this->estado;}
 }
 ?>
