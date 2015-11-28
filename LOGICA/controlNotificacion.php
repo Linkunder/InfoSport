@@ -1,11 +1,11 @@
 <?php
-include_once('../../PERSISTENCIA/DAORecintoDeportivo.php');
-class infoRecintos{
+include_once('../../PERSISTENCIA/DAONotificacion.php');
+class controlNotificacion{
 	private static $instancia;
-	private $persistenciaRecinto;
+	private $persistenciaNotificacion;
 
 	private function __construct(){
-		$this->persistenciaRecinto= new DAORecintoDeportivo();
+		$this->persistenciaNotificacion= new DAONotificacion();
 	}
 
 	public function obtenerInstancia(){
@@ -19,7 +19,7 @@ class infoRecintos{
 	public function guardarRecinto($nuevorecinto){
     //mandamos el recinto a la base de datos....->persistencia
     //debería existir alguna logica de negocio..., por ejemplo si existe el cliente
-		$this->persistenciaRecinto->insertarRecinto($nuevorecinto);
+		$this->persistenciaNotificacion->insertarRecinto($nuevorecinto);
 	}
 
 	public function modificarRecintoDos($nuevorecinto){
@@ -33,16 +33,26 @@ class infoRecintos{
 		return $vectorData;
 	}
 
-	public function obtenerRecinto(){
-		$vectorData=$this->persistenciaRecinto->getRecintos();
+	public function obtenerNotificaciones(){
+		$vectorData=$this->persistenciaNotificacion->getRecintos();
 		if (count($vectorData)==0)
 			return null;
 		return $vectorData;
 	}
 
+	public function eliminarNotificacion($id_noti){
+		$this->persistenciaNotificacion->eliminarNotificacion($id_noti);
+	}
+
+	public function obtenerNotificacion($id_noti){
+		$vectorData=$this->persistenciaNotificacion->obtenerNotificacion($id_noti);
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
+	}
 
 	public function guardarImagen($id_recinto, $nombreImagen){
-		$vectorData=$this->persistenciaRecinto->guardarImagen($id_recinto, $nombreImagen);
+		$vectorData=$this->persistenciaNotificacion->guardarImagen($id_recinto, $nombreImagen);
 		if (count($vectorData)==0)
 			return null;
 		return $vectorData;
@@ -61,26 +71,6 @@ class infoRecintos{
 		return $this->persistenciaRecinto->obtenerPrecio($id);
 	}
 
-	public function inhabilitarRecinto($id){
-		$this->persistenciaRecinto->inhabilitarRecinto($id);
-	}
-
-	public function verEstado($id){
-		$estado=$this->persistenciaRecinto->verEstado($id);
-		return $estado;
-
-	}
-
-	public function habilitarRecinto($id){
-		$this->persistenciaRecinto->habilitarRecinto($id);
-	}
-	
-	public function obtenerRecintosActivos(){
-		$vectorData=$this->persistenciaRecinto->obtenerRecintosActivos();
-		if (count($vectorData)==0)
-			return null;
-		return $vectorData;
-	}
 
 }
 ?>

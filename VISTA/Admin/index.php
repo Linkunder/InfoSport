@@ -43,6 +43,8 @@ header("Location:login.html");
 
             <ul class="dropdown-menu">
              <!-- <li><a href="javascript:;">Settings</a></li> -->
+             <li><a href="notificaciones.php">Ver notificaciones</a></li>
+             <hr>
               <li><a href="../../LOGICA/salir.php">Cerrar Sesion</a></li>
               <li></li>
             </ul>

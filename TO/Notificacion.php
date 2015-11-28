@@ -1,22 +1,21 @@
 <?php
-class RecintoDeportivo{
-private $id_recinto;
+class Notificacion{
+private $id_notificacion;
 private $nombre;
 private $descripcion;
 private $precio;
 private $horario;
 private $puntuacion; //creo que este no iba
 private $superficie;
-private $directorio_imagen;
 private $numero_canchas;
 private $direccion;
 private $telefono;
-private $estado;
+private $foto;
 
 function __construct(){}
 
-function setIdRecinto($idRecinto){
-    $this->id_recinto=$idRecinto;
+function setIdNotificacion($idNotificacion){
+    $this->id_notificacion=$idNotificacion;
 }
 
 function setNombre($nombreRecinto){
@@ -35,9 +34,7 @@ function setHorario($horarioRecinto){
 function setPuntuacion($puntuacion){
     $this->puntuacion=$puntuacion;
 }
-function setImagen($linkImagen){
-    $this->directorio_imagen=$linkImagen;
-}
+
 function setDireccion($direccionRecinto){
     $this->direccion=$direccionRecinto;
 }
@@ -52,24 +49,23 @@ function setSuperficie($superficie){
     $this->superficie=$superficie;
 }
 
-function setEstado($estado){
-    $this->estado=$estado;
+function setFoto($foto){
+    $this->foto=$foto;
 }
 
 
 
 
-function getIdRecinto(){return $this->id_recinto;}
+function getIdNotificacion(){return $this->id_notificacion;}
 function getNombre(){return $this->nombre;}
 function getDescripcion(){return $this->descripcion;}
 function getPrecio(){return $this->precio;}
 function getHorario(){return $this->horario;}
 function getPuntuacion(){return $this->puntuacion;}
-function getImagen(){return $this->directorio_imagen;}
 function getDireccion(){return $this->direccion;}
 function getTelefono(){return $this->telefono;}
 function getCantidadCanchas(){return $this->numero_canchas;}
 function getSuperficie(){return $this->superficie;}
-function getEstado(){return $this->estado;}
+function getFoto(){return $this->foto;}
 }
 ?>

@@ -229,9 +229,35 @@ class DAOJugador{
             return null;
         }
     return $vectorData;
+    }
 
+    public function inhabilitarJugador($id){
+
+        $link=$this->conexionBD->getConexion();
+        $query = "UPDATE jugador SET rango='3' WHERE id_jugador = '".$id."';";
+        $result = mysql_query($query,$link) or die(mysql_error());
+        mysql_close($link);
 
     }
 
+    public function verEstado($id){
+            $link=$this->conexionBD->getConexion(); //conexion a la bd
+            $query="SELECT rango FROM jugador where id_jugador= '".$id."';";
+            $result= mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
+               $i=0;
+            $row=mysql_fetch_array($result);
+
+            return $row['rango'];
+
+    }
+        public function habilitarJugador($id){
+
+        $link=$this->conexionBD->getConexion();
+        $query = "UPDATE jugador SET rango='2' WHERE id_jugador = '".$id."';";
+        $result = mysql_query($query,$link) or die(mysql_error());
+        mysql_close($link);
+
+    }
 }
+
 ?>

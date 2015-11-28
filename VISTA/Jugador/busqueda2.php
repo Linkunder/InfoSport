@@ -9,7 +9,7 @@ include_once('../../TO/Jugador.php');
 include_once('../../LOGICA/infoJugadores.php');
 $jefeComentario = controlComentarios::obtenerInstancia();
 $jefeRecinto = infoRecintos::obtenerInstancia();
-$vectorRecintos=$jefeRecinto->obtenerRecinto();
+$vectorRecintos=$jefeRecinto->obtenerRecintosActivos();
 $jefeJugador= infoJugadores::obtenerInstancia();
 
 include('headerJugador.php'); ?>

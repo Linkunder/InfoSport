@@ -9,7 +9,9 @@ include_once('../LOGICA/infoJugadores2.php');
 $jefeComentario = controlComentarios::obtenerInstancia();
 $jefeRecinto = infoRecintos::obtenerInstancia();
 $jefeJugador= infoJugadores::obtenerInstancia();
-$vectorRecintos=$jefeRecinto->obtenerRecinto();
+$vectorRecintos=$jefeRecinto->obtenerRecintosActivos();
+
+
 
 include('header.php'); ?>
 
@@ -50,8 +52,11 @@ foreach ($vectorRecintos as $key) {
     $pos2 = strripos($superficie, $search); 
     $descripcion = $key->getDescripcion();
     $pos3 = strripos($descripcion, $search);
+
+
+
     
-    if ($pos !== false || $pos2 !== false || $pos3 !== false) { ?>
+    if ($pos !== false || $pos2 !== false || $pos3 !== false )  { ?>
                 <!-- Start details for portfolio project 1 -->
                 
                     <div id="slidingDiv<?php echo $cont?>" class="toggleDiv row-fluid single-project">
@@ -152,7 +157,7 @@ foreach ($vectorRecintos as $key) {
                                 <p><?php echo $comentarios->getDetalle();?></p>
                                 <div class="whopic">
                                     <div class="arrow"></div>
-                                 <img src="./Jugador/images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>">
+                                 <img src="images/usuarios/<?php echo $jugador[0]->getDirectorio_foto(); ?>">
                                     <strong><?php echo $jugador[0]->getNombre(); ?>
                                         <small></small>
                                     </strong>
@@ -173,7 +178,7 @@ foreach ($vectorRecintos as $key) {
             
         
     <?php $cont++;
-    }  
+    } 
 }
 ?>
 
