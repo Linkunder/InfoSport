@@ -6,14 +6,19 @@ include_once('../../TO/Partido.php');
 include_once('../../TO/RecintoDeportivo.php');
 include_once('../../LOGICA/infoRecintos.php');
 include_once('../../LOGICA/controlPartido.php');
+include_once('../../TO/Jugador.php');
+include_once('../../LOGICA/infoJugadores.php');
 
 $jefeRecinto = infoRecintos::obtenerInstancia();
 $vectorRecintos=$jefeRecinto->obtenerRecinto();
 
 $jefePartido = controlPartido::obtenerInstancia();
 $vectorPartidos=$jefePartido->obtenerInstancia();
+$jefeJugador = infoJugadores::obtenerInstancia();
 
-include('headerJugador.php'); ?>
+include('headerJugador.php'); 
+
+?>
 
 <div class= "fondoamarillo">
 
@@ -53,7 +58,7 @@ body,td,th {
       <br>
       <label>Asunto:</label>
       <br>
-      <?php if($cont==0){?>
+      <?php if($cont==0 ||($jefeJugador->verEstado($_SESSION["idJugadorBAN"])=="3")){?>
       <input type="text" name="Asunto" id="Asunto" readonly="readonly" >
       <?php }else{?>
       <input type="text" name="Asunto" id="Asunto"> 
@@ -61,7 +66,7 @@ body,td,th {
       <br>
       <label>Puntaje:</label>
       <br>
-      <?php if($cont==0){?>
+      <?php if($cont==0 ||($jefeJugador->verEstado($_SESSION["idJugadorBAN"])=="3")){?>
       <select name="puntaje" id="puntaje" readonly="readonly">
       <?php }else{?>
       <select name="puntaje" id="puntaje">
@@ -76,25 +81,32 @@ body,td,th {
       <br>
       <label>Comentario:</label> 
     </label>
-    <?php if($cont==0){?>
+    <?php if($cont==0 ||($jefeJugador->verEstado($_SESSION["idJugadorBAN"])=="3")){?>
     <textarea name="Comentario" id="Comentario" cols="" rows="" readonly="readonly"></textarea>
     <?php }else{?>
     <textarea name="Comentario" id="Comentario" cols="" rows="" onkeyup="clean('Comentario')" onkeydown="clean('Comentario')"  ></textarea>
     <?php }?>
     
   </p>
-  <?php if($cont!=0){?>
+  <?php if($cont!=0 ||($jefeJugador->verEstado($_SESSION["idJugadorBAN"])!="3")){?>
   <p align="center"><input type="submit" value="Comentar"></p>
   <?php }?>
   
 </form>
+<?php include('footer.php'); ?>
 
 <?php 
-if($cont==0){
-echo '<script language="javascript">alert("No tienes partidos jugados, no puedes comentar");</script>'; }?>
+if($cont==0 ||($jefeJugador->verEstado($_SESSION["idJugadorBAN"])=="3")){
+    if($jefeJugador->verEstado($_SESSION["idJugadorBAN"])=="3"){
+    echo '<script language="javascript">alert("Su cuenta ha sido restringida por mal comportamiento, comuniquese con el administrador");</script>';
+
+    }
+    echo '<script language="javascript">alert("No tienes partidos jugados, no puedes comentar");</script>';
+
+ }?>
 
 </body>
 
-<?php include('footer.php'); ?>
+
 <?php include('scrollUp.php'); ?>
 <?php include('js.php'); ?>
