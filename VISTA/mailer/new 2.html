@@ -1,0 +1,17 @@
+<html><body>
+<div style="height:auto; width:auto;"><img src="http://i.imgur.com/fuWkXQT.png" alt="Website Change Request" /></div>
+			<table rules="all" style="border-color: #666;" cellpadding="10">
+			<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" . strip_tags($_POST['req-name']) . "</td></tr>
+			<tr><td><strong>Email:</strong> </td><td>" . strip_tags($_POST['req-email']) . "</td></tr>
+			<tr><td><strong>Type of Change:</strong> </td><td>" . strip_tags($_POST['typeOfChange']) . "</td></tr>
+			<tr><td><strong>Urgency:</strong> </td><td>" . strip_tags($_POST['urgency']) . "</td></tr>
+			<tr><td><strong>URL To Change (main):</strong> </td><td>" . <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="800" height="443" src="https://maps.google.com/maps?hl=en&q=chillan, chile&ie=UTF8&t=k&z=6&iwloc=B&output=embed"><div><small><a href="http://embedgooglemaps.com">embedgooglemaps.com</a></small></div><div><small><a href="http://bmwcritics.org/">BMW cars</a></small></div></iframe>
+			<tr><td><strong>URL To Change (additional):</strong> </td><td>" . strip_tags($addURLS) . "</td></tr>
+			
+			
+			<tr><td><strong>CURRENT Content:</strong> </td><td>" . $curText . "</td></tr>
+			
+			<tr><td><strong>NEW Content:</strong> </td><td>" . htmlentities($_POST['newText']) . "</td></tr>";
+			</table><br>
+			</body></html>
+			
