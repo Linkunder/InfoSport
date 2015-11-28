@@ -1,11 +1,41 @@
-<!DOCTYPE php>
+
 <?php
 session_start();
+if($_SESSION["autentica"]=="SI") {
+
+}
+else {
+header("Location:login.php"); 
+}
+
 ?>
 <php lang="en">
 
 
-<?php include('headerJugador.php');?>
+<?php 
+include('headerJugador.php');
+include_once('../../TO/Grupo.php');
+include_once('../../LOGICA/infoGrupos.php');
+include_once('../../TO/Jugador.php');
+include_once('../../LOGICA/infoJugadores.php');
+
+$jefeJugador = infoJugadores::obtenerInstancia();
+$correo = $_SESSION['sesion'];;
+$vectorJugador=$jefeJugador->buscarID($correo);
+$idJugadorGrupo = 0;
+
+foreach($vectorJugador as $Jugador){    
+    $idJugadorGrupo= $Jugador->getId_jugador();
+    $nombreCapitan = $Jugador->getNombre();
+    $apellidoCapitan= $nombreCapitan." ".$Jugador->getApellido();
+} 
+
+$jefeGrupo = infoGrupos::obtenerInstancia();
+$vectorGrupos = $jefeGrupo->obtenerGrupos($idJugadorGrupo);
+
+
+
+?>
 
 
 <div class="fondoamarillo">
@@ -44,6 +74,18 @@ session_start();
                         <option>Hockey</option>
                         <option>Basquetbol</option>
         </select>
+        </div>
+         <label for="grupo">Grupo</label>
+        <div class="in">
+            <select name="grupo" id = "grupo">
+                <?php 
+                foreach ($vectorGrupos as $Grupo) {
+                    ?>
+                    <option><?php echo $Grupo->getNombre_grupo(); ?></option>
+                    <?php
+                }
+                ?>
+            </select>
         </div>
         <br>
         <br>
