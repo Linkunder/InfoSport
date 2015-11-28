@@ -14,11 +14,51 @@ header("Location:login.php");
 <table class="table table-bordered2">
     <tr>
         <th>
-            <center><h3>¿Tu recinto favorito no está en InfoSport?<?php  echo "  <img src='images/big.png' height='32px' width='32px'>"?></h3></center>
-            <center><h5>No te preocupes, InfoSport te permite agregarlo</h5></center>
+            <center><h3>¿Tu recinto favorito no esta en InfoSport?<?php  echo "  <img src='images/big.png' height='32px' width='32px'>"?></h3></center>
+            <center><h5>¡No te preocupes! InfoSport te permite agregarlo de manera facil y rapida</h5></center>
          </th>
     </tr>
 </table>
+
+
+
+<form class="crearGrupo" action= "procesarNotificacion.php" method="post">
+
+<ul>
+        <label for="nombre">* Nombre</label>
+        <input type="text" name="nombre" required>
+
+        <label for="descripcion">Descripcion</label>
+        <input type="text" name="descripcion" maxlength="200">
+
+        <label for="precio">* Precio</label>
+        <input type="text" name="precio" maxlength="200" required>
+
+        <label for="horario">* Horario</label>
+        <input type="text" name="horario" maxlength="200" required>
+
+        <label for="numero_canchas">Numero de canchas</label>
+        <input type="text" name="numero_canchas" maxlength="200">
+
+        <label for="direccion">* Direccion</label>
+        <input type="text" name="direccion" maxlength="200" required>
+
+        <label for="telefono">* Telefono</label>
+        <input type="text" name="telefono" maxlength="200" required>
+
+        <label for="superficie">Superficie</label>
+        <input type="text" name="superficie" maxlength="200">
+    
+        <br>
+            <label>*Los campos con asterisco son obligatorios</label>
+            <br>
+        <center><input type="submit" value="Notificar"  ></center>
+    
+</ul>
+</form>
+
+
+
 
 
 <?php include('footer.php');?>
