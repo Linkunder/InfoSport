@@ -16,6 +16,8 @@ session_start();
     include_once('../../LOGICA/controlPartido.php');
     include_once('../../TO/Jugador.php');
     include_once('../../LOGICA/infoJugadores.php');
+    include_once('../../TO/RecintoDeportivo.php');
+    include_once('../../LOGICA/infoRecintos.php');
 
     $jefeJugador = infoJugadores::obtenerInstancia();
     $correo = $_SESSION['sesion'];;
@@ -28,34 +30,123 @@ session_start();
 
     $jefePartidos = controlPartido::obtenerInstancia();
     $vectorPartidosActivos = $jefePartidos->obtenerPartidosAgendados($idJugador);
-
-    foreach ($vectorPartidosActivos as $Partido) {
-        echo $Partido->getIdPartido();
-        echo "<br>";
-    }
+    $vectorPartidosJugados = $jefePartidos->obtenerPartidosJugados($idJugador);
 
 ?>
 
+<table class="table table-bordered2">
+    <tr>
+        <th>
+            <center><h3><?php echo "<img src='images/basketball27.png' height='32px' width='32px'>   "?>  Mis partidos  <?php  echo "<img src='images/man451.png' height='32px' width='32px'>"?></h3></center>
+    </tr>
+</table>
 
 
+<table class = "calendario" >
+    <tr>
+        <td>
+            Partidos agendados
+        </td>
+    </tr>
+</table>
 
 
+<table class = "calendario" >
+    <tr>
+        <td>Cancha</td>
+        <td>Dia</td>
+        <td>Hora</td>
+        <td></td>
+    </tr>
+    <?php
+foreach ($vectorPartidosActivos as $Partido) {
+    
 
+?>
 
+    <tr>
+        <td>
+            <?php
+            $idRecinto = $Partido->getIdRecinto();
+            $jefeRecinto = infoRecintos::obtenerInstancia();
+            $nombreRecinto = $jefeRecinto->obtenerNombreiD($idRecinto);
+            echo "$nombreRecinto";
+            ?>
+        </td>
+        <td>
+            <?php
+            $fecha = $Partido->getFecha();
+            $newFecha = date("d-m-Y", strtotime($fecha));
+            echo "$newFecha";
+            ?>
+        </td>
+        <td>
+            <?php
+            $hora = $Partido->getHora();
+            echo "$hora";
+            ?>
+        </td>
+        <td>
+            <a href='verResumen.php?id_partido=<?php echo $Partido->getIdPartido();?>' class="modificar"> Ver detalles </a>
+        </td>
+    </tr>
+    <?php
+}
+?>
+</table>
+<br> 
 
+<table class = "calendario" >
+    <tr>
+        <td>
+            Partidos jugados
+        </td>
+    </tr>
+</table>
 
+<table class = "calendario" >
+    <tr>
+        <td>Cancha</td>
+        <td>Dia</td>
+        <td>Hora</td>
+        <td></td>
+    </tr>
+    <?php
+foreach ($vectorPartidosJugados as $Partido) {
+    
 
+?>
 
-
-
-
-
-
-
-
-
-
-
+    <tr>
+        <td>
+            <?php
+            $idRecinto = $Partido->getIdRecinto();
+            $jefeRecinto = infoRecintos::obtenerInstancia();
+            $nombreRecinto = $jefeRecinto->obtenerNombreiD($idRecinto);
+            echo "$nombreRecinto";
+            ?>
+        </td>
+        <td>
+            <?php
+            $fecha = $Partido->getFecha();
+            $newFecha = date("d-m-Y", strtotime($fecha));
+            echo "$newFecha";
+            ?>
+        </td>
+        <td>
+            <?php
+            $hora = $Partido->getHora();
+            echo "$hora";
+            ?>
+        </td>
+        <td>
+            <a href='verResumen.php?id_partido=<?php echo $Partido->getIdPartido();?>' class="modificar"> Ver detalles </a>
+        </td>
+    </tr>
+    <?php
+}
+?>
+</table>
 
 
 

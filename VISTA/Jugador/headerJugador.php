@@ -56,6 +56,8 @@
                                         <li><a href="nuevoGrupo.php">Crear grupo</a></li>
                                         <li><a href="grupos.php">Mis grupos</a></li>
                                         <hr></hr>
+                                        <li><a href="notificarRecinto.php">Notificar recinto</a></li>
+                                        <hr></hr>
                                         <li><a href="../../LOGICA/salirJugador.php">Cerrar Sesion</a></li>
                                         <li></li>
                                     </ul>

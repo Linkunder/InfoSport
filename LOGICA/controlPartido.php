@@ -58,6 +58,9 @@ class controlPartido{
 		return $this->persistenciaPartido->obtenerPartidosAgendados($idJugador);
 	}
 
+	public function obtenerPartidosJugados($idJugador){
+		return $this->persistenciaPartido->obtenerPartidosJugados($idJugador);
+	}
 
 
 

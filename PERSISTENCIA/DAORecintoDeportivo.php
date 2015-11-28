@@ -8,14 +8,11 @@
     }
 
     public function obtenerNombreiD($id_recinto){
-
-            $link=$this->conexionBD->getConexion();     
-    
-    $query="SELECT nombre FROM recinto_deportivo WHERE id_recinto = '$id_recinto'";
-     $result= mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
-     $row=mysql_fetch_array($result);
-     return $row['nombre'];
-
+        $link=$this->conexionBD->getConexion();     
+        $query="SELECT nombre FROM recinto_deportivo WHERE id_recinto = '$id_recinto'";
+        $result= mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
+        $row=mysql_fetch_array($result);
+        return $row['nombre'];
     }
 
     public function obtenerPrecio($id){
