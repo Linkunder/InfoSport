@@ -198,6 +198,7 @@ $jugadores = $jefeJugador->obtenerJugadores5($idPartido);
 				$fechaTercer = $TercerTiempo->getFecha();
 				$newFecha2 = date("d-m-Y", strtotime($fechaTercer));
 				$horaTercer = $TercerTiempo->getHora();
+				$cuotaTercer = $TercerTiempo->getComentario();
 			}
 			?>
 
@@ -209,6 +210,10 @@ $jugadores = $jefeJugador->obtenerJugadores5($idPartido);
 			</div>
 			<div>
 				<span>Hora:  </span><?php echo "  $horaTercer"?>
+			</div>
+
+			<div>
+				<span>Comentarios:  </span><?php echo "  $cuotaTercer"?>
 			</div>
 
 
