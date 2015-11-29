@@ -281,11 +281,11 @@ class DAOJugador{
             $vectorData[$i]=$jugador;
             $i++;
         }
-    mysql_close($link);
-    if(empty($vectorData)){
-        return null;
-    }
-    return $vectorData;
+        mysql_close($link);
+        if(empty($vectorData)){
+            return null;
+        }
+        return $vectorData;
     }
 }
 

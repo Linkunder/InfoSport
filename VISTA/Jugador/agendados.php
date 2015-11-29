@@ -68,6 +68,7 @@ foreach ($vectorPartidosActivos as $Partido) {
         <td>
             <?php
             $idRecinto = $Partido->getIdRecinto();
+            $_SESSION['id_recintoA'] = $idRecinto;
             $jefeRecinto = infoRecintos::obtenerInstancia();
             $nombreRecinto = $jefeRecinto->obtenerNombreiD($idRecinto);
             echo "$nombreRecinto";
@@ -87,7 +88,7 @@ foreach ($vectorPartidosActivos as $Partido) {
             ?>
         </td>
         <td>
-            <a href='verResumen.php?id_partido=<?php echo $Partido->getIdPartido();?>' class="modificar"> Ver detalles </a>
+            <a href='resumenPartido2.php?id_partido=<?php echo $Partido->getIdPartido();?>' class="modificar"> Ver detalles </a>
         </td>
     </tr>
     <?php
@@ -140,7 +141,7 @@ foreach ($vectorPartidosJugados as $Partido) {
             ?>
         </td>
         <td>
-            <a href='verResumen.php?id_partido=<?php echo $Partido->getIdPartido();?>' class="modificar"> Ver detalles </a>
+            <a href='resumenPartido2.php?id_partido=<?php echo $Partido->getIdPartido();?>' class="modificar"> Ver detalles </a>
         </td>
     </tr>
     <?php
