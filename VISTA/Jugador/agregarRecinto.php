@@ -31,7 +31,7 @@ $jefe->agregarRecinto($idUltimoPartido, $idRecinto, $precioRecinto);
 
 $message = "Partido agendado!";
 echo "<script type='text/javascript'>alert('$message');</script>";
-$yourURL="pickearJugadores.php?id_recinto=$idRecinto?id_partido=$idUltimoPartido";
+$yourURL="pickearJugadores.php?id_recinto=$idRecinto&id_partido=$idUltimoPartido";
 echo ("<script>location.href='$yourURL'</script>");
 
 

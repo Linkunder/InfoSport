@@ -20,7 +20,7 @@ include_once('../../TO/Jugador.php');
 include_once('../../LOGICA/infoJugadores.php');
 
 $jefeJugador = infoJugadores::obtenerInstancia();
-$correo = $_SESSION['sesion'];;
+$correo = $_SESSION['sesion'];
 $vectorJugador=$jefeJugador->buscarID($correo);
 $idJugadorGrupo = 0;
 
@@ -85,7 +85,7 @@ $vectorGrupos = $jefeGrupo->obtenerGrupos($idJugadorGrupo);
                 <?php 
                 foreach ($vectorGrupos as $Grupo) {
                     ?>
-                    <option><?php echo $Grupo->getNombre_grupo(); ?></option>
+                    <option value="<?php echo $Grupo->getId_grupo(); ?>"><?php echo $Grupo->getNombre_grupo(); ?></option>
                     <?php
                 }
                 ?>

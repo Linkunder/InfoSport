@@ -19,15 +19,14 @@ $vectorJugador1=$jefeJugador= infoJugadores::obtenerInstancia();
 $jefeGrupoConformado = infoGruposConformados::obtenerInstancia();
 
 
-$_SESSION['id_grupoA']= "1"; //$_GET['id_grupo'];
-$id_grupo=$_SESSION['id_grupoA'];
-$vectorJugador = $jefeGrupoConformado->obtenerJugadores($id_grupo);
-$vectorJugador1 = $jefeGrupoConformado->obtenerJugadores($id_grupo);
+
+$id_grupo=$_SESSION['grupoPartido'];
+$vectorJugador = $jefeJugador->obtenerJugadores($id_grupo);
+$vectorJugador1 = $jefeJugador->obtenerJugadores($id_grupo);
 
 
-$_SESSION['id_grupoA']="1";      //$_GET['id_grupo'];
-$_SESSION['id_recintoA']="3";    //$_GET['id_recinto'];
-$_SESSION['id_partidoA']="9";    //$_GET['id_partido'];
+$_SESSION['id_recintoA']=$_GET['id_recinto'];
+$_SESSION['id_partidoA']=$_GET['id_partido'];
 
  $conexionBD= new conexion();
  require_once('JSON.php');
@@ -163,7 +162,7 @@ foreach ($vectorJugador as $Jugador) {
 
 
   <center><button class="btn12" onclick="setValue()"><a href=''>Siguiente</a></button></center>
-<!-- Ponle el href que quiera aqui :) -->
+<!-- Ponle el href a la parte que sea pero el onclick debe quedar tal cual  :) -->
 
 
 <?php

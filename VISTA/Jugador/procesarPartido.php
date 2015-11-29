@@ -25,6 +25,9 @@ foreach ($vectorJugador as $Jugador) {
 $fecha=$_POST['fecha'];
 $hora = $_POST['hora'];
 $jugadores = $_POST['jugadores'];
+
+$_SESSION['nroJugadores']= $jugadores ;
+$_SESSION['grupoPartido']= $_POST['grupo'];
 $estado = 1;
 
 // Creo el objeto partido 
