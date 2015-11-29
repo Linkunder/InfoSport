@@ -136,7 +136,7 @@ $_SESSION['id_partidoA']="9";    //$_GET['id_partido'];
 $cont=2;
 
 foreach ($vectorJugador as $Jugador) {
-  
+  if(($jefeJugador->verEstado($Jugador->getId_jugador())!="3")){
 ?>
 <div id="draggable<?php echo $Jugador->getId_jugador();?>" class="draggable ui-widget-content">
   <img src="../images/usuarios/<?php echo $Jugador->getDirectorio_foto()?>" width="30" alt="image02">
@@ -146,6 +146,7 @@ foreach ($vectorJugador as $Jugador) {
 <?php
 
   $cont++;
+}
   }//fin del foreach
 ?>
 
