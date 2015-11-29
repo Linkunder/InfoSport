@@ -53,17 +53,26 @@ foreach ($recinto1 as $RecintoDeportivo) {
 	$nombreRecinto = $RecintoDeportivo->getNombre();
 	$direccionRecinto = $RecintoDeportivo->getDireccion();
 }
+
+$tercerTiempo1 = $jefeTercer->buscarTercer($idPartido);
+foreach ($tercerTiempo1 as $TercerTiempo) {
+	$idLugar = $TercerTiempo->getIdLugar();
+}
+
+
 /*
 $grupo1 = $jefeGrupo->obtenerGrupoEsp($idGrupo);
 foreach ($grupo1 as $Grupo) {
 	$nombreGrupo = $Grupo->getNombre_grupo();
 }
 
+
+
 $tercerTiempo1 = $jefeTercer->obtenerTercerEsp($idTercer);
 foreach ($tercerTiempo1 as $TercerTiempo) {
 	$idLugar = $TercerTiempo->getIdLugar();
 }
-
+*/
 $lugarTercerTiempo1 = $jefeLugar->obtenerLugarEsp($idLugar);
 
 if ($idLugar != 0) { // Si es 0, no hay tercer tiempo 
@@ -71,7 +80,7 @@ foreach ($lugarTercerTiempo1 as $LugarTercerTiempo) {
 	$nombreLugar = $LugarTercerTiempo->getNombreLugar();
 	$imagenLugar = $LugarTercerTiempo->getImagen();
 }
-}*/
+}
 
 
 
@@ -192,7 +201,7 @@ foreach ($lugarTercerTiempo1 as $LugarTercerTiempo) {
 			if ($idLugar != 0) { //  agendo tercer tiempo
 			?>
 
-			<!--
+			
 			<div class="project-title clearfix">
 			<h3> <?php echo "Tercer tiempo" ?> </h3>
 			</div>

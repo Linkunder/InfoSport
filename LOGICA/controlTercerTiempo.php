@@ -40,6 +40,14 @@ class controlTercerTiempo{
 		return $vectorData;
 	}
 
+	public function buscarTercer($idPartido){
+		$vectorData=$this->persistenciaTercerTiempo->buscarTercer($idPartido);
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
+	}
+
+
 
 }
 ?>

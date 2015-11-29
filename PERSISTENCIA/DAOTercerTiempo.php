@@ -97,7 +97,7 @@ class DAOTercerTiempo{
         mysql_close($link);
     }
 
-        public function obtenerTercerEsp($idTercer){
+    public function obtenerTercerEsp($idTercer){
         $vectorData;
         $link=$this->conexionBD->getConexion(); //conexion a la bd
         $query="SELECT * FROM tercer_tiempo where id_tercer = '$idTercer'";
@@ -116,7 +116,30 @@ class DAOTercerTiempo{
         }
         mysql_close($link);
         if(empty($vectorData)){
-           echo "nulo desde persistencia";
+            return null;
+        }
+        return $vectorData;
+    }
+
+    public function buscarTercer($idPartido){
+        $vectorData;
+        $link=$this->conexionBD->getConexion(); //conexion a la bd
+        $query="SELECT * FROM tercer_tiempo where id_partido = '$idPartido'";
+        $result= mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
+        $i=0;
+        while($row=mysql_fetch_array($result)){
+            $tercer=new TercerTiempo();
+            $tercer->setIdTercer($row['id_tercer']);
+            $tercer->setIdPartido($row['id_partido']);
+            $tercer->setIdLugar($row['id_lugar']);
+            $tercer->setFecha($row['fecha']);
+            $tercer->setHora($row['hora']);
+            $tercer->setComentario($row['comentario']);
+            $vectorData[$i]=$tercer; //ojo
+            $i++;
+        }
+        mysql_close($link);
+        if(empty($vectorData)){
             return null;
         }
         return $vectorData;
