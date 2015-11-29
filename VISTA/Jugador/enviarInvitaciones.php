@@ -172,4 +172,4 @@ mail($to,$subject,$message,$headers);
  
   
 ?>
- <!--<META http-equiv="refresh" content="0;URL=index2.php">>
+<META http-equiv="refresh" content="0;URL=index2.php">
