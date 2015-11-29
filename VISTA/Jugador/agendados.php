@@ -32,6 +32,22 @@ session_start();
     $vectorPartidosActivos = $jefePartidos->obtenerPartidosAgendados($idJugador);
     $vectorPartidosJugados = $jefePartidos->obtenerPartidosJugados($idJugador);
 
+    $contador=0;
+
+    if ($vectorPartidosActivos==null){
+        $contador++;
+        ?>
+        <table class="table table-bordered2">
+        <tr>
+            <th>
+            <center><h3>No tienes partidos agendados  <?php  echo "<img src='images/tired5.png' height='32px' width='32px'>"?></h3></center>
+        </tr>
+        </table>
+    <?php
+    } else {
+
+    
+
 ?>
 
 <table class="table table-bordered2">
@@ -60,7 +76,6 @@ session_start();
     </tr>
     <?php
 foreach ($vectorPartidosActivos as $Partido) {
-    
 
 ?>
 
@@ -95,7 +110,29 @@ foreach ($vectorPartidosActivos as $Partido) {
 }
 ?>
 </table>
+
+<?php
+}
+?>
+
+
 <br> 
+
+
+<?php
+    if ($vectorPartidosJugados==null){
+        $contador++;
+        ?>
+        <table class="table table-bordered2">
+        <tr>
+            <th>
+            <center><h3>No has jugado partidos  <?php  echo "<img src='images/tired5.png' height='32px' width='32px'>"?></h3></center>
+        </tr>
+        </table>
+    <?php
+    } else {
+?>
+
 
 <table class = "calendario" >
     <tr>
@@ -148,6 +185,15 @@ foreach ($vectorPartidosJugados as $Partido) {
 }
 ?>
 </table>
+<?php
+}
+?>
+
+<?php 
+    if ($contador==2){
+        echo '<script language="javascript">alert("No has agendado ni jugado partidos");</script>';
+    }
+?>
 
 
 
