@@ -327,7 +327,8 @@ p {
 } 
 
 .login form{
-    padding:32% 3em;
+    padding-top: 2px;
+    padding-bottom: 10%;
 }
 
 .login form li{

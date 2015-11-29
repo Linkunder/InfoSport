@@ -25,7 +25,12 @@
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57.png">
         <link rel="shortcut icon" href="images/ico/favicon.ico">
     </head>
-
+    <?php
+        $full_name = $_SERVER['PHP_SELF'];
+        $name_array = explode('/',$full_name);
+        $count = count($name_array);
+        $page_name = $name_array[$count-1];
+    ?>
 
     <div class="navbar">
             <div class="navbar-inner">
@@ -39,11 +44,11 @@
                     <!-- Main navigation -->
                     <div class="nav-collapse collapse pull-right">
                         <ul class="nav" id="top-navigation">
-                            <li class="active"><a href="index2.php">Inicio</a></li>
-                            <li><a href="busqueda2.php">Recintos</a></li>
-                            <li><a href="Partido.php">Jugar</a></li>
-                            <li><a href="agendados.php">Partidos</a></li>
-                            <li><a href="comentario.php">Comentarios</a></li>
+                            <li class="<?php echo ($page_name=='index2.php')?'active':'';?>"><a href="index2.php">Inicio</a></li>
+                            <li class="<?php echo ($page_name=='busqueda2.php')?'active':'';?>"><a href="busqueda2.php">Recintos</a></li>
+                            <li class="<?php echo ($page_name=='Partido.php')?'active':'';?>"><a href="Partido.php">Jugar</a></li>
+                            <li class="<?php echo ($page_name=='agendados.php')?'active':'';?>"><a href="agendados.php">Partidos</a></li>
+                            <li class="<?php echo ($page_name=='comentario.php')?'active':'';?>"><a href="comentario.php">Comentarios</a></li>
 
                             <ul class="nav pull-right">
                                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> 

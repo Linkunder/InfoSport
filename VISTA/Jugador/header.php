@@ -41,12 +41,12 @@
                     <!-- Main navigation -->
                     <div class="nav-collapse collapse pull-right">
                         <ul class="nav" id="top-navigation">
-                            <li class="active"><a href="index2.php">Inicio</a></li>
-                            <li><a href="DirectorioCanchas.php">Recintos</a></li>
-                            <li><a href="Contacto.php">Contacto</a></li>
-                            <li><a href="#about">Acerca de</a></li>
-                            <li><a href="login.php">Ingresar</a></li>
-                            <li><a href="Registrarse.php">Registrarse</a>
+                            <li id="sel"><a href="index2.php">Inicio</a></li>
+                            <li id="sel"><a href="DirectorioCanchas.php">Recintos</a></li>
+                            <li id="sel"><a href="Contacto.php">Contacto</a></li>
+                            <li id="sel"><a href="#about">Acerca de</a></li>
+                            <li id="sel"><a href="login.php">Ingresar</a></li>
+                            <li id="sel"><a href="Registrarse.php">Registrarse</a>
                             
                             </li>
                             <!--login jugador -->
