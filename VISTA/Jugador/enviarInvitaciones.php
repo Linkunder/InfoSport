@@ -6,11 +6,11 @@ session_start();
 
 $to = "infosport2k15@gmail.com";
 //foreach para rellenar el campo con los correos de los jugadores
-$query = "SELECT correo FROM jugador WHERE id_jugador IN (SELECT id_jugador FROM equipo where id_partido in (SELECT id_partido FROM partido))";
-echo $query;
-foreach ($query as $key) {
-$to .= ", ".$key;
-}
+//$query = "SELECT correo FROM jugador WHERE id_jugador IN (SELECT id_jugador FROM equipo where id_partido in (SELECT id_partido FROM partido))";
+//echo $query;
+//foreach ($query as $key) {
+//$to .= ", ".$key;
+//}
 
 $dir = "chillan, chile";
 //rellenar con la direccion
@@ -87,7 +87,7 @@ $headers .= 'Cc: infosport2k15@gmail' . "\r\n"; // se envia con copia a infospor
 
 mail($to,$subject,$message,$headers);
  //Email response
-  echo "Thank you for contacting us!";
+ 
   
 ?>
-
+ <META http-equiv="refresh" content="0;URL=index2.php">
