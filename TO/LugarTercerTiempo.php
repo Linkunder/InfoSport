@@ -4,7 +4,9 @@ class LugarTercerTiempo{
 
 	private $idLugar;
 	private $nombreLugar;
+	private $direccionLugar;
 	private $imagen;
+	
 
 	function __construct(){}
 
@@ -14,6 +16,10 @@ class LugarTercerTiempo{
 
 	 function getNombreLugar(){
 		return $this->nombreLugar;
+	}
+
+	function getDireccion(){
+		return $this->direccionLugar;
 	}
 
 	 function getImagen(){
@@ -28,9 +34,14 @@ class LugarTercerTiempo{
 		$this->nombreLugar = $nombreLugar;
 	}
 
+	function setDireccion($direccionLugar){
+		$this->direccionLugar=$direccionLugar;
+	}
+
 	 function setImagen($imagen){
 		$this->imagen = $imagen;
 	}
+	
 }
 
 ?>

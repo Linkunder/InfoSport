@@ -19,6 +19,7 @@ class DAOLugarTercerTiempo{
             $lugar = new LugarTercerTiempo();
             $lugar->setIdLugar($row['id_lugar']);
             $lugar->setNombreLugar($row['nombre_lugar']);
+            $lugar->setDireccion($row['direccion']);
             $lugar->setImagen($row['imagen']);
             $vectorData[$i]=$lugar;
             $i++;
@@ -40,6 +41,7 @@ class DAOLugarTercerTiempo{
             $lugar = new LugarTercerTiempo();
             $lugar->setIdLugar($row['id_lugar']);
             $lugar->setNombreLugar($row['nombre_lugar']);
+            $lugar->setDireccion($row['direccion']);
             $lugar->setImagen($row['imagen']);
             $vectorData[$i]=$lugar;
             $i++;

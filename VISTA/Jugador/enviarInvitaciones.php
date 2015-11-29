@@ -1,10 +1,93 @@
 <?php
-include_once('../../PERSISTENCIA/conexion.php');
-$conexionBD= new conexion();
-$id = 2;
+include_once('../../TO/Partido.php');
+include_once('../../LOGICA/controlPartido.php');
+include_once('../../TO/Equipo.php');
+include_once('../../LOGICA/controlEquipo.php');
+include_once('../../TO/RecintoDeportivo.php');
+include_once('../../LOGICA/infoRecintos.php');
+include_once('../../TO/Grupo.php');
+include_once('../../LOGICA/infoGrupos.php');
+include_once('../../TO/GrupoConformado.php');
+include_once('../../LOGICA/infoGruposConformados.php');
+include_once('../../TO/Jugador.php');
+include_once('../../LOGICA/infoJugadores.php');
+include_once('../../TO/TercerTiempo.php');
+include_once('../../LOGICA/controlTercerTiempo.php');
+include_once('../../TO/LugarTercerTiempo.php');
+include_once('../../LOGICA/controlLugarTercerTiempo.php');
+
+$jefePartido = controlPartido::obtenerInstancia();
+$jefeRecinto = infoRecintos::obtenerInstancia();
+$jefeGrupo = infoGrupos::obtenerInstancia();
+$jefeGrupoC = infoGruposConformados::obtenerInstancia();
+$jefeJugador = infoJugadores::obtenerInstancia();
+$jefeTercer = controlTercerTiempo::obtenerInstancia();
+$jefeLugar = controlLugarTercerTiempo::obtenerInstancia();
+$jefeEquipo = controlEquipo::obtenerInstancia();
+
 session_start();
 
+$jefeJugador = infoJugadores::obtenerInstancia();
+    $correo = $_SESSION['sesion'];;
+    $vectorJugador=$jefeJugador->buscarID($correo);
+    $idJugador = 0;
+    
+    foreach($vectorJugador as $Jugador){    
+        $nombreJugador= $Jugador->getNombre();
+    }
+
+$idPartido = $_SESSION['id_partidoA']; // De aqui saco el recinto, hora, fecha, cuota y numero de personas
+$idRecinto = $_SESSION['id_recintoA'];// Datos del recinto : direccion
+$idGrupo = $_SESSION['grupoPartido']; // Nombre del grupo, y tb puedo sacar los jugadores.
+$idTercer = $_SESSION['id_tercerTiempo']; // Datos del tercer tiempo
+
+$recinto1 = $jefeRecinto->obtenerRecintoEsp($idRecinto);
+foreach ($recinto1 as $RecintoDeportivo) {
+	$imagenRecinto = $RecintoDeportivo->getImagen();
+	$nombreRecinto = $RecintoDeportivo->getNombre();
+	$direccionRecinto = $RecintoDeportivo->getDireccion();
+}
+
+$grupo1 = $jefeGrupo->obtenerGrupoEsp($idGrupo);
+foreach ($grupo1 as $Grupo) {
+	$nombreGrupo = $Grupo->getNombre_grupo();
+}
+
+$tercerTiempo1 = $jefeTercer->obtenerTercerEsp($idTercer);
+foreach ($tercerTiempo1 as $TercerTiempo) {
+	$idLugar = $TercerTiempo->getIdLugar();
+}
+
+$lugarTercerTiempo1 = $jefeLugar->obtenerLugarEsp($idLugar);
+
+if ($idLugar != 0) { // Si es 0, no hay tercer tiempo 
+foreach ($lugarTercerTiempo1 as $LugarTercerTiempo) {
+	$nombreLugar = $LugarTercerTiempo->getNombreLugar();
+	$direcciontercertiempo = $LugarTercerTiempo -> getDireccion();
+	$imagenLugar = $LugarTercerTiempo->getImagen();
+}
+}
+$jugadores = $jefeJugador->obtenerJugadores5($idPartido);
+
+$vectorPartido = $jefePartido->obtenerPartido($idPartido);
+			foreach ($vectorPartido as $Partido) {
+				$dia = $Partido->getFecha();
+				$newFecha = date("d-m-Y", strtotime($dia));
+				$hora = $Partido->getHora();
+				$cuotaTotal = $Partido->getCuota();
+				$participantes = $Partido->getNroJugadores();
+				$cuotaPersonal = $cuotaTotal/$participantes;
+			}
+
+
+
+
+echo "$idPartido $idRecinto $idGrupo $idTercer";
 $to = "infosport2k15@gmail.com";
+foreach ($jugadores as $Jugador) {
+					$to .= ", " .$Jugador -> getCorreo();
+					;
+				}	
 //foreach para rellenar el campo con los correos de los jugadores
 //$query = "SELECT correo FROM jugador WHERE id_jugador IN (SELECT id_jugador FROM equipo where id_partido in (SELECT id_partido FROM partido))";
 //echo $query;
@@ -12,28 +95,28 @@ $to = "infosport2k15@gmail.com";
 //$to .= ", ".$key;
 //}
 
-$dir = "chillan, chile";
+$dir = $direccionRecinto;
 //rellenar con la direccion
-$nombre = "mauricio";
+$nombre = $nombreJugador;
 //rellenar con nombre jugador
-$fecha = "30-11-2015";
+$fecha = $newFecha;
 //fecha partido
-$hora = "09:00";
+//se mantiene el que copie
 //hora partido
-$monto = 1;
+$monto = $cuotaTotal;
 //precio original cancha
-$cant = 1;
+$cant = $participantes;
 //cantidad de jugadores
-$pagoporpersona = $monto/$cant;
+$pagoporpersona = $cuotaPersonal;
 //monto/cancha
 
 $subject = "Invitacion Infosport";
 //se debe obtener el asunto, Partido de: X deporte
-$tercertiempo = true;
+$tercertiempo = $nombreLugar;
 //recibir existencia de 3er tiempo
-$direcciontercertiempo = "concepcion, chile";
+$direcciontercertiempo = $direcciontercertiempo;
 //direccion tercer tiempo
-$dineroadicionaltercertiempo = 100;
+echo "$direcciontercertiempo";
 
 $message = "<html>";
 $message .= "<head>";
@@ -65,11 +148,10 @@ $message .= "<td>Monto a Pagar por persona:</td>";
 $message .= "<td>".$pagoporpersona."</td>";
 $message .= "</tr>";
 $message .= "</table>";
-if($tercertiempo!=false){
+if($tercertiempo!=NULL){
 	$message .= "<p>Tambien se te a invitado ha un evento post partido!</p>";
-	$message .= "Este tercer tiempo sera en: " .$direcciontercertiempo. " mapa de referencia:";
+	$message .= "Este tercer tiempo sera en: " .$tercertiempo. " mapa de referencia:";
 	$message .= '<div style="height:auto; width:auto;"><img src="http://maps.googleapis.com/maps/api/staticmap?center='. $direcciontercertiempo . '&zoom=14&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7Clabel:%7C'.$direcciontercertiempo.'"" alt="Website Change Request" /></div>';
-	$message .= "Tambien debes traer contigo, el siguiente monto de dinero: " .$dineroadicionaltercertiempo. "";
 }
 $message .= "<center><b><p>© 2015 Ing.SW., Infosport.</p></b></center>";
 $message .= "</body>";
@@ -90,4 +172,4 @@ mail($to,$subject,$message,$headers);
  
   
 ?>
- <META http-equiv="refresh" content="0;URL=index2.php">
+ <!--<META http-equiv="refresh" content="0;URL=index2.php">>
