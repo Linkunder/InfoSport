@@ -76,52 +76,8 @@
                 <div id="single-project">
                     <div id="slidingDiv" class="toggleDiv row-fluid single-project">
                         <div class="span6">
-                           <script type="text/javascript" 
-    src="http://maps.googleapis.com/maps/api/js?sensor=false"> 
-</script> 
-<script type="text/javascript"> 
-
-    // Standard google maps function 
-    function initialize() { 
-        var myLatlng = new google.maps.LatLng(-36.606835, -72.102511);
-        var myOptions = { 
-            zoom: 13, 
-            center: myLatlng, 
-            mapTypeId: google.maps.MapTypeId.ROADMAP 
-        } 
-        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions); 
-        
-    } 
-    // Function for adding a marker to the page. 
-    function addMarker(location) { 
-        marker = new google.maps.Marker({ 
-            position: location, 
-            map: map,
-            animation: google.maps.Animation.DROP  
-
-        }); 
-    } 
-
-    // Testing the addMarker function 
-    function TestMarker() { 
-Marker1=new google.maps.LatLng(-36.6045234,-72.1114534); addMarker(Marker1); // la jaula
-Marker23=new google.maps.LatLng(-36.6248189,-72.1176016); addMarker(Marker23); // insuco
-Marker24=new google.maps.LatLng(-36.5917999,-72.08676); addMarker(Marker24); // la curva soccer 
-Marker25=new google.maps.LatLng(-36.6124366,-72.1065696); addMarker(Marker25); // escuela 4
-Marker26=new google.maps.LatLng(-36.5899359,-72.0910142); addMarker(Marker26); // quilamapu 
-Marker584=new google.maps.LatLng(-36.601661,-72.1095641); addMarker(Marker584); // escuela mexico
-Marker585=new google.maps.LatLng(-36.6254096,-72.0850318); addMarker(Marker585); // chillan soccer
-    } 
-
-
-</script> 
-
-<!-- <body onload="initialize()"> --> 
- <div id="map_canvas" style="border: 1px solid black; width: 550px; height: 500px;">map     div</div> 
-<p style="margin-top: 5px"> 
-   <button id="drop" onclick="TestMarker()">Canchas Disponibles.</button>  
-
-</p> 
+                           
+<img height="auto" width="auto" src= "http://maps.googleapis.com/maps/api/staticmap?center=Chillan,+Chile&zoom=13&scale=2&size=1024x1024&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:%7CChillan,+Chile"></img>
  
                         </div>
                         </div>

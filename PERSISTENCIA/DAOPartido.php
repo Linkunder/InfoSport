@@ -45,6 +45,7 @@ class DAOPartido{
             $partido->setNroJugadores($row['numero_jugadores']);
             $vectorData[$i]=$partido;
             $i++;
+            echo "partido".$setIdPartido;
         }
         mysql_close($link);
         if (empty($vectorData)){
