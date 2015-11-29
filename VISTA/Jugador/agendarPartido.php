@@ -26,7 +26,7 @@ $vectorRecintos = $jefeRecinto->obtenerRecinto(); // obtiene todos los recintos
 <div class="section secondary-section " id="portafolio">
     <div class="container">
 
-<table class="table table-bordered2">
+<table class="table table-bordered2 ">
     <tr>
         <th>
             <center><h3>Busca tu recinto deportivo	 <?php  echo "  <img src='images/big.png' height='32px' width='32px'>"?></h3></center>

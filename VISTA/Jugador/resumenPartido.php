@@ -78,7 +78,7 @@ $jugadores = $jefeJugador->obtenerJugadores5($idPartido);
 
 ?>
 
-<table class="table table-bordered2">
+<table class="table table-bordered2 margin-table">
     <tr>
         <th>
         	<br>

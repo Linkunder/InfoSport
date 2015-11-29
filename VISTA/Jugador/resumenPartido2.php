@@ -88,7 +88,7 @@ foreach ($lugarTercerTiempo1 as $LugarTercerTiempo) {
 
 ?>
 
-<table class="table table-bordered2">
+<table class="table table-bordered2 margin-table">
     <tr>
         <th>
         	<br>

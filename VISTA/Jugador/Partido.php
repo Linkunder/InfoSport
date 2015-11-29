@@ -45,7 +45,7 @@ $vectorGrupos = $jefeGrupo->obtenerGrupos($idJugadorGrupo);
 <div class="fondoamarillo">
 
 
-<table class="table table-bordered2">
+<table class="table table-bordered2 border-table">
     <tr>
         <th>
             <center><h3><?php echo "<img src='images/basketball27.png' height='32px' width='32px'>   "?>Llego la hora de jugar! <?php  echo "<img src='images/man451.png' height='32px' width='32px'>"?></h3></center>
