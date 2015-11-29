@@ -3,7 +3,7 @@
 include_once('conexion.php');
 class DAOTipoRecinto{
 	private $conexionBD;
-	funcion __construct(){
+	function __construct(){
 		$this->conexionBD = new conexion();
 	}
 
