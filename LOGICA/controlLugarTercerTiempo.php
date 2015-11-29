@@ -26,6 +26,15 @@ class controlLugarTercerTiempo{
 		return $vectorData;
 	}
 
+	public function obtenerLugarEsp($idLugar){
+		$vectorData = $this->persistenciaLugarTercerTiempo->obtenerLugarEsp($idLugar);
+		if (empty($vectorData)){
+			return null;
+		}
+		return $vectorData;
+	}
+
+
 
 }
 

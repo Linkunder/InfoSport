@@ -62,6 +62,13 @@ class controlPartido{
 		return $this->persistenciaPartido->obtenerPartidosJugados($idJugador);
 	}
 
+	public function obtenerPartido($idPartido){
+		$vectorData = $this->persistenciaPartido->obtenerPartido($idPartido);
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
+	}
+
 
 
 

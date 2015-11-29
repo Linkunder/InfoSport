@@ -24,11 +24,22 @@ $nuevoTercer->setIdPartido($idpartido);
 $jefeTercer = controlTercerTiempo::obtenerInstancia();
 $jefeTercer->guardarTercerTiempo($nuevoTercer);
 
+$vectorTerceros = $jefeTercer->obtenerTercerosTiempos();
+$ultimoTercerTiempo = end($vectorTerceros);
+$_SESSION['id_tercerTiempo'] = $ultimoTercerTiempo->getIdTercer();
+
 header("Location:elegirTercerTiempo.php");
 } else {
 
-// no quiso tercer tiempo
+$nuevoTercer = new TercerTiempo();
+$nuevoTercer->setIdPartido($idpartido);
 
+$jefeTercer = controlTercerTiempo::obtenerInstancia();
+$jefeTercer->guardarTercerTiempo($nuevoTercer);
+
+$vectorTerceros = $jefeTercer->obtenerTercerosTiempos();
+$ultimoTercerTiempo = end($vectorTerceros);
+$_SESSION['id_tercerTiempo'] = $ultimoTercerTiempo->getIdTercer();
 header("Location:resumenPartido.php");
 }
 

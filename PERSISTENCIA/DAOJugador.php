@@ -258,6 +258,35 @@ class DAOJugador{
         mysql_close($link);
 
     }
+
+
+    public function obtenerJugadores5($idPartido){
+        $vectorData;
+        $link=$this->conexionBD->getConexion(); //conexion a la bd
+        $query="SELECT * FROM jugador J inner join equipo e on J.id_jugador = e.id_jugador where e.id_partido = '$idPartido'";
+        $result= mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
+        $i=0;
+        while($row=mysql_fetch_array($result)){
+            $jugador=new Jugador();
+            $jugador->setId_jugador($row['id_jugador']);
+            $jugador->setNombre($row['nombre_jugador']);
+            $jugador->setApellido($row['apellido_jugador']);
+            $jugador->setFecha_nacimiento($row['fecha_nacimiento']); 
+            $jugador->setSexo($row['sexo']);
+            $jugador->setCorreo($row['correo']);
+            $jugador->setDirectorio_foto($row['directorio_foto']);
+            $jugador->setPosicion($row['posicion']);
+            $jugador->setDeporte_Fav($row['deporte_fav']);
+            $jugador->setPassword($row['password']);
+            $vectorData[$i]=$jugador;
+            $i++;
+        }
+    mysql_close($link);
+    if(empty($vectorData)){
+        return null;
+    }
+    return $vectorData;
+    }
 }
 
 ?>

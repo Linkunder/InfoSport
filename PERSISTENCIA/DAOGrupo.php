@@ -139,6 +139,30 @@ class DAOGrupo{
 		return $vectorData;
 	}
 
+		public function obtenerGrupoEsp($idGrupo){
+		$vectorData;
+		$link=$this->conexionBD->getConexion();
+		$query = "SELECT * FROM grupo where id_grupo = '$idGrupo' ";
+		$result= mysql_query($query,$link) or die(mysql_error());
+		$i=0;
+		while($row=mysql_fetch_array($result)){
+			$Grupo= new Grupo();
+			$Grupo->setNombre_grupo($row['nombre_grupo']);
+			$Grupo->setId_grupo($row['id_grupo']);
+			$Grupo->setNumero_personas($row['numero_personas']);
+			$Grupo->setFecha_creacion($row['fecha_creacion']);
+			$Grupo->setDescripcion($row['descripcion']);
+			$Grupo->setCapitan($row['id_capitan']);
+			$vectorData[$i]=$Grupo;
+			$i++;
+		}
+		mysql_close($link);
+		if (empty($vectorData)){
+			return null;
+		}
+		return $vectorData;
+	}
+
 
 }
 

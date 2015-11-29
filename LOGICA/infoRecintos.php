@@ -40,6 +40,13 @@ class infoRecintos{
 		return $vectorData;
 	}
 
+	public function obtenerRecintoEsp($idRecinto){
+		$vectorData=$this->persistenciaRecinto->obtenerRecintoEsp($idRecinto);
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
+	}
+
 
 	public function guardarImagen($id_recinto, $nombreImagen){
 		$vectorData=$this->persistenciaRecinto->guardarImagen($id_recinto, $nombreImagen);

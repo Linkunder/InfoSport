@@ -231,5 +231,42 @@
     }
 
 
+        public function obtenerRecintoEsp($idRecinto){
+        $vectorData;
+        $link=$this->conexionBD->getConexion(); //conexion a la bd
+        $query="SELECT * FROM recinto_deportivo where id_recinto = '$idRecinto'";
+        $result= mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
+        $i=0;
+        while($row=mysql_fetch_array($result)){
+
+        $recinto=new RecintoDeportivo();
+        $recinto->setIdRecinto($row['id_recinto']);
+        $recinto->setNombre($row['nombre']);
+        $recinto->setDescripcion($row['descripcion']);
+        $recinto->setPrecio($row['precio']); 
+        $recinto->setHorario($row['horario']);
+        $recinto->setPuntuacion($row['puntuacion']);
+        $recinto->setImagen($row['directorio_imagen']);
+        $recinto->setCantidadCanchas($row['numero_canchas']);
+        $recinto->setDireccion($row['direccion']);
+        $recinto->setTelefono($row['telefono']);
+        $recinto->setSuperficie($row['superficie']);
+        $recinto->setEstado($row['estado']);
+
+    
+        $vectorData[$i]=$recinto;
+        $i++;
+    }
+    mysql_close($link);
+    if(empty($vectorData)){
+        return null;
+    }
+    return $vectorData;
+
+
+    }
+
+
+
 }
 ?>

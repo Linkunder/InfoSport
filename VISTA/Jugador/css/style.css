@@ -1,4 +1,4 @@
-/*
+f/*
  * A Design by GraphBerry
  * Author: GraphBerry
  * Author URL: http://graphberry.com
@@ -98,6 +98,16 @@ p {
     color : #FECE1A;
     font-size: 30px;
     font-weight: bold;
+}
+
+.tituloResumen {
+    font-family:'Roboto', sans-serif;
+    color : #FECE1A;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .titulo2 {
@@ -1269,9 +1279,36 @@ p {
 .project-info span {
     width: 80px;
     display: inline-block;
+        color:#FECE1A;
 }
 .project-info div {
     margin-bottom:5px;
+        color:#ffffff;
+}
+
+
+
+.project-info2 span, .project-title h3 {
+    color:#FECE1A;
+}
+.project-info2 {
+    font-weight:100;
+    padding:20px 0;
+}
+.project-info2 span {
+    width: 30%;
+    display: inline-block;
+    font-size: 20px;
+    margin-bottom: 2px;
+    font-weight: bold;
+    text-align: left;
+}
+.project-info2 div {
+    margin-bottom:5px;
+        color: #ffffff;
+        font-weight: bold;
+        margin-left: 5px;
+        font-size: 19px;
 }
 .close {
     float: right;

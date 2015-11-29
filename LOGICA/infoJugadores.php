@@ -49,6 +49,13 @@ class infoJugadores{
 		return $vectorData;
 	}
 
+	public function obtenerJugadores5($idPartido){
+		$vectorData=$this->persistenciaJugador->obtenerJugadores5($idPartido);
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
+	}
+
 
 	public function buscarID($correo){
 		//echo "infoJugadores.php: $id";

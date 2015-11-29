@@ -52,6 +52,33 @@ class DAOPartido{
         }
         return $vectorData;
     }
+    
+
+        public function obtenerPartido($idPartido){
+        $vectorData;
+        $link=$this->conexionBD->getConexion();
+        $query = "SELECT * FROM partido WHERE id_partido = '$idPartido'";
+        $result = mysql_query($query,$link) or die (mysql_error());
+        $i=0;
+        while ($row=mysql_fetch_array($result)){
+            $partido = new Partido();
+            $partido->setIdPartido($row['id_partido']);
+            $partido->setIdRecinto($row['id_recinto']);
+            $partido->setIdJugador($row['id_jugador']);
+            $partido->setIdEstado($row['id_estado']);
+            $partido->setHora($row['hora']);
+            $partido->setFecha($row['fecha']);
+            $partido->setCuota($row['cuota']);
+            $partido->setNroJugadores($row['numero_jugadores']);
+            $vectorData[$i]=$partido;
+            $i++;
+        }
+        mysql_close($link);
+        if (empty($vectorData)){
+            return null;
+        }
+        return $vectorData;
+    }
 
     public function obtenerRecinto($idPartido){
         $link=$this->conexionBD->getConexion();

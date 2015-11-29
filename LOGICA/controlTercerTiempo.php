@@ -20,7 +20,6 @@ class controlTercerTiempo{
 	public function obtenerTercerosTiempos(){
 		$vectorData = $this->persistenciaTercerTiempo->getTercerosTiempos();
 		if (count($vectorData)==0){
-			echo "nulo desde logica";
 			return null;
 		}
 		return $vectorData;
@@ -32,6 +31,13 @@ class controlTercerTiempo{
 
 	public function agregarInformacion($idUltimoTercerTiempo, $lugar, $fecha, $hora, $comentario){
 		$this->persistenciaTercerTiempo->agregarInformacion($idUltimoTercerTiempo, $lugar, $fecha, $hora, $comentario);
+	}
+
+	public function obtenerTercerEsp($idTercer){
+		$vectorData=$this->persistenciaTercerTiempo->obtenerTercerEsp($idTercer);
+		if (count($vectorData)==0)
+			return null;
+		return $vectorData;
 	}
 
 

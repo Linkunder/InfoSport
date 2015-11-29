@@ -9,15 +9,21 @@ include_once('../../LOGICA/infoGrupos.php');
 include_once('../../TO/GrupoConformado.php');
 include_once('../../LOGICA/infoGruposConformados.php');
 include_once('../../PERSISTENCIA/conexion.php');
+include_once('../../TO/Partido.php');
+include_once('../../LOGICA/controlPartido.php');
 
 include('headerJugador.php'); 
 
 $jefeRecinto = infoRecintos::obtenerInstancia();
+$jefePartidos = controlPartido::obtenerInstancia();
 $vectorRecintos=$jefeRecinto->obtenerRecinto();
 $vectorJugador=$jefeJugador= infoJugadores::obtenerInstancia();
 $vectorJugador1=$jefeJugador= infoJugadores::obtenerInstancia();
 $jefeGrupoConformado = infoGruposConformados::obtenerInstancia();
-
+ $vectorPartidos = $jefePartidos->obtenerPartidos();
+ $ultimoPartido = end($vectorPartidos);
+ $idUltimoPartido = $ultimoPartido->getIdPartido();
+ $nombreRecinto = $jefePartidos->obtenerNombreRecinto($idUltimoPartido);
 
 
 $id_grupo=$_SESSION['grupoPartido'];
@@ -27,6 +33,8 @@ $vectorJugador1 = $jefeJugador->obtenerJugadores($id_grupo);
 
 $_SESSION['id_recintoA']=$_GET['id_recinto'];
 $_SESSION['id_partidoA']=$_GET['id_partido'];
+
+
 
  $conexionBD= new conexion();
  require_once('JSON.php');
@@ -42,7 +50,7 @@ $_SESSION['id_partidoA']=$_GET['id_partido'];
   <link rel="stylesheet" href="/resources/demos/style.css">
   <style>
   .draggable { width: 40px; height: 40px; padding: 5px; float: left; float: ; margin: 0 10px 10px 0; font-size: 0.9em; color: black; text-align: center;}
-  .ui-widget-header p{color: black; text-align: center;}, .ui-widget-content p { margin: 0;color: black; text-align: center; }
+  .ui-widget-header p{color: black; text-align: center; margin-top: 25px; margin-right: 25px;}, .ui-widget-content p { margin-top: 25px; margin-right: 25px; color: black; text-align: center; }
   #snaptarget { height: 452px; width: 726px; float: right; color: black; text-align: center;
     background-image: url("images/cfut.jpg"); 
   }
@@ -122,10 +130,25 @@ $_SESSION['id_partidoA']=$_GET['id_partido'];
 
 
 
+
+
+
+
+
+
+
+
+
 <div class= "fondoamarillo">
 
+<div class = "tituloCancha">
+   <br>
+   <?php echo "$nombreRecinto"?>
+   <br>
+</div>
+
 <div  id="snaptarget" class="ui-widget-header">
-  <p><?php echo "Recinto"?></p>
+
 </div>
 
  
@@ -161,7 +184,10 @@ foreach ($vectorJugador as $Jugador) {
 
 
 
-  <center><button class="btn12" onclick="setValue()"><a href=''>Siguiente</a></button></center>
+  <center><button class="btn12m" onClick="setValue()"><a href='tercerTiempo.php'>Siguiente</a></button></center>
+
+  <br>
+  <br>
 <!-- Ponle el href a la parte que sea pero el onclick debe quedar tal cual  :) -->
 
 
@@ -170,3 +196,5 @@ include('footer.php');
 
 include('scrollUp.php');
 ?>
+
+</div>

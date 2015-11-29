@@ -18,7 +18,7 @@ $vectorPartidos = $jefePartidos->obtenerPartidos();
 $ultimoPartido = end($vectorPartidos);
 $idUltimoPartido = $ultimoPartido->getIdPartido();
 
-$idpartido = 1;
+$idpartido = $_SESSION['id_partidoA'];
 $auxiliar = 0;
 
 ?>
