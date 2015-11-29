@@ -6,7 +6,7 @@ include_once('../PERSISTENCIA/conexion.php');
   $_SESSION['sesion']= $_POST['user'];
   $_SESSION["autentica"] = "NO";
   $_SESSION["idJugador"];
-
+ $_SESSION["idJugadorBAN"];
 
 
 $conexionBD= new conexion();
@@ -38,11 +38,13 @@ $link=$conexionBD->getConexion();
 $rs= mysql_query($query,$link);
 $row=mysql_fetch_array($rs);
 $_SESSION["idJugador"]=$row['id_jugador'];
+ $_SESSION["idJugadorBAN"]=$row['id_jugador'];
 mysql_close($link);
 
 
 
 $_SESSION["autentica"] = "SI";
+
 
 
 header("Location:../VISTA/Jugador/index2.php"); 
@@ -55,4 +57,21 @@ header("Location:../VISTA/login2.php");
 }   
 
 ?>
+
+<script>
+  function alerta(){
+  	<?php 
+  	
+
+  		//if(){
+  	?>
+
+	alert("Su cuenta ha sido restringida por mal comportamiento
+	comuniquese con el administrador
+	");
+	<?php //} ?>
+
+    }
+
+</script>
 

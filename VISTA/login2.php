@@ -27,13 +27,14 @@ include('header.php');
 					
 					 <div class ="forgot">
 						<h3><a href="#">¿Olvido su contraseña?</a></h3>
-						<input type="submit" onclick="myFunction()" value="Iniciar Sesión" > <a href="#" class=" icon arrow"></a>                                                                                                                                                                                                                                  </h4>
+						<input type="submit" onclick="alerta()" value="Iniciar Sesión" > <a href="#" class=" icon arrow"></a>                                                                                                                                                                                                                                  </h4>
 					</div>
 				</form>
 			</div>
 		</div>	
 			<!--//End-login-form-->
 </body>
+
 <?php include('scrollUp.php'); ?>			
 <?php include('footer.php'); ?>					
 

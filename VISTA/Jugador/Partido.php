@@ -24,6 +24,10 @@ $correo = $_SESSION['sesion'];;
 $vectorJugador=$jefeJugador->buscarID($correo);
 $idJugadorGrupo = 0;
 
+// Aqui se va a dejar entrar o no
+
+
+
 foreach($vectorJugador as $Jugador){    
     $idJugadorGrupo= $Jugador->getId_jugador();
     $nombreCapitan = $Jugador->getNombre();
@@ -89,7 +93,14 @@ $vectorGrupos = $jefeGrupo->obtenerGrupos($idJugadorGrupo);
         </div>
         <br>
         <br>
+
+<?php
+
+if(($jefeJugador->verEstado($_SESSION["idJugadorBAN"]))!="3"){
+
+?>
         <center><input type="submit" value="Enviar" ></center>
+   <?php }?>
     
 </ul>
 </form>
@@ -106,11 +117,18 @@ $vectorGrupos = $jefeGrupo->obtenerGrupos($idJugadorGrupo);
 <br>
 
 
+
 <!-- Footer section start -->
-<?php include('footer.php');?>
+<?php include('footer.php');
+
+?>
 <!-- Footer section end -->
 <!-- ScrollUp button start -->
-<?php include('scrollUp.php');?>
+<?php include('scrollUp.php');
+if(($jefeJugador->verEstado($_SESSION["idJugadorBAN"]))=="3"){
+    echo '<script language="javascript">alert("Su cuenta ha sido restringida por mal comportamiento, comuniquese con el administrador");</script>';
+}
+?>
         <!-- ScrollUp button end -->
         <!-- Include javascript -->
         <script src="js/jquery.js"></script>

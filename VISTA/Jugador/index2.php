@@ -257,6 +257,16 @@ Marker585=new google.maps.LatLng(-36.6254096,-72.0850318); addMarker(Marker585);
 
 </div>
 
+<?php
+include_once('../../TO/Jugador.php');
+include_once('../../LOGICA/infoJugadores.php');
+
+$jefeJugador = infoJugadores::obtenerInstancia();
+if($jefeJugador->verEstado($_SESSION["idJugadorBAN"])=="3"){
+    echo '<script language="javascript">alert("Su cuenta ha sido restringida por mal comportamiento, comuniquese con el administrador infosport2k15@gmail.com");</script>';
+
+}
+?>
 
 
         <!-- Contact section start --><!-- Contact section edn -->
