@@ -169,7 +169,7 @@ LOG;
             
             //   CHANGE THE BELOW VARIABLES TO YOUR NEEDS
              
-			$to = 'pnsilva@alumnos.ubiobio.cl';
+			$to = 'eternaletulf@gmail.com';
 			
 			$subject = 'Website Change Reqest';
 			
