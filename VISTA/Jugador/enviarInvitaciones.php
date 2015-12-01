@@ -125,7 +125,7 @@ $message .= "</head>";
 $message .= "<body>";
 $message .= '<div style="height:auto; width:auto;"><img src="http://i.imgur.com/fuWkXQT.png" alt="Website Change Request" /></div>';
 $message .= '<div style="height:auto; width:auto;"><img src="http://maps.googleapis.com/maps/api/staticmap?center='. $dir . '&zoom=14&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7Clabel:%7C'.$dir.'" alt="Website Change Request" /></div>';
-$message .= "<p>El jugador " .$nombre.  ", te a invitado a un partido.</p>";
+$message .= "<p>El jugador " .$nombre.  ", te ha invitado a un partido.</p>";
 $message .= "<table>";
 $message .= "<tr>";
 $message .= "<td>Direccion:</td>";
@@ -149,7 +149,7 @@ $message .= "<td>".$pagoporpersona."</td>";
 $message .= "</tr>";
 $message .= "</table>";
 if($tercertiempo!=NULL){
-	$message .= "<p>Tambien se te a invitado ha un evento post partido!</p>";
+	$message .= "<p>Tambien se te ha invitado a un evento post partido!</p>";
 	$message .= "Este tercer tiempo sera en: " .$tercertiempo. " mapa de referencia:";
 	$message .= '<div style="height:auto; width:auto;"><img src="http://maps.googleapis.com/maps/api/staticmap?center='. $direcciontercertiempo . '&zoom=14&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:small%7Ccolor:0xff0000%7Clabel:%7C'.$direcciontercertiempo.'"" alt="Website Change Request" /></div>';
 }
