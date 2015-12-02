@@ -22,7 +22,7 @@ include_once('../../LOGICA/controlLugarTercerTiempo.php');
 $jefeLugarTercerTiempo = controlLugarTercerTiempo::obtenerInstancia();
 $vectorLugarTercerTiempo = $jefeLugarTercerTiempo->obtenerLugares();
 
-
+$fecha=$_SESSION['fechaSes'];
 
 ?>
 
@@ -106,10 +106,10 @@ foreach ($vectorLugarTercerTiempo as $LugarTercerTiempo) {
 			?>
 			<form action="procesarLugar.php?id_lugar=<?php echo $idlugar?>" method="post">
 				<label class="titulo2" for ="fecha">Fecha:</label>
-				<input id="fecha" name="fecha" class="cajaT" type="date"  required>
+				<input id="fecha" name="fecha" class="cajaT" type="date"  min=<?php echo $fecha;?> required>
 
 				<label class="titulo2" for ="hora">Hora:</label>
-				<input id="hora" name="hora" class="cajaT" type="time"  required>
+				<input id="hora" name="hora" class="cajaT" type="time" required>
 
 				<label class="titulo2" for ="comentario">Comentario:</label>
 				<input id="comentario" name="comentario" class="cajaT" type="text" placeholder="Escribe tu comentario..." required>

@@ -60,19 +60,19 @@ $vectorGrupos = $jefeGrupo->obtenerGrupos($idJugadorGrupo);
         
         <label for="fecha">Dia</label>
         <div class="in">
-        <input type="date" name="fecha">
+        <input type="date" name="fecha" required min="2014-12-31">
         </div>
         <label for="hora">Hora</label>
         <div class="in">
-        <input type="time" name="hora" >
+        <input type="time" name="hora" required min="08:00:00" max="23:59:00">
         </div>
         <label for="jugadores">Numero de jugadores</label>
         <div class="in">
-        <input type="int" name="jugadores" maxlength="200">
+        <input pattern="^[0|1]\d{1}$|[0-9]|2+[0|1|2]"  type="int" name="jugadores" required title="Solo puede ingresar de 0 a 22 jugadores">
         </div>
         <label for="deporte">Deporte</label>
         <div class="in">
-        <select name="deporte" id = "deporte">
+        <select name="deporte" id = "deporte" required>
                         <option>Baby-futbol</option>
                         <option>Futbolito</option>
                         <option>Hockey</option>
@@ -81,7 +81,7 @@ $vectorGrupos = $jefeGrupo->obtenerGrupos($idJugadorGrupo);
         </div>
          <label for="grupo">Grupo</label>
         <div class="in">
-            <select name="grupo" id = "grupo">
+            <select name="grupo" id = "grupo" required>
                 <?php 
                 foreach ($vectorGrupos as $Grupo) {
                     ?>
@@ -99,7 +99,7 @@ $vectorGrupos = $jefeGrupo->obtenerGrupos($idJugadorGrupo);
 if(($jefeJugador->verEstado($_SESSION["idJugadorBAN"]))!="3"){
 
 ?>
-        <center><input type="submit" value="Enviar" ></center>
+        <center><input  type="submit" value="Enviar"></center>
    <?php }?>
     
 </ul>
@@ -151,4 +151,4 @@ if(($jefeJugador->verEstado($_SESSION["idJugadorBAN"]))=="3"){
 
 
 </div>
-  
+   
