@@ -91,13 +91,16 @@ $_SESSION['id_partidoA']=$_GET['id_partido'];
          var elem = $(this);
          var elem1 = $(this);
          var arrAux= new Array();
-       /* for (var i = 0; i < arrayJugador.length; i++) {
+         for (var i = 0; i < arrayJugador.length-1; i++) {
            if(ui.draggable.data("id")!=arrayJugador[i]){
               arrAux[i]= arrayJugador[i];
+           }else{
+            arrAux[i]=arrayJugador[i+1];
            }
 
+
          };
-         arrayJugador=arrAux;*/
+         arrayJugador=arrAux;
          elem.data("numsoltar", elem.data("numsoltar") - 1);
          elem1.html("" + ui.draggable.data("id") + "Salio");
 
