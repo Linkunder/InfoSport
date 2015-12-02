@@ -29,6 +29,7 @@ $_SESSION['fechaSes'] = $_POST['fecha'];
 
 $_SESSION['nroJugadores']= $jugadores ;
 $_SESSION['grupoPartido']= $_POST['grupo'];
+$_SESSION['deporte']= $_POST['deporte'];
 $estado = 1;
 
 // Creo el objeto partido 
