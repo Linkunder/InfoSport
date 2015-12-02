@@ -49,8 +49,6 @@
                         <ul class="nav" id="top-navigation">
                             <li class="<?php echo ($page_name=='index2.php')?'active':'';?>" ><a href="index2.php">Inicio</a></li>
                             <li class="<?php echo ($page_name=='busqueda2.php')?'active':'';?>"><a href="busqueda2.php">Recintos</a></li>
-                            <li class="<?php echo ($page_name=='Contacto.php')?'active':'';?>"><a href="Contacto.php">Contacto</a></li>
-                            <li class="<?php echo ($page_name=='#about')?'active':'';?>"><a href="#about">Acerca de</a></li>
                             <li class="<?php echo ($page_name=='login2.php')?'active':'';?>"><a href="login2.php">Ingresar</a></li>
                             <li class="<?php echo ($page_name=='Registrarse.php')?'active':'';?>"><a href="Registrarse.php">Registrarse</a>
                             

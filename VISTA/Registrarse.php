@@ -26,7 +26,7 @@
 
                 <div class="field">
                     
-                    <input type="text" id="sexo" name="sexo" value="" placeholder="Sexo" class="login" required/>
+                    <input type="text" pattern="^[M|F]|[m|f]"  type="text" id="sexo" name="sexo" value="" placeholder="Sexo" class="login" required title="Ingrese M si su sexo es Masculino o F si es Femenino"/>
                     
                 </div> <!-- /field -->
 

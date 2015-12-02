@@ -85,7 +85,7 @@ $vectorJugador=$jefeJugador->buscarID($correo);
         </tr>
         <tr>
             <td> Sexo: </td>
-            <td><input type="text" name="sexo" value="<?php echo $Jugador->getSexo();?>"  size="30" maxlength="100"> </td>
+            <td><input type="text" pattern="^[M|F]|[m|f]" title="Ingrese M si su sexo es Masculino o F si es Femenino" name="sexo" value="<?php echo $Jugador->getSexo();?>"  size="30" maxlength="100" > </td>
         </tr>
         <tr>
             <td> Fecha de nacimiento: </td>

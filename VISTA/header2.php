@@ -41,7 +41,6 @@
                             <li class="active"><a href="index2.php">Inicio</a></li>
                             <li><a href="DirectorioCanchas.php">Recintos</a></li>
                             <li><a href="Contacto.php">Contacto</a></li>
-                            <li><a href="#about">Acerca de</a></li>
                             <li><a href="#clientes">Ingresar</a></li>
                             <li><a href="Registrarse.php">Registrarse</a>
                             
