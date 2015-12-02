@@ -113,7 +113,7 @@ $vectorJugador=$jefeJugador->buscarID($correo);
         </tr>
         <tr>
             <td> Correo: </td>
-            <td><input type="text" name="correo" value="<?php echo $Jugador->getCorreo();?>" size="30" maxlength="100"> </td>
+            <td><input type="text" name="correo" value="<?php echo $Jugador->getCorreo();?>"  readonly="readonly" size="30" maxlength="100"> </td>
         </tr>
 
                 <tr>
