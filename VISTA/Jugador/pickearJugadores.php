@@ -102,7 +102,7 @@ $_SESSION['id_partidoA']=$_GET['id_partido'];
          };
          arrayJugador=arrAux;
          elem.data("numsoltar", elem.data("numsoltar") - 1);
-         elem1.html("" + ui.draggable.data("id") + "Salio");
+         elem1.html("" + ui.draggable.data("id") + " Jugadr Salio");
 
       }
    }

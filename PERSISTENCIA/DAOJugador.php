@@ -61,8 +61,8 @@ class DAOJugador{
 
 	public function insertarjugador($jugador){
 		$link=$this->conexionBD->getConexion();
-		$query="INSERT INTO jugador(nombre_jugador,apellido_jugador,fecha_nacimiento,sexo,correo,directorio_foto,posicion,deporte_fav, password)
-		VALUES('".$jugador->getNombre()."','".$jugador->getApellido()."','".$jugador->getFecha_nacimiento()."','".$jugador->getSexo()."','".$jugador->getCorreo()."','".$jugador->getDirectorio_foto()."','".$jugador->getPosicion()."','".$jugador->getDeporte_fav()."','".$jugador->getPassword()."')";
+		$query="INSERT INTO jugador(nombre_jugador,apellido_jugador,fecha_nacimiento,sexo,correo,directorio_foto,posicion,deporte_fav, password, rango)
+		VALUES('".$jugador->getNombre()."','".$jugador->getApellido()."','".$jugador->getFecha_nacimiento()."','".$jugador->getSexo()."','".$jugador->getCorreo()."','".$jugador->getDirectorio_foto()."','".$jugador->getPosicion()."','".$jugador->getDeporte_fav()."','".$jugador->getPassword()."','".$jugador->getRango()."')";
 		    mysql_query($query,$link) or die(mysql_error()); //ejecuto la query
    			mysql_close($link); //Cerramos la conexion
 	}

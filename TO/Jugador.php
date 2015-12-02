@@ -11,6 +11,7 @@ private $directorio_foto;
 private $posicion;
 private $deporte_fav;
 private $password;
+private $rango;
 
 function __construct(){}
 
@@ -54,6 +55,10 @@ function getPassword() {
     return $this->password;
 }
 
+function getRango(){
+    return $this->rango;
+}
+
 function setId_jugador($id_jugador) {
     $this->id_jugador = $id_jugador;
 }
@@ -92,6 +97,10 @@ function setDeporte_fav($deporte_fav) {
 
 function setPassword($password) {
     $this->password = $password;
+}
+
+function setRango($rango) {
+    $this->rango = $rango;
 }
 
 

@@ -16,6 +16,7 @@ $posicion=$_POST['pos'];
 $deporte_fav=$_POST['deporte'];
 $password=$_POST['pass'];
 $password_encriptada = md5($password);
+$estado = 2;
 
 
 //creo el objeto recinto
@@ -31,6 +32,7 @@ $nuevoJugador->setDirectorio_foto($directorio_foto);
 $nuevoJugador->setPosicion($posicion);
 $nuevoJugador->setDeporte_fav($deporte_fav);
 $nuevoJugador->setPassword($password);
+$nuevoJugador->setRango($estado);
 
 //derivar la trasacción a donde corresponde.---> a la logica
 
