@@ -52,7 +52,13 @@ $_SESSION['id_partidoA']=$_GET['id_partido'];
   .draggable { width: 40px; height: 40px; padding: 5px; float: left; float: ; margin: 0 10px 10px 0; font-size: 0.9em; color: black; text-align: center;}
   .ui-widget-header p{color: black; text-align: center; margin-top: 25px; margin-right: 25px;}, .ui-widget-content p { margin-top: 25px; margin-right: 25px; color: black; text-align: center; }
   #snaptarget { height: 452px; width: 726px; float: right; color: black; text-align: center;
-    background-image: url("images/cfut.jpg"); 
+    background-image: url("images/<?php 
+      if($_SESSION['deporte']=="Basquetbol"){
+        echo 'cbas.jpg';
+      }else{
+      echo 'cfut.jpg';
+      }
+      ?>"); 
   }
   </style>
 
@@ -83,9 +89,15 @@ $_SESSION['id_partidoA']=$_GET['id_partido'];
       if (ui.draggable.data("jugador")){
          ui.draggable.data("jugador", false);
          var elem = $(this);
-   var elem1 = $(this);
+         var elem1 = $(this);
+         var arrAux= new Array();
+       /* for (var i = 0; i < arrayJugador.length; i++) {
+           if(ui.draggable.data("id")!=arrayJugador[i]){
+              arrAux[i]= arrayJugador[i];
+           }
 
-
+         };
+         arrayJugador=arrAux;*/
          elem.data("numsoltar", elem.data("numsoltar") - 1);
          elem1.html("" + ui.draggable.data("id") + "Salio");
 
